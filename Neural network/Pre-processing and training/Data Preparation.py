@@ -36,8 +36,6 @@ class VideoDataPreprocessor:
                     for video in tqdm(videos, desc=f"Processing {class_name} Videos", leave=False):
                         video_path = os.path.join(class_path, video)
                         futures.append(executor.submit(self._process_video, class_name, video_path, num_frames, num_augmentations, class_data))
-                        print(class_data.shape)
-
             results = [future.result() for future in tqdm(futures, desc="Processing Videos", total=len(futures))]
 
             for class_name, video_data in zip(os.listdir(self.data_dir), results):
@@ -107,7 +105,6 @@ class VideoDataPreprocessor:
         # Add the data for this video to class_data
         class_data = np.append(class_data, original_landmarks[np.newaxis, ...], axis=0)
         class_data = np.append(class_data, augmented_landmarks, axis=0)
-        
         return class_name, class_data
 
     def _extract_keypoints(self, results):
@@ -122,7 +119,7 @@ class VideoDataPreprocessor:
 
         class_output_dir = os.path.join(self.output_dir, class_name)
         os.makedirs(class_output_dir, exist_ok=True)
-        print(class_data.shape)
+        print(np.array(class_data).shape)
         np.save(os.path.join(class_output_dir, 'hand_landmarks.npy'), class_data, allow_pickle=True)
         np.save(os.path.join(class_output_dir, 'label.npy'), one_hot_label, allow_pickle=True)
 
