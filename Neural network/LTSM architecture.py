@@ -14,7 +14,7 @@ verbosity_mode = 1
 
 #creation of a custom neural network 
 class BSLRecognitionModel(tf.keras.Model):
-    def __init__(self, input_shape=(20, 500, 500, 3), num_classes=26):
+    def __init__(self, input_shape=(30, 500, 500, 3), num_classes=26):
         super(BSLRecognitionModel, self).__init__()
 
         self.conv1 = Conv3D(64, kernel_size=(3, 3, 3),activation ='relu')
@@ -69,7 +69,7 @@ class BSLRecognitionModel(tf.keras.Model):
 model = BSLRecognitionModel()
 
 # Display model summary
-model.build((None, 20, 500, 500, 3))
+model.build((30, 500, 500, 3))
 model.compile(optimizer=optimiser, loss='categorical_crossentropy', metrics=additional_metrics)
 early_stopping = EarlyStopping(monitor='categoricalaccuracy' ,patience = patience, restore_best_weights=True)
 model.summary()
