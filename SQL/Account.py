@@ -5,36 +5,29 @@ import hmac
 
 global user_name
 
-#  @RETURNS True if user exists within the table 
 def checkuser(cursor,user_name) -> bool:
-    # Searches for a username within the User table by selecting an entry if it exists
    cursor.execute(
             "Select 1 FROM Users WHERE username = ? LIMIT 1",
             (user_name,)
         )
-   #if there is no user selected of that username then it will return None
    result = cursor.fetchone()
    return result is not None
 
-#Hashes the user password using their username and salt, then stores it within the database
 def hash_password(username, password, salt) -> str:
-    # Combine username and password to hash it with the pepper
+    # Combine username and password before hashing
     combined_input = f"{username}:{password}"
-    #Creates the pepper which will be added to the end of the hashed password to make it harder to perform rainbow table attacks 
     pepper = f"{'SzymonNEA2024'}:{username}"
     hashed_input = hmac.new(pepper.encode('utf-8'),combined_input.encode('utf-8'), hashlib.sha256).hexdigest()
-    # Hashes the password 
+    # Hash the combined input
     hashed_password = bcrypt.hashpw(hashed_input.encode('utf-8'),salt)
+    # Return hashed password
     return hashed_password.decode('utf-8')
 
-#Creates the user account within the database storing their username, hashed password, salt
 def create_User(user_name,password):
     try:
-        #establishes the connection to the database that stores user information
         conn = sqlite3.connect("SIGNIT2.db")
         cursor = conn.cursor()
         if not checkuser(cursor, user_name):
-            #Generates a unique salt that will be added to the hashed password
             salt = bcrypt.gensalt()
             Hashpassword = hash_password(user_name,password,salt)
             cursor.execute("INSERT INTO Users (username, password,Salt) VALUES(?,?,?)",(user_name, Hashpassword, salt)        )
