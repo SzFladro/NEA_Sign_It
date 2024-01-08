@@ -52,7 +52,8 @@ class VideoDataPreprocessor:
         if len(operations) != num_augmentations:
             operations.append([np.random.normal(0, 1, frame.shape).astype('uint8'), 0])
             operations.append([0, random.randrange(-60, 60)])
-            operations.append([np.random.normal(0, 1, frame.shape).astype('uint8'), random.randrange(-60, 60)])
+            while len(operations) != num_augmentations:
+                operations.append([np.random.normal(0, 1, frame.shape).astype('uint8'), random.randrange(-60, 60)])
         if augment_counter == 0:
             processed_frame = cv2.addWeighted(frame, 1 - noise_factor, operations[augment_counter][0], noise_factor, 0)
         elif augment_counter == 1:

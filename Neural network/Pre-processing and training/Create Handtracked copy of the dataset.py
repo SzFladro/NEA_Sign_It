@@ -2,6 +2,7 @@ import os
 import cv2
 import mediapipe as mp
 
+
 def process_video(input_path, output_path):
     cap = cv2.VideoCapture(input_path)
 
@@ -15,6 +16,7 @@ def process_video(input_path, output_path):
     mp_hands = mp.solutions.hands
     hands = mp_hands.Hands()
 
+    #Goes through every frame within the video, converts frame to rgb and extracts landmarks from the hands 
     while True:
         ret, frame = cap.read()
         if not ret:
@@ -34,6 +36,7 @@ def process_video(input_path, output_path):
     cap.release()
     output_video.release()
 
+    ##draws landmarks on the frame and connects the 'dots'
 def draw_landmarks(frame, landmarks):
     h, w, _ = frame.shape
 
@@ -56,6 +59,7 @@ def draw_landmarks(frame, landmarks):
                   int(landmarks.landmark[connection[1]].y * h)),
                  (0, 255, 0), 2)
 
+    ##goes through each directory 
 def process_videos_in_directory(input_directory, output_directory):
     # Ensure the output directory exists
     os.makedirs(output_directory, exist_ok=True)

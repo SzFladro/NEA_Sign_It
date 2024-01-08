@@ -2,8 +2,6 @@ import sys
 from PyQt5.QtCore import Qt, QUrl
 from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QLineEdit, QPushButton, QWidget
 from PyQt5.QtWebEngineWidgets import QWebEngineView
-from google.cloud import firestore  # Install using `pip install google-cloud-firestore`
-from google.cloud import storage     # Install using `pip install google-cloud-storage`
 
 class VideoPlayer(QMainWindow):
     def __init__(self):
