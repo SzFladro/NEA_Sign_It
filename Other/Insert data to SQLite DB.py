@@ -48,5 +48,5 @@ data_array = [
     ("Z", "https://firebasestorage.googleapis.com/v0/b/sign-it-1.appspot.com/o/Z%20-over.mp4?alt=media&token=9383c558-677d-41b3-a8cd-e3ab371b97c2")
 ]
 
-# Function that insert data into the 'Words' table
+# Fnction that insert data into the 'Words' table
 insert_words_data(data_array, category_id=1)
