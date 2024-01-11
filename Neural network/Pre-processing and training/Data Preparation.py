@@ -117,8 +117,8 @@ class VideoDataPreprocessor:
            z (landmark [estimated] depth from the camera)
     '''
     def _extract_keypoints(self, results):
-        lh = np.array([[res.x, res.y, res.z] for res in results.multi_hand_landmarks]).flatten() if results.left_hand_landmarks else np.zeros(21*3)
-        rh = np.array([[res.x, res.y, res.z] for res in results.multi_hand_landmarks]).flatten() if results.right_hand_landmarks else np.zeros(21*3)
+        lh = np.array([[res.x, res.y, res.z] for res in results.multi_hand_world_landmarks[0]]).flatten() if results.multi_hand_world_landmarks[0] else np.zeros(21*3) 
+        rh = np.array([[res.x, res.y, res.z] for res in results.multi_hand_world_landmarks[1]]).flatten() if results.multi_hand_world_landmarks[1] else np.zeros(21*3)
         return np.concatenate([lh, rh])
 
     def save_class_data(self, class_name, class_data):
