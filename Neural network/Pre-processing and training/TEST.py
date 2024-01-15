@@ -5,7 +5,7 @@ home_directory = os.path.expanduser("~")
 output_directory = os.path.join(home_directory, 'Videos', 'Train_2')
 
 # Assuming you want to load the hand_landmarks.npy from a specific class folder, change 'class_name' accordingly
-class_name = 'B'
+class_name = 'A'
 file_path = os.path.join(output_directory, class_name, 'hand_landmarks.npy')
 
 # Load the data

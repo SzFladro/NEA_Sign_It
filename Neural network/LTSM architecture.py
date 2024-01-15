@@ -3,10 +3,14 @@ from tensorflow.keras.layers import Conv3D, MaxPooling3D, Flatten, Dense, Dropou
 from tensorflow.keras.callbacks import EarlyStopping
 from tensorflow.keras.losses import CategoricalCrossentropy
 from tensorflow.keras.optimizers import Adam
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.metrics import confusion_matrix, classification_report
 
 additional_metrics = ['categoricalaccuracy']
 loss_function = CategoricalCrossentropy()
-number_of_epochs = 200
+number_of_epochs = 1000
 patience = 5
 optimiser = Adam()
 validation_split = 0.20
@@ -65,11 +69,25 @@ class BSLRecognitionModel(tf.keras.Model):
         x = self.output_layer(x)
         return x
 
+    def confusion_mat(self):
+        labels = sorted(list(y_true))
+        cmx_data = confustion_matrix(y_true, y_pred, labels = labels)
+        df_cmx = pd.DataFrame(cmx_data, index =labels, columns = labels)
+
+        fig, ax = plt.subplots(figsize=(7,6))
+        sns.heatmap(df_cmx, annot = True, fmt='g', square = False)
+        ax.set_ylim(len(set(y_true)),0)
+        plt.show()
+        if report:
+            print("Classification report")
+            print(classification_report(y_text, y_pred))
+
+
 # Create an instance of the model
 model = BSLRecognitionModel()
 
 # Display model summary
-model.build((30, 500, 500, 3))
+model.build((None,30, 500, 500, 3))
 model.compile(optimizer=optimiser, loss='categorical_crossentropy', metrics=additional_metrics)
 early_stopping = EarlyStopping(monitor='categoricalaccuracy' ,patience = patience, restore_best_weights=True)
 model.summary()
