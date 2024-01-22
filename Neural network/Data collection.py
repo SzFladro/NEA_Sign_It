@@ -12,12 +12,11 @@ import string
 class VideoDataPreprocessor:
     OUTPUTDIR = os.path.join(os.path.expanduser("~"), 'Videos', 'Train_1')
 
-    def __init__(self, output_dir, class_mapping_file='class_mapping.json'):
-        self.output_dir = output_dir
+    def __init__(self,  class_mapping_file='class_mapping.json'):
+        self.output_dir = self.OUTPUTDIR
         self.class_mapping_file = class_mapping_file
         self.class_mapping = {}
         self.args = self.get_args()
-        self.output_directory = self.OUTPUTDIR
 
     def get_args(self):
         parser = argparse.ArgumentParser()
@@ -81,13 +80,13 @@ class VideoDataPreprocessor:
         NoFrames = args.frames
         Shape = args.shape
 
-        start_index = class_list.index('M')
+        start_index = class_list.index('Z')
         class_list = class_list[start_index:]
 
         with mp_holistic.Holistic(min_detection_confidence=detection_confidence, min_tracking_confidence= tracking_confidence) as holistic:
             while cap.isOpened():
 
-               for class_name in class_list:
+                for class_name in class_list:
                     class_data = np.empty((0, NoFrames, Shape), dtype=np.float32)
                     Vidlandmarks = np.empty((NoVideos, NoFrames, Shape), dtype=np.float32)
 
@@ -125,10 +124,10 @@ class VideoDataPreprocessor:
                                 break
                     class_data= np.concatenate([class_data,Vidlandmarks],axis=0)
                     self.save_class_data(class_name, class_data)
-
-            cap.release()
-            cv2.destroyAllWindows()
-            self.save_class_mapping(OUTPUTDIR)
+                                        
+                cap.release()
+                cv2.destroyAllWindows()
+                self.save_class_mapping(self.output_dir)
 
     def set_class_mapping(self, class_list):
         self.class_mapping = {class_name: i for i, class_name in enumerate(class_list)}
@@ -143,16 +142,15 @@ class VideoDataPreprocessor:
         np.save(os.path.join(class_output_dir, 'label.npy'), one_hot_label, allow_pickle=True)
 
 
-    def save_class_mapping(self, output_directory):
-        mapfiledir = os.path.join(output_directory, self.class_mapping_file)
+    def save_class_mapping(self, output_dir):
+        mapfiledir = os.path.join(output_dir, self.class_mapping_file)
         with open(mapfiledir, 'w') as f:
             json.dump(self.class_mapping, f)
 
 ##stopped code at M
 if __name__ == "__main__":
-    output_directory = os.path.join(os.path.expanduser("~"), 'Videos', 'Train_1')
     class_list= list(string.ascii_uppercase)
-    PrepareData = VideoDataPreprocessor(output_directory)
+    PrepareData = VideoDataPreprocessor()
     PrepareData.set_class_mapping(class_list)
     PrepareData.preprocess_data(class_list)
 
