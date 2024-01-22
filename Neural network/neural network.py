@@ -9,22 +9,25 @@ from tensorflow.keras.callbacks import EarlyStopping
 from tensorflow.keras.optimizers import Adam
 
 # Load class mapping
-home_directory = os.path.expanduser("~")
-input_directory = os.path.join(home_directory, 'Videos', 'Train_2')
-class_mapping_path = os.path.join(home_directory,'Videos','Train_2', 'class_mapping.json')
+input_directory = os.path.join(os.path.expanduser("~"), 'Videos', 'Train_1')
+class_mapping_path = os.path.join(input_directory, 'class_mapping.json')
 
 with open(class_mapping_path, 'r') as f:
     class_mapping = json.load(f)
+
 
 # Function to load and preprocess data
 def load_data(class_folder):
     landmarks_path = os.path.join(input_directory, class_folder, 'hand_landmarks.npy')
     labels_path = os.path.join(input_directory, class_folder, 'label.npy')
 
-    landmarks = np.load(landmarks_path)
-    labels = np.full((landmarks.shape[0],), class_mapping[class_folder])
+    landmarks = np.load(landmarks_path, allow_pickle = True)
+    labels = np.load(labels_path, allow_pickle = True)
+    ##fit the number of labels to the number of videos
+    
 
     # Split data into 60-40 for training and testing
+    ##with the answer to the universe '42'
     X_train, X_test, y_train, y_test = train_test_split(landmarks, labels, test_size=0.05, random_state=42)
     print(X_train)
 
