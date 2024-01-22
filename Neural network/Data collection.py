@@ -124,8 +124,6 @@ class VideoDataPreprocessor:
                             if cv2.waitKey(10) & 0xFF == ord('q'):
                                 break
                     class_data= np.concatenate([class_data,Vidlandmarks],axis=0)
-                    print(class_data.shape)
-                    print(class_data)
                     self.save_class_data(class_name, class_data)
 
             cap.release()
@@ -137,7 +135,6 @@ class VideoDataPreprocessor:
      
     def save_class_data(self, class_name, class_data):
         numerical_label = self.class_mapping[class_name]
-        print(numerical_label)
         one_hot_label = np.zeros(len(self.class_mapping), dtype=int)
         one_hot_label[numerical_label] = 1
         class_output_dir = os.path.join(self.output_dir, class_name)
