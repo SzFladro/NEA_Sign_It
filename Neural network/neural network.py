@@ -2,89 +2,86 @@ import os
 import json
 import numpy as np
 import tensorflow as tf
+import visualkeras
+from PIL import ImageFont
+from tensorflow.keras.utils import to_categorical
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix, classification_report
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, BatchNormalization, Dropout, Reshape, Bidirectional, LSTM, Flatten, Dense
-from tensorflow.keras.callbacks import EarlyStopping
+from tensorflow.keras.callbacks import EarlyStopping, TensorBoard
 from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.models import load_model, Sequential
 
 # Load class mapping
-
-input_directory = os.path.join(os.getcwd(), 'Train_1')
+input_directory = os.path.join(os.getcwd(),'Neural network', 'Train_1')
 class_mapping_path = os.path.join(input_directory, 'class_mapping.json')
 
 with open(class_mapping_path, 'r') as f:
     class_mapping = json.load(f)
 
-
 # Function to load and preprocess data
-def load_data(class_folder):
+def load_data(labels,class_folder):
     landmarks_path = os.path.join(input_directory, class_folder, 'hand_landmarks.npy')
-    labels_path = os.path.join(input_directory, class_folder, 'label.npy')
     landmarks = np.load(landmarks_path, allow_pickle = True)
-    labels = np.load(labels_path, allow_pickle = True)
-    labels = np.tile(labels,(90,1))
-    X_train, X_test, y_train, y_test = train_test_split(landmarks, labels, test_size=0.4, random_state=42)
-    print(X_train.shape)
-    print(X_test.shape)
-    return landmarks, labels
+    landmarks = np.concatenate([landmarks,landmarks],axis=0)
+    labels.extend([class_mapping[class_folder]] * 180)    
+    return labels, landmarks
 
+def Sequential_model(input_shape=(30, 1662)):
+    model = Sequential()
 
-# Create the neural network model
-class BSLRecognitionModel(tf.keras.Model):
-    def __init__(self, input_shape=(30, 1662), num_classes=26):
-        super(BSLRecognitionModel, self).__init__()
+    # LSTM Layers
+    model.add(LSTM(26, return_sequences=True, activation='relu', input_shape=input_shape))
+    model.add(LSTM(64, return_sequences=True, activation='relu', input_shape=input_shape))
+    model.add(LSTM(128, return_sequences=True, activation='relu'))
+    model.add(LSTM(256, return_sequences=False, activation='relu'))
 
-        # LSTM Layers
-        self.lstm1 = Bidirectional(LSTM(64, return_sequences=True, activation='relu'))
-        self.lstm2 = Bidirectional(LSTM(128, return_sequences=True, activation='relu'))
-        self.lstm3 = Bidirectional(LSTM(256, return_sequences=True, activation='relu'))
+    # Flatten Layer
+    model.add(Flatten())
 
-        # Flatten Layer
-        self.flatten1 = Flatten()
+    # Dense Layers with Dropout
+    model.add(Dense(128, activation='relu'))
+    model.add(Dense(64, activation='relu'))
+    model.add(Dense(32, activation='relu'))
+    model.add(BatchNormalization())
 
-        # Dense Layers with Dropout
-        self.dense1 = Dense(256, activation='relu')
-        self.dense2 = Dense(128, activation='relu')
-        self.dense3 = Dense(64, activation='relu')
-        self.batchnormal2 = BatchNormalization()
+    # Output Layer
+    model.add(Dense(len(class_mapping), activation='softmax'))
 
-        # Output Layer
-        self.output_layer = Dense(num_classes, activation='softmax')
+    return model
 
-    def call(self, inputs):
-        x = self.lstm1(inputs)
-        x = self.lstm2(x)
-        x = self.lstm3(x)
-        x = self.flatten1(x)
-        x = self.dense1(x)
-        x = self.dense2(x)
-        x = self.dense3(x)
-        x = self.batchnormal2(x)
-        x = self.output_layer(x)
-        return x
+def visualise(model):
+    font = ImageFont.truetype("arial.ttf",12)
+    visualkeras.layered_view(model, legend = True, font = font, spacing = 100)
 
-# Function to evaluate the model
-def evaluate_model(model, X_test, y_test):
-    y_pred = np.argmax(model.predict(X_test), axis=1)
-    y_true = np.squeeze(y_test)
+def train_model(model, X_train, y_train,epochs=2000):
+    early_stopping = EarlyStopping(monitor='categorical_accuracy', patience=5, restore_best_weights=True)
+    log_dir = os.path.join(os.getcwd(),'Neural network','Logs')
+    tb_callback = TensorBoard(log_dir=log_dir)
 
-    # Confusion matrix
-    confusion_mat = confusion_matrix(y_true, y_pred)
-    print("Confusion Matrix:")
-    print(confusion_mat)
+    model.fit(X_train, y_train, epochs=epochs, shuffle=True, callbacks=[early_stopping, tb_callback])
+    model.save('BSLmodel.h5')
+    model.save_weights('BSLweights.h5')
+    del model
 
-    # Classification report
-    class_report = classification_report(y_true, y_pred)
-    print("Classification Report:")
-    print(class_report)
+if __name__ == "__main__":
+    labels = []
+    Data = np.empty((0,30,1662))
 
-# Compile the model
-model = BSLRecognitionModel()
-optimiser = Adam(learning_rate=0.001, clipvalue=0.5)  
-model.compile(optimizer=optimiser, loss='categorical_crossentropy', metrics=['categorical_accuracy'])
-model.build((None,30,1662))
+    # Compile the model
+    model = Sequential_model()
+    model.compile(optimizer='Adam', loss='categorical_crossentropy', metrics=['categorical_accuracy'])
 
-for class_name in class_mapping:
-    landmarks, labels = load_data(class_name)
+    # load data from every class (letters of the alphabet) and split them into training and testing data
+    for class_name in class_mapping:
+        labels , landmarks = load_data(labels,class_name)
+        Data = np.concatenate([Data , landmarks],axis=0)
+
+    labels = to_categorical(labels, num_classes=len(class_mapping)).astype(int)
+    print(labels)
+    X_train, X_test, y_train, y_test = train_test_split(Data, labels, test_size=0.3, random_state=42)
+
+    print(f"Number of unique classes: {len(np.unique(np.argmax(labels, axis=1)))}")
     
+    # Train the model
+    train_model(model, X_train, y_train)

@@ -147,7 +147,6 @@ class VideoDataPreprocessor:
         with open(mapfiledir, 'w') as f:
             json.dump(self.class_mapping, f)
 
-##stopped code at M
 if __name__ == "__main__":
     class_list= list(string.ascii_uppercase)
     PrepareData = VideoDataPreprocessor()
