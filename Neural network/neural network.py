@@ -56,7 +56,7 @@ def visualise(model):
 
 def train_model(model, X_train, y_train,epochs=2000):
     early_stopping = EarlyStopping(monitor='categorical_accuracy', patience=5, restore_best_weights=True)
-    log_dir = os.path.join(os.getcwd(),'Neural network','Logs')
+    log_dir = os.path.join(os.getcwd(),'Neural network','Logger')
     tb_callback = TensorBoard(log_dir=log_dir)
 
     model.fit(X_train, y_train, epochs=epochs, shuffle=True, callbacks=[early_stopping, tb_callback])
