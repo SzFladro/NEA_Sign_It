@@ -9,7 +9,8 @@ from tensorflow.keras.callbacks import EarlyStopping
 from tensorflow.keras.optimizers import Adam
 
 # Load class mapping
-input_directory = os.path.join(os.path.expanduser("~"), 'Videos', 'Train_1')
+
+input_directory = os.path.join(os.getcwd(), 'Train_1')
 class_mapping_path = os.path.join(input_directory, 'class_mapping.json')
 
 with open(class_mapping_path, 'r') as f:
@@ -20,22 +21,18 @@ with open(class_mapping_path, 'r') as f:
 def load_data(class_folder):
     landmarks_path = os.path.join(input_directory, class_folder, 'hand_landmarks.npy')
     labels_path = os.path.join(input_directory, class_folder, 'label.npy')
-
     landmarks = np.load(landmarks_path, allow_pickle = True)
     labels = np.load(labels_path, allow_pickle = True)
-    ##fit the number of labels to the number of videos
-    
+    labels = np.tile(labels,(90,1))
+    X_train, X_test, y_train, y_test = train_test_split(landmarks, labels, test_size=0.4, random_state=42)
+    print(X_train.shape)
+    print(X_test.shape)
+    return landmarks, labels
 
-    # Split data into 60-40 for training and testing
-    ##with the answer to the universe '42'
-    X_train, X_test, y_train, y_test = train_test_split(landmarks, labels, test_size=0.05, random_state=42)
-    print(X_train)
-
-    return X_train, X_test, y_train, y_test
 
 # Create the neural network model
 class BSLRecognitionModel(tf.keras.Model):
-    def __init__(self, input_shape=(30, 126), num_classes=26):
+    def __init__(self, input_shape=(30, 1662), num_classes=26):
         super(BSLRecognitionModel, self).__init__()
 
         # LSTM Layers
@@ -86,23 +83,8 @@ def evaluate_model(model, X_test, y_test):
 model = BSLRecognitionModel()
 optimiser = Adam(learning_rate=0.001, clipvalue=0.5)  
 model.compile(optimizer=optimiser, loss='categorical_crossentropy', metrics=['categorical_accuracy'])
-model.build((None,30,126))
+model.build((None,30,1662))
 
-# Train the model for each class
-for class_folder in os.listdir(input_directory):
-    X_train, X_test, y_train, y_test = load_data(class_folder)
-
-    # Convert labels to one-hot encoding
-    y_train_one_hot = tf.keras.utils.to_categorical(y_train, num_classes=26)
-    y_test_one_hot = tf.keras.utils.to_categorical(y_test, num_classes=26)
-
-    # Train the model
-
-    model.fit(X_train, y_train_one_hot, epochs=1000, validation_split=0.2, callbacks=[EarlyStopping(monitor='val_loss', patience=5, restore_best_weights=True)])
-
-    # Evaluate the model
-    print(f"Evaluating model for class {class_folder}")
-    evaluate_model(model, X_test, y_test)
-
-# Save the trained model
-model.save('bsl_recognition_model.h5')
+for class_name in class_mapping:
+    landmarks, labels = load_data(class_name)
+    
