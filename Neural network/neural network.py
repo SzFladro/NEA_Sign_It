@@ -31,10 +31,11 @@ def Sequential_model(input_shape=(30, 1662)):
     model = Sequential()
 
     # LSTM Layers
-    model.add(LSTM(26, return_sequences=True, activation='relu', input_shape=input_shape))
-    model.add(LSTM(64, return_sequences=True, activation='relu', input_shape=input_shape))
-    model.add(LSTM(128, return_sequences=True, activation='relu'))
-    model.add(LSTM(256, return_sequences=False, activation='relu'))
+    model.add(Bidirectional(LSTM(64, return_sequences=True, activation='relu', input_shape=input_shape)))
+    model.add(Bidirectional(LSTM(128, return_sequences=True, activation='relu', input_shape=input_shape)))
+    model.add(Bidirectional(LSTM(256, return_sequences=True, activation='relu')))
+    ##return sequences is false, prevents the LTSM layer from returning sequences to the next Dnese layer
+    model.add(Bidirectional(LSTM(128, return_sequences=False, activation='relu')))
 
     # Flatten Layer
     model.add(Flatten())
@@ -54,15 +55,22 @@ def visualise(model):
     font = ImageFont.truetype("arial.ttf",12)
     visualkeras.layered_view(model, legend = True, font = font, spacing = 100)
 
-def train_model(model, X_train, y_train,epochs=2000):
-    early_stopping = EarlyStopping(monitor='categorical_accuracy', patience=5, restore_best_weights=True)
+    ##using mini-batch gradient descent to train the neural network (using a batch size that is >1 but < training set)
+def train_model(model, X_train, y_train, X_val, y_val, epochs=2000, batch_size = 32, patience = 10):
+    early_stopping = EarlyStopping(monitor='categorical_accuracy', patience=patience, restore_best_weights=True)
     log_dir = os.path.join(os.getcwd(),'Neural network','Logger')
     tb_callback = TensorBoard(log_dir=log_dir)
 
-    model.fit(X_train, y_train, epochs=epochs, shuffle=True, callbacks=[early_stopping, tb_callback])
+    history = model.fit(X_train, y_train, 
+                        batch_size=batch_size,
+                        epochs=epochs, 
+                        shuffle=True, 
+                        callbacks=[early_stopping, tb_callback], 
+                        validation_data =(X_val, y_val))
     model.save('BSLmodel.h5')
     model.save_weights('BSLweights.h5')
     del model
+    return history
 
 if __name__ == "__main__":
     labels = []
@@ -78,10 +86,9 @@ if __name__ == "__main__":
         Data = np.concatenate([Data , landmarks],axis=0)
 
     labels = to_categorical(labels, num_classes=len(class_mapping)).astype(int)
-    print(labels)
     X_train, X_test, y_train, y_test = train_test_split(Data, labels, test_size=0.3, random_state=42)
-
-    print(f"Number of unique classes: {len(np.unique(np.argmax(labels, axis=1)))}")
+    X_test, X_val, y_test, y_val = train_test_split(X_test, y_test, test_size=0.5, random_state=42)
     
     # Train the model
-    train_model(model, X_train, y_train)
+    history = train_model(model, X_train, y_train, X_val, y_val)
+    ## 103 is the number of times that the loss function is calculated and hyperparameters are updated with every epoch
