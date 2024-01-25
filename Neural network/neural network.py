@@ -27,7 +27,7 @@ def load_data(class_folder):
     landmarks = np.concatenate([landmarks,landmarks],axis=0)
     labels.extend([class_mapping[class_folder]] * 180)    
     labels = to_categorical(labels, num_classes=len(class_mapping)).astype(int)
-    X_train, X_test, y_train, y_test = train_test_split(landmarks, labels, test_size=0.3, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(landmarks, labels, test_size=0.4, random_state=42)
     X_test, X_val, y_test, y_val = train_test_split(X_test, y_test, test_size=0.5, random_state=42)
     return X_train, X_test, X_val, y_train, y_test, y_val
 
@@ -35,18 +35,20 @@ def Sequential_model(input_shape=(30, 1662)):
     model = Sequential()
 
     # LSTM Layers
-    model.add(LSTM(32, return_sequences=True, activation='relu', input_shape=input_shape))
-    model.add(LSTM(64, return_sequences=True, activation='relu'))
-    ##return sequences is false, prevents the LTSM layer from returning sequences to the next Dnese layer
-    model.add(LSTM(128, return_sequences=False, activation='relu'))
+    model.add(LSTM(64, return_sequences=True, activation='relu', input_shape=input_shape))
+    model.add(LSTM(128, return_sequences=True, activation='relu'))
+    ##return sequences is false, prevents the LTSM layer from returning sequences to the next Dense layer
+    model.add(LSTM(256, return_sequences=False, activation='relu'))
 
-    # Flatten Layer
-    model.add(Flatten())
+    model.add(BatchNormalization())
 
     # Dense Layers with Dropout
+    model.add(Dense(256, activation='relu'))
+    model.add(BatchNormalization())
     model.add(Dense(128, activation='relu'))
+    model.add(BatchNormalization())
     model.add(Dense(64, activation='relu'))
-    model.add(Dense(32, activation='relu'))
+    model.add(BatchNormalization())
 
     # Output Layer
     model.add(Dense(len(class_mapping), activation='softmax'))
@@ -84,7 +86,6 @@ if __name__ == "__main__":
     # Compile the model
     model = Sequential_model()
     model.compile(optimizer='Adam', loss='categorical_crossentropy', metrics=['categorical_accuracy'])
-
     # load data from every class (letters of the alphabet) and split them into training and testing data
     for class_name in class_mapping:
         data_train, data_test, data_val, label_train, label_test, label_val = load_data(class_name)
