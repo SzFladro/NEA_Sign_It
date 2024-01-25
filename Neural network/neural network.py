@@ -20,22 +20,25 @@ with open(class_mapping_path, 'r') as f:
     class_mapping = json.load(f)
 
 # Function to load and preprocess data
-def load_data(labels,class_folder):
+def load_data(class_folder):
+    labels = []
     landmarks_path = os.path.join(input_directory, class_folder, 'hand_landmarks.npy')
     landmarks = np.load(landmarks_path, allow_pickle = True)
     landmarks = np.concatenate([landmarks,landmarks],axis=0)
     labels.extend([class_mapping[class_folder]] * 180)    
-    return labels, landmarks
+    labels = to_categorical(labels, num_classes=len(class_mapping)).astype(int)
+    X_train, X_test, y_train, y_test = train_test_split(landmarks, labels, test_size=0.3, random_state=42)
+    X_test, X_val, y_test, y_val = train_test_split(X_test, y_test, test_size=0.5, random_state=42)
+    return X_train, X_test, X_val, y_train, y_test, y_val
 
 def Sequential_model(input_shape=(30, 1662)):
     model = Sequential()
 
     # LSTM Layers
-    model.add(Bidirectional(LSTM(64, return_sequences=True, activation='relu', input_shape=input_shape)))
-    model.add(Bidirectional(LSTM(128, return_sequences=True, activation='relu', input_shape=input_shape)))
-    model.add(Bidirectional(LSTM(256, return_sequences=True, activation='relu')))
+    model.add(LSTM(32, return_sequences=True, activation='relu', input_shape=input_shape))
+    model.add(LSTM(64, return_sequences=True, activation='relu'))
     ##return sequences is false, prevents the LTSM layer from returning sequences to the next Dnese layer
-    model.add(Bidirectional(LSTM(128, return_sequences=False, activation='relu')))
+    model.add(LSTM(128, return_sequences=False, activation='relu'))
 
     # Flatten Layer
     model.add(Flatten())
@@ -44,7 +47,6 @@ def Sequential_model(input_shape=(30, 1662)):
     model.add(Dense(128, activation='relu'))
     model.add(Dense(64, activation='relu'))
     model.add(Dense(32, activation='relu'))
-    model.add(BatchNormalization())
 
     # Output Layer
     model.add(Dense(len(class_mapping), activation='softmax'))
@@ -56,8 +58,7 @@ def visualise(model):
     visualkeras.layered_view(model, legend = True, font = font, spacing = 100)
 
     ##using mini-batch gradient descent to train the neural network (using a batch size that is >1 but < training set)
-def train_model(model, X_train, y_train, X_val, y_val, epochs=2000, batch_size = 32, patience = 10):
-    early_stopping = EarlyStopping(monitor='categorical_accuracy', patience=patience, restore_best_weights=True)
+def train_model(model, X_train, y_train, X_val, y_val, epochs=1000, batch_size = 64):
     log_dir = os.path.join(os.getcwd(),'Neural network','Logger')
     tb_callback = TensorBoard(log_dir=log_dir)
 
@@ -65,7 +66,7 @@ def train_model(model, X_train, y_train, X_val, y_val, epochs=2000, batch_size =
                         batch_size=batch_size,
                         epochs=epochs, 
                         shuffle=True, 
-                        callbacks=[early_stopping, tb_callback], 
+                        callbacks=[tb_callback], 
                         validation_data =(X_val, y_val))
     model.save('BSLmodel.h5')
     model.save_weights('BSLweights.h5')
@@ -73,8 +74,12 @@ def train_model(model, X_train, y_train, X_val, y_val, epochs=2000, batch_size =
     return history
 
 if __name__ == "__main__":
-    labels = []
-    Data = np.empty((0,30,1662))
+    X_train = np.empty((0,30,1662))
+    X_test = np.empty((0,30,1662))
+    X_val = np.empty((0,30,1662))
+    y_train = np.empty((0,26))
+    y_test = np.empty((0,26))
+    y_val = np.empty((0,26))
 
     # Compile the model
     model = Sequential_model()
@@ -82,13 +87,15 @@ if __name__ == "__main__":
 
     # load data from every class (letters of the alphabet) and split them into training and testing data
     for class_name in class_mapping:
-        labels , landmarks = load_data(labels,class_name)
-        Data = np.concatenate([Data , landmarks],axis=0)
+        data_train, data_test, data_val, label_train, label_test, label_val = load_data(class_name)
+        X_train = np.concatenate([X_train,data_train],axis=0)
+        X_test = np.concatenate([X_test,data_test],axis=0)
+        X_val = np.concatenate([X_val,data_val],axis=0)
+        y_train = np.concatenate([y_train,label_train],axis=0)
+        y_test= np.concatenate([y_test,label_test],axis=0)
+        y_val= np.concatenate([y_val,label_val],axis=0)
 
-    labels = to_categorical(labels, num_classes=len(class_mapping)).astype(int)
-    X_train, X_test, y_train, y_test = train_test_split(Data, labels, test_size=0.3, random_state=42)
-    X_test, X_val, y_test, y_val = train_test_split(X_test, y_test, test_size=0.5, random_state=42)
-    
+
     # Train the model
     history = train_model(model, X_train, y_train, X_val, y_val)
     ## 103 is the number of times that the loss function is calculated and hyperparameters are updated with every epoch
