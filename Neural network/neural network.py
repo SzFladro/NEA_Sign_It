@@ -42,10 +42,10 @@ def Sequential_model(input_shape=(30, 1662)):
 
     model.add(Dropout(0.2))
 
-    # Dense Layers with Dropout
+    # Dense Layers 
     model.add(Dense(256, activation='relu'))
     model.add(Dense(128, activation='relu'))
-    model.add(Dense(64, activation='relu'))
+    model.add(Dense(128, activation='relu'))
 
     model.add(BatchNormalization())
     # Output Layer
@@ -62,7 +62,7 @@ def train_model(model, X_train, y_train, X_val, y_val, epochs=500, batch_size = 
     log_dir = os.path.join(os.getcwd(),'Neural network','Logger')
 
     tb_callback = TensorBoard(log_dir=log_dir)
-    early_stopping = EarlyStopping(monitor='categorical_accuracy', patience = 20, restore_best_weights=True)
+    early_stopping = EarlyStopping(monitor='categorical_accuracy', patience = 30, restore_best_weights=True)
     history = model.fit(X_train, y_train, 
                         batch_size=batch_size,
                         epochs=epochs, 
