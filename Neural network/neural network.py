@@ -58,11 +58,11 @@ def visualise(model):
     visualkeras.layered_view(model, legend = True, font = font, spacing = 100)
 
     ##using mini-batch gradient descent to train the neural network (using a batch size that is >1 but < training set)
-def train_model(model, X_train, y_train, X_val, y_val, epochs=1000, batch_size = 64):
+def train_model(model, X_train, y_train, X_val, y_val, epochs=500, batch_size = 64):
     log_dir = os.path.join(os.getcwd(),'Neural network','Logger')
 
     tb_callback = TensorBoard(log_dir=log_dir)
-    early_stopping = EarlyStopping(monitor='categorical_accuracy', patience = 100, restore_best_weights=True)
+    early_stopping = EarlyStopping(monitor='categorical_accuracy', patience = 20, restore_best_weights=True)
     history = model.fit(X_train, y_train, 
                         batch_size=batch_size,
                         epochs=epochs, 
