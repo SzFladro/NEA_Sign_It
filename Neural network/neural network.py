@@ -40,14 +40,14 @@ def Sequential_model(input_shape=(30, 1662)):
     ##return sequences is false, prevents the LTSM layer from returning sequences to the next Dnese layer
     model.add(LSTM(256, return_sequences=False, activation='relu'))
 
-    # Flatten Layer
-    model.add(Flatten())
+    model.add(Dropout(0.2))
 
     # Dense Layers with Dropout
     model.add(Dense(256, activation='relu'))
     model.add(Dense(128, activation='relu'))
     model.add(Dense(64, activation='relu'))
 
+    model.add(BatchNormalization())
     # Output Layer
     model.add(Dense(len(class_mapping), activation='softmax'))
 
@@ -85,7 +85,8 @@ if __name__ == "__main__":
     # Compile the model
     model = Sequential_model()
     model.compile(optimizer='Adam', loss='categorical_crossentropy', metrics=['categorical_accuracy'])
-
+    model.build((30,1662))
+    model.summary()
     # load data from every class (letters of the alphabet) and split them into training and testing data
     for class_name in class_mapping:
         data_train, data_test, data_val, label_train, label_test, label_val = load_data(class_name)
