@@ -2,11 +2,9 @@ import os
 import json
 import numpy as np
 import tensorflow as tf
-import visualkeras
-from PIL import ImageFont
 from tensorflow.keras.utils import to_categorical
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import confusion_matrix, classification_report
+from sklearn.metrics import multilabel_confusion_matrix, accuracy_score
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, BatchNormalization, Dropout, Reshape, Bidirectional, LSTM, Flatten, Dense
 from tensorflow.keras.callbacks import EarlyStopping, TensorBoard, ModelCheckpoint
 from tensorflow.keras.optimizers import Adam
@@ -53,9 +51,16 @@ def Sequential_model(input_shape=(30, 1662)):
 
     return model
 
-def visualise(model):
-    font = ImageFont.truetype("arial.ttf",12)
-    visualkeras.layered_view(model, legend = True, font = font, spacing = 100)
+
+def evaluate_model(X_test,y_test):
+    model = tf.keras.models.load_model('BSLmodel.h5')
+    model.load_weights('BSLweights.h5')
+    pred = model.predict(X_test)
+    truelabel = np.argmax(y_test,axis=1).tolist()
+    prediction = np.argmax(pred,axis=1).tolist()
+    print(multilabel_confusion_matrix(truelabel, prediction))
+    print(accuracy_score(truelabel, prediction))
+
 
     ##using mini-batch gradient descent to train the neural network (using a batch size that is >1 but < training set)
 def train_model(model, X_train, y_train, X_val, y_val, epochs=500, batch_size = 64):
@@ -74,6 +79,18 @@ def train_model(model, X_train, y_train, X_val, y_val, epochs=500, batch_size = 
     del model
     return history
 
+def training(X_train,X_val, y_train, y_val):
+    # Compile the model
+    model = Sequential_model()
+    model.compile(optimizer='Adam', loss='categorical_crossentropy', metrics=['categorical_accuracy'])
+    model.build((30,1662))
+    model.summary()
+
+    # Train the model
+    history = train_model(model, X_train, y_train, X_val, y_val)
+    ## 103 is the number of times that the loss function is calculated and hyperparameters are updated with every epoch
+    return history
+
 if __name__ == "__main__":
     X_train = np.empty((0,30,1662))
     X_test = np.empty((0,30,1662))
@@ -81,12 +98,6 @@ if __name__ == "__main__":
     y_train = np.empty((0,26))
     y_test = np.empty((0,26))
     y_val = np.empty((0,26))
-
-    # Compile the model
-    model = Sequential_model()
-    model.compile(optimizer='Adam', loss='categorical_crossentropy', metrics=['categorical_accuracy'])
-    model.build((30,1662))
-    model.summary()
     # load data from every class (letters of the alphabet) and split them into training and testing data
     for class_name in class_mapping:
         data_train, data_test, data_val, label_train, label_test, label_val = load_data(class_name)
@@ -97,7 +108,5 @@ if __name__ == "__main__":
         y_test= np.concatenate([y_test,label_test],axis=0)
         y_val= np.concatenate([y_val,label_val],axis=0)
 
-
-    # Train the model
-    history = train_model(model, X_train, y_train, X_val, y_val)
-    ## 103 is the number of times that the loss function is calculated and hyperparameters are updated with every epoch
+   ## history = training(X_train,X_val, y_train, y_val)
+    evaluate_model(X_test,y_test)

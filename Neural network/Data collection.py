@@ -80,9 +80,6 @@ class VideoDataPreprocessor:
         NoFrames = args.frames
         Shape = args.shape
 
-        start_index = class_list.index('Z')
-        class_list = class_list[start_index:]
-
         with mp_holistic.Holistic(min_detection_confidence=detection_confidence, min_tracking_confidence= tracking_confidence) as holistic:
             while cap.isOpened():
 
