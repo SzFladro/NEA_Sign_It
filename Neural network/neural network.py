@@ -55,6 +55,7 @@ def Sequential_model(input_shape=(30, 1662)):
 def evaluate_model(X_test,y_test):
     model = tf.keras.models.load_model('BSLmodel.h5')
     model.load_weights('BSLweights.h5')
+    model.summary()
     pred = model.predict(X_test)
     truelabel = np.argmax(y_test,axis=1).tolist()
     prediction = np.argmax(pred,axis=1).tolist()

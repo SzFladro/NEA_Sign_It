@@ -1,12 +1,12 @@
 import sqlite3
 
-# Function to insert data into the 'words' table
+# Method to insert data into the 'words' table
 def insert_words_data(data_array, category_id):
-    # Connect to the SQLite database
+    # Connects to the SQLite database
     conn = sqlite3.connect("SIGNIT2.db")
     cursor = conn.cursor()
 
-    # Insert data into the 'Words' table
+    # runs through each index of the array and inserts the data into the table through parametrised SQL
     for index, (word_name, download_link) in enumerate(data_array, start=1):
         cursor.execute(
             "INSERT INTO Words (word_name, download_link, Cat_ID) VALUES (?, ?, ?)",
@@ -14,11 +14,11 @@ def insert_words_data(data_array, category_id):
         )
         print(f"Inserted data for Word {index}: {word_name}")
 
-    # Commit changes and close the connection
+    # Saves changes and ends the connection
     conn.commit()
     conn.close()
 
-# Data array (word_name, download_link)
+# Data array contiaining (word_name, download_link)
 data_array = [
     ("A", "https://firebasestorage.googleapis.com/v0/b/sign-it-1.appspot.com/o/A%20-over.mp4?alt=media&token=f0ecc4fd-e71b-42f0-bbf7-7de4c6343ed1"),
     ("B", "https://firebasestorage.googleapis.com/v0/b/sign-it-1.appspot.com/o/B%20-over.mp4?alt=media&token=3267ea49-278b-4000-8ec3-6a098127e25a"),
@@ -48,5 +48,5 @@ data_array = [
     ("Z", "https://firebasestorage.googleapis.com/v0/b/sign-it-1.appspot.com/o/Z%20-over.mp4?alt=media&token=9383c558-677d-41b3-a8cd-e3ab371b97c2")
 ]
 
-# Fnction that insert data into the 'Words' table
+# Runs the method
 insert_words_data(data_array, category_id=1)

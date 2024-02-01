@@ -1,7 +1,6 @@
 import cv2
 import numpy as np
 import os
-from matplotlib import pyplot as plt
 import time
 import mediapipe as mp
 import string
@@ -60,7 +59,7 @@ def extract_keypoints(results):
     rh = np.array([[res.x, res.y, res.z] for res in results.right_hand_landmarks.landmark]).flatten() if results.right_hand_landmarks else np.zeros(21*3)
     return np.concatenate([pose, face, lh, rh])
     
-# 1. New detection variables
+# detection variables
 sequence = []
 sentence = []
 predictions = []

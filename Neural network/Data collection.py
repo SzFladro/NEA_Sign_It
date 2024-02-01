@@ -2,22 +2,26 @@ import os
 import cv2
 import json
 import numpy as np
-from tqdm import tqdm
 import mediapipe as mp
 from sklearn.preprocessing import OneHotEncoder
-import random
 import argparse
 import string 
 
+'''
+Method which opens the camera, 
+locates the hands/face/body(pose) and marks them collecting the coordinates and storing them within a numpy array containing all the coordinates from all the videos within a class.
+'''
 class VideoDataPreprocessor:
     OUTPUTDIR = os.path.join(os.path.expanduser("~"), 'Videos', 'Train_1')
 
+    ##method that initialises the class local variables
     def __init__(self,  class_mapping_file='class_mapping.json'):
         self.output_dir = self.OUTPUTDIR
         self.class_mapping_file = class_mapping_file
         self.class_mapping = {}
         self.args = self.get_args()
 
+    ##method that stores 
     def get_args(self):
         parser = argparse.ArgumentParser()
         parser.add_argument("--shape", help='shape of array', type=int, default=1662)
@@ -32,6 +36,7 @@ class VideoDataPreprocessor:
         args = parser.parse_args()
         return args
 
+    ##method for 
     def mediapipe_detection(self,image, model):
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB) # COLOR CONVERSION BGR 2 RGB
         image.flags.writeable = False                  # Image is no longer writeable
@@ -63,6 +68,7 @@ class VideoDataPreprocessor:
                                  mp_drawing.DrawingSpec(color=(245,117,66), thickness=2, circle_radius=4), 
                                  mp_drawing.DrawingSpec(color=(245,66,230), thickness=2, circle_radius=2)
                              ) 
+    ##method for 
     def extract_keypoints(self,results):
         pose = np.array([[res.x, res.y, res.z, res.visibility] for res in results.pose_landmarks.landmark]).flatten() if results.pose_landmarks else np.zeros(33*4)
         face = np.array([[res.x, res.y, res.z] for res in results.face_landmarks.landmark]).flatten() if results.face_landmarks else np.zeros(468*3)
@@ -125,10 +131,17 @@ class VideoDataPreprocessor:
                 cap.release()
                 cv2.destroyAllWindows()
                 self.save_class_mapping(self.output_dir)
-
+    
+    '''
+    adds the class names into dictioanaries
+    '''
     def set_class_mapping(self, class_list):
         self.class_mapping = {class_name: i for i, class_name in enumerate(class_list)}
-     
+    
+    '''
+    method for saving the one hot encoded label 
+    '''
+
     def save_class_data(self, class_name, class_data):
         numerical_label = self.class_mapping[class_name]
         one_hot_label = np.zeros(len(self.class_mapping), dtype=int)
@@ -138,7 +151,7 @@ class VideoDataPreprocessor:
         np.save(os.path.join(class_output_dir, 'hand_landmarks.npy'), class_data, allow_pickle=True)
         np.save(os.path.join(class_output_dir, 'label.npy'), one_hot_label, allow_pickle=True)
 
-
+    ##method that saves all the labels {equilavent to the class name so eg. A} alongside their numerical value in dictionary to allow for one hot encoding
     def save_class_mapping(self, output_dir):
         mapfiledir = os.path.join(output_dir, self.class_mapping_file)
         with open(mapfiledir, 'w') as f:
