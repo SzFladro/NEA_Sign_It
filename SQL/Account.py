@@ -25,6 +25,7 @@ def hash_password(username, password, salt) -> str:
     hashed_input = hmac.new(pepper.encode('utf-8'),combined_input.encode('utf-8'), hashlib.sha256).hexdigest()
     # Hashes the password 
     hashed_password = bcrypt.hashpw(hashed_input.encode('utf-8'),salt)
+    hashed_password = hashed_password + pepper
     return hashed_password.decode('utf-8')
 
 #Creates the user account within the database storing their username, hashed password, salt
@@ -37,7 +38,7 @@ def create_User(user_name,password):
             #Generates a unique salt that will be added to the hashed password
             salt = bcrypt.gensalt()
             Hashpassword = hash_password(user_name,password,salt)
-            cursor.execute("INSERT INTO Users (username, password,Salt) VALUES(?,?,?)",(user_name, Hashpassword, salt)        )
+            cursor.execute("INSERT INTO Users (username, password,Salt) VALUES(?,?,?)",(user_name, Hashpassword, salt))
             conn.commit()
         else:
             print("Can't") #get rid of this
