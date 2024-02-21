@@ -1,0 +1,370 @@
+{
+  "buttons": [
+    {
+      "name": "MenuButton",
+      "icon": "qss/icons/png2svg/menu-white.svg"
+    },
+    {
+      "name": "HomeButton",
+      "icon": "qss/icons/png2svg/home-white.svg"
+    },
+    {
+      "name": "ProfileButton",
+      "icon": "qss/icons/png2svg/profile-white.svg"
+    },
+    {
+      "name": "TranslatorButton",
+      "icon": "qss/icons/png2svg/ai-white.svg"
+    },
+    {
+      "name": "LiveButton",
+      "icon": "qss/icons/png2svg/camera-white.svg"
+    },
+    {
+      "name": "SettingsButton",
+      "icon": "qss/icons/png2svg/settings-white.svg"
+    },
+    {
+      "name": "MinimiseButton",
+      "icon": "qss/icons/png2svg/minimise-white.svg"
+    },
+    {
+      "name": "ExitButton",
+      "icon": "qss/icons/png2svg/exit-white.svg"
+    },
+    {
+      "name": "ExitSideMenu",
+      "icon": "qss/icons/png2svg/quitmenu-white.svg"
+    },
+    {
+      "name": "toSignupbutton",
+      "icon": "default_icon_url"
+    },
+    {
+      "name": "toLoginbutton",
+      "icon": "default_icon_url"
+    },
+    {
+      "name": "Login_Button",
+      "icon": "qss/icons/png2svg/login-white.svg"
+    },
+    {
+      "name": "SignUpbutton",
+      "icon": "qss/icons/png2svg/signup-white.svg"
+    },
+    {
+      "name": "LogoutButton",
+      "icon": "qss/icons/png2svg/logout-white.svg"
+    },
+    {
+      "name": "StartLiveTranslationbutton",
+      "icon": "default_icon_url"
+    },
+    {
+      "name": "StartSpellingBeeButton",
+      "icon": "default_icon_url"
+    },
+    {
+      "name": "OpenCatalogueButton",
+      "icon": "default_icon_url"
+    },
+    {
+      "name": "CatalogueToTranslatorButton",
+      "icon": "qss/icons/png2svg/goback-white.svg"
+    },
+    {
+      "name": "OverviewToCatalogueButton",
+      "icon": "qss/icons/png2svg/goback-white.svg"
+    },
+    {
+      "name": "StartSigningButton",
+      "icon": "qss/icons/png2svg/Signit-white.svg"
+    },
+    {
+      "name": "BeeRetryButton",
+      "icon": "qss/icons/png2svg/retry-white.svg"
+    },
+    {
+      "name": "BeeContinueButton",
+      "icon": "qss/icons/png2svg/continue-white.svg"
+    },
+    {
+      "name": "BeeToTranslatorButton",
+      "icon": "qss/icons/png2svg/quitmenu-white.svg"
+    },
+    {
+      "name": "WordRetrybutton",
+      "icon": "qss/icons/png2svg/retry-white.svg"
+    },
+    {
+      "name": "WordEndButton",
+      "icon": "qss/icons/png2svg/continue-white.svg"
+    },
+    {
+      "name": "WordToOverviewButton",
+      "icon": "qss/icons/png2svg/quitmenu-white.svg"
+    },
+    {
+      "name": "retryWritingButton",
+      "icon": "qss/icons/png2svg/retry-white.svg"
+    },
+    {
+      "name": "ContinueWritingButton",
+      "icon": "qss/icons/png2svg/continue-white.svg"
+    },
+    {
+      "name": "WritingToTranslatorButton",
+      "icon": "qss/icons/png2svg/quitmenu-white.svg"
+    }
+  ],
+  "labels": [
+    {
+      "name": "Sidemenulabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "welcomelabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "detailstologinlabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "notregisteredlabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "welcomelabel_2",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "detailstosignuplabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "alreadyaccountlabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "loginlabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "forgotpasslabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "SignUplabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "LoggedInLabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "usernameLoggedinlabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "label_5",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "label_6",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "label_9",
+      "pixmap": "qss/icons/png2svg/SwitchCamera.svg"
+    },
+    {
+      "name": "label_3",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "labelNot",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "Notifications_Label",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "label_19",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "label_21",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "label_20",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "label",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "livecameradisplay",
+      "pixmap": "qss/icons/png2svg/Camera.svg"
+    },
+    {
+      "name": "livelabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "LiveTranDescription",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "label_4",
+      "pixmap": "qss/icons/png2svg/SpellingBee.svg"
+    },
+    {
+      "name": "label_2",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "BeeTranDescription",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "label_8",
+      "pixmap": "qss/icons/png2svg/Catalogue.svg"
+    },
+    {
+      "name": "label_7",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "label_10",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "CatalogueMenuLabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "SearchIconLabel",
+      "pixmap": "qss/icons/png2svg/search-white.svg"
+    },
+    {
+      "name": "categorySearchLabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "label_14",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "OverviewWordLabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "WordOverviewlabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "OverviewCategoryLabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "CategoryOverviewLabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "OverviewNoAttemptsLabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "NoAttemptsOverviewLabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "Livetoplabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "LiveModeLabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "BeePredictionLabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "BeeAccuracyLabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "BeeWordLabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "CurrentWordLabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "BeeAccuracyinfoLabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "BeeAVgAccuracyLabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "WordPredictionLabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "WordAccuracyLabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "CategoryInfoLabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "CategoryLabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "WordInfoLabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "WordLabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "WritingPredictionLabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "WritingPrediction",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "label_16",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "WrtitingOutputLabel",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "label_34",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "label_35",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "label_36",
+      "pixmap": "default_pixmap_url"
+    }
+  ]
+}

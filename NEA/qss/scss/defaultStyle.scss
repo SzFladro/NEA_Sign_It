@@ -1,0 +1,59 @@
+* {
+    border: none;
+    background-color: transparent;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    color: rgb(255, 255, 255);
+}
+
+#Main_body {
+    background-color: rgb(54, 69, 79);
+}
+
+#LeftMenu {
+    background-color: rgb(79, 64, 54);
+}
+
+#LeftMenu QPushButton {
+    text-align: left;
+    border-style: outset;
+    border-width: 1px;
+    border-radius: 5px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-color: rgb(79, 64, 54);
+    font: bold 14px;
+    padding: 5px 10px;
+}
+
+#ExpandableSideMenu {
+    background-color: rgb(75, 95, 109);
+}
+
+#AccountPanel {
+    background-color: rgb(54, 69, 79);
+}
+
+#ExpandableSideMenu QPushButton {
+    text-align: centre;
+    border-style: outset;
+    border-width: 1px;
+    border-radius: 5px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-color: rgb(54, 69, 79);
+    font: bold 14px;
+    padding: 5px 10px;
+}
+
+QLineEdit {
+    border-style: outset;
+    border-width: 1px;
+    border-radius: 5px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-color: rgb(54, 69, 79);
+    font: bold 14px;
+    padding: 5px 10px;
+}

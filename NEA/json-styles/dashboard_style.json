@@ -1,0 +1,208 @@
+{
+  "QMainWindow": [
+    {
+      "title": "SignIt UI",
+      "icon": ":/font_awesome_regular/Icons/font_awesome/regular/hand.png",
+      "transluscentBg": true,
+      "frameless": true,
+      "navigation": [
+        {
+          "moveWindow": "centralwidget",
+          "close": "ExitButton",
+          "minimize": "MinimiseButton"
+        }
+      ]
+    }
+  ],
+  "QSettings": [
+    {
+      "ThemeSettings": [
+        {
+          "CustomTheme": [
+            {
+              "Background-color": "#36454F",
+              "Text-color": "#ffffff",
+              "Icons-color": "#ffffff",
+              "Accent-color": "#4f4036",
+              "Theme-name": "Modern Interface",
+              "Default-Theme": true
+            }
+          ]
+        }
+      ],
+      "AppSettings": {
+        "OrginizationName": "SignIt",
+        "ApplicationName": "SignIt",
+        "OrginizationDormain": "SigntIT"
+      }
+    }
+  ],
+  "QCustomQStackedWidget": [
+    {
+      "name": "AccountNavWidget",
+      "navigation": [
+        {
+          "navigationButtons": [
+            {
+              "toSignupbutton": "SignUpnavWidget",
+              "toLoginbutton": "LoginnavWidget"
+            }
+          ]
+        }
+      ],
+      "transitionAnimation": [
+        {
+          "slide": [
+            {
+              "active": true,
+              "duration": 1000,
+              "direction": "horizontal",
+              "easingCurve": "Linear"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AccountCreationWidget",
+      "navigation": [
+        {
+          "navigationButtons": [
+            {
+              "toSignupbutton": "SignUpWidget",
+              "toLoginbutton": "LoginWidget"
+            }
+          ]
+        }
+      ],
+      "transitionAnimation": [
+        {
+          "slide": [
+            {
+              "active": true,
+              "duration": 1000,
+              "direction": "vertical",
+              "easingCurve": "Linear"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "MainWidget",
+      "navigation": [
+        {
+          "navigationButtons": [
+            {
+              "HomeButton": "Dashboard",
+              "OpenCatalogueButton": "Catalogue",
+              "OverviewToCatalogueButton": "Catalogue",
+              "TranslatorButton": "Translator",
+              "CatalogueToTranslatorButton": "Translator",
+              "BeeToTranslatorButton": "Translator",
+              "WritingToTranslatorButton": "Translator",
+              "StartLiveTranslationbutton": "Live",
+              "LiveButton": "Live"
+
+
+
+
+            }
+          ]
+        }
+      ],
+      "transitionAnimation": [
+        {
+          "slide": [
+            {
+              "active": true,
+              "duration": 1000,
+              "direction": "vertical",
+              "easingCurve": "Linear"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "QCustomSlideMenu": [
+    {
+      "name": "ExpandableSideMenu",
+      "defaultSize": [
+        {
+          "width": 0,
+          "height": "parent"
+        }
+      ],
+      "collapsedSize": [
+        {
+          "width": 0,
+          "height": 0
+        }
+      ],
+      "expandedSize": [
+        {
+          "width": 500,
+          "height": "parent"
+        }
+      ],
+      "toggleButton": [
+        {
+          "buttonName": "ExitSideMenu"
+
+        }
+      ],
+      "menuTransitionAnimation": [
+        {
+          "animationDuration": 200,
+          "animationEasingCurve": "Linear",
+          "whenCollapsing": [
+            {
+              "animationDuration": 200,
+              "animationEasingCurve": "Linear"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "LeftMenu",
+      "defaultSize": [
+        {
+          "width": 50,
+          "height": "parent"
+        }
+      ],
+      "collapsedSize": [
+        {
+          "width": 50,
+          "height": "parent"
+        }
+      ],
+      "expandedSize": [
+        {
+          "width": 126,
+          "height": "parent"
+        }
+      ],
+      "toggleButton": [
+        {
+          "buttonName": "MenuButton"
+
+        }
+      ],
+      "menuTransitionAnimation": [
+        {
+          "animationDuration": 200,
+          "animationEasingCurve": "Linear",
+          "whenCollapsing": [
+            {
+              "animationDuration": 200,
+              "animationEasingCurve": "Linear"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
