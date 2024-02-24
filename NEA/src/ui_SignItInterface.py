@@ -17,8 +17,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
     QHBoxLayout, QLayout, QLineEdit, QMainWindow,
-    QProgressBar, QScrollArea, QSizePolicy, QSpacerItem,
-    QStackedWidget, QVBoxLayout, QWidget)
+    QProgressBar, QScrollArea, QSizePolicy, QSlider,
+    QSpacerItem, QStackedWidget, QVBoxLayout, QWidget)
 
 from Custom_Widgets.QCustomQStackedWidget import QCustomQStackedWidget
 from Custom_Widgets.QCustomSlideMenu import QCustomSlideMenu
@@ -162,26 +162,14 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.ProfileButton)
 
-        self.TranslatorButton = QPushButtonThemed(self.LeftOptionsFrame)
-        self.TranslatorButton.setObjectName(u"TranslatorButton")
-        self.TranslatorButton.setCursor(QCursor(Qt.OpenHandCursor))
-        icon3 = QIcon()
-        icon3.addFile(u":/icons/png2svg/ai-white.svg", QSize(), QIcon.Normal, QIcon.Off)
-        icon3.addFile(u":/icons/png2svg/ai-white.svg", QSize(), QIcon.Active, QIcon.Off)
-        icon3.addFile(u":/icons/png2svg/ai-green.svg", QSize(), QIcon.Active, QIcon.On)
-        self.TranslatorButton.setIcon(icon3)
-        self.TranslatorButton.setIconSize(QSize(24, 24))
-
-        self.verticalLayout_3.addWidget(self.TranslatorButton)
-
         self.LiveButton = QPushButtonThemed(self.LeftOptionsFrame)
         self.LiveButton.setObjectName(u"LiveButton")
         self.LiveButton.setCursor(QCursor(Qt.OpenHandCursor))
-        icon4 = QIcon()
-        icon4.addFile(u":/icons/png2svg/camera-white.svg", QSize(), QIcon.Normal, QIcon.Off)
-        icon4.addFile(u":/icons/png2svg/camera-white.svg", QSize(), QIcon.Active, QIcon.Off)
-        icon4.addFile(u":/icons/png2svg/camera-green.svg", QSize(), QIcon.Active, QIcon.On)
-        self.LiveButton.setIcon(icon4)
+        icon3 = QIcon()
+        icon3.addFile(u":/icons/png2svg/camera-white.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon3.addFile(u":/icons/png2svg/camera-white.svg", QSize(), QIcon.Active, QIcon.Off)
+        icon3.addFile(u":/icons/png2svg/camera-green.svg", QSize(), QIcon.Active, QIcon.On)
+        self.LiveButton.setIcon(icon3)
         self.LiveButton.setIconSize(QSize(24, 24))
 
         self.verticalLayout_3.addWidget(self.LiveButton)
@@ -203,22 +191,22 @@ class Ui_MainWindow(object):
         self.SettingsButton = QPushButtonThemed(self.LeftSettingsFrame)
         self.SettingsButton.setObjectName(u"SettingsButton")
         self.SettingsButton.setCursor(QCursor(Qt.OpenHandCursor))
-        icon5 = QIcon()
-        icon5.addFile(u":/icons/png2svg/settings-white.svg", QSize(), QIcon.Normal, QIcon.Off)
-        icon5.addFile(u":/icons/png2svg/settings-white.svg", QSize(), QIcon.Active, QIcon.Off)
-        icon5.addFile(u":/icons/png2svg/settings-green.svg", QSize(), QIcon.Active, QIcon.On)
-        self.SettingsButton.setIcon(icon5)
+        icon4 = QIcon()
+        icon4.addFile(u":/icons/png2svg/settings-white.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon4.addFile(u":/icons/png2svg/settings-white.svg", QSize(), QIcon.Active, QIcon.Off)
+        icon4.addFile(u":/icons/png2svg/settings-green.svg", QSize(), QIcon.Active, QIcon.On)
+        self.SettingsButton.setIcon(icon4)
         self.SettingsButton.setIconSize(QSize(24, 24))
 
         self.verticalLayout_4.addWidget(self.SettingsButton)
 
         self.MinimiseButton = QPushButtonThemed(self.LeftSettingsFrame)
         self.MinimiseButton.setObjectName(u"MinimiseButton")
-        icon6 = QIcon()
-        icon6.addFile(u":/icons/png2svg/minimise-white.svg", QSize(), QIcon.Normal, QIcon.Off)
-        icon6.addFile(u":/icons/png2svg/minimise-white.svg", QSize(), QIcon.Active, QIcon.Off)
-        icon6.addFile(u":/icons/png2svg/minimise-green.svg", QSize(), QIcon.Active, QIcon.On)
-        self.MinimiseButton.setIcon(icon6)
+        icon5 = QIcon()
+        icon5.addFile(u":/icons/png2svg/minimise-white.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon5.addFile(u":/icons/png2svg/minimise-white.svg", QSize(), QIcon.Active, QIcon.Off)
+        icon5.addFile(u":/icons/png2svg/minimise-green.svg", QSize(), QIcon.Active, QIcon.On)
+        self.MinimiseButton.setIcon(icon5)
         self.MinimiseButton.setIconSize(QSize(24, 24))
 
         self.verticalLayout_4.addWidget(self.MinimiseButton)
@@ -226,11 +214,11 @@ class Ui_MainWindow(object):
         self.ExitButton = QPushButtonThemed(self.LeftSettingsFrame)
         self.ExitButton.setObjectName(u"ExitButton")
         self.ExitButton.setCursor(QCursor(Qt.OpenHandCursor))
-        icon7 = QIcon()
-        icon7.addFile(u":/icons/png2svg/exit-white.svg", QSize(), QIcon.Normal, QIcon.Off)
-        icon7.addFile(u":/icons/png2svg/exit-white.svg", QSize(), QIcon.Active, QIcon.Off)
-        icon7.addFile(u":/icons/png2svg/exit-green.svg", QSize(), QIcon.Active, QIcon.On)
-        self.ExitButton.setIcon(icon7)
+        icon6 = QIcon()
+        icon6.addFile(u":/icons/png2svg/exit-white.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon6.addFile(u":/icons/png2svg/exit-white.svg", QSize(), QIcon.Active, QIcon.Off)
+        icon6.addFile(u":/icons/png2svg/exit-green.svg", QSize(), QIcon.Active, QIcon.On)
+        self.ExitButton.setIcon(icon6)
         self.ExitButton.setIconSize(QSize(24, 24))
 
         self.verticalLayout_4.addWidget(self.ExitButton)
@@ -280,11 +268,11 @@ class Ui_MainWindow(object):
         self.ExitSideMenu.setSizePolicy(sizePolicy1)
         self.ExitSideMenu.setMinimumSize(QSize(0, 0))
         self.ExitSideMenu.setCursor(QCursor(Qt.OpenHandCursor))
-        icon8 = QIcon()
-        icon8.addFile(u":/icons/png2svg/quitmenu-white.svg", QSize(), QIcon.Normal, QIcon.Off)
-        icon8.addFile(u":/icons/png2svg/quitmenu-white.svg", QSize(), QIcon.Active, QIcon.Off)
-        icon8.addFile(u":/icons/png2svg/quitmenu-green.svg", QSize(), QIcon.Active, QIcon.On)
-        self.ExitSideMenu.setIcon(icon8)
+        icon7 = QIcon()
+        icon7.addFile(u":/icons/png2svg/quitmenu-white.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon7.addFile(u":/icons/png2svg/quitmenu-white.svg", QSize(), QIcon.Active, QIcon.Off)
+        icon7.addFile(u":/icons/png2svg/quitmenu-green.svg", QSize(), QIcon.Active, QIcon.On)
+        self.ExitSideMenu.setIcon(icon7)
         self.ExitSideMenu.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_3.addWidget(self.ExitSideMenu)
@@ -471,11 +459,11 @@ class Ui_MainWindow(object):
         self.Login_Button = QPushButtonThemed(self.loginFrame)
         self.Login_Button.setObjectName(u"Login_Button")
         self.Login_Button.setCursor(QCursor(Qt.OpenHandCursor))
-        icon9 = QIcon()
-        icon9.addFile(u":/icons/png2svg/login-white.svg", QSize(), QIcon.Normal, QIcon.Off)
-        icon9.addFile(u":/icons/png2svg/login-white.svg", QSize(), QIcon.Active, QIcon.Off)
-        icon9.addFile(u":/icons/png2svg/login-green.svg", QSize(), QIcon.Active, QIcon.On)
-        self.Login_Button.setIcon(icon9)
+        icon8 = QIcon()
+        icon8.addFile(u":/icons/png2svg/login-white.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon8.addFile(u":/icons/png2svg/login-white.svg", QSize(), QIcon.Active, QIcon.Off)
+        icon8.addFile(u":/icons/png2svg/login-green.svg", QSize(), QIcon.Active, QIcon.On)
+        self.Login_Button.setIcon(icon8)
         self.Login_Button.setIconSize(QSize(24, 24))
 
         self.verticalLayout_31.addWidget(self.Login_Button)
@@ -547,11 +535,11 @@ class Ui_MainWindow(object):
         self.SignUpbutton = QPushButtonThemed(self.SignUpFrame)
         self.SignUpbutton.setObjectName(u"SignUpbutton")
         self.SignUpbutton.setCursor(QCursor(Qt.OpenHandCursor))
-        icon10 = QIcon()
-        icon10.addFile(u":/icons/png2svg/signup-white.svg", QSize(), QIcon.Normal, QIcon.Off)
-        icon10.addFile(u":/icons/png2svg/signup-white.svg", QSize(), QIcon.Active, QIcon.Off)
-        icon10.addFile(u":/icons/png2svg/signup-green.svg", QSize(), QIcon.Active, QIcon.On)
-        self.SignUpbutton.setIcon(icon10)
+        icon9 = QIcon()
+        icon9.addFile(u":/icons/png2svg/signup-white.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon9.addFile(u":/icons/png2svg/signup-white.svg", QSize(), QIcon.Active, QIcon.Off)
+        icon9.addFile(u":/icons/png2svg/signup-green.svg", QSize(), QIcon.Active, QIcon.On)
+        self.SignUpbutton.setIcon(icon9)
         self.SignUpbutton.setIconSize(QSize(24, 24))
 
         self.verticalLayout_33.addWidget(self.SignUpbutton)
@@ -585,11 +573,11 @@ class Ui_MainWindow(object):
 
         self.LogoutButton = QPushButtonThemed(self.LoggedIn)
         self.LogoutButton.setObjectName(u"LogoutButton")
-        icon11 = QIcon()
-        icon11.addFile(u":/icons/png2svg/logout-white.svg", QSize(), QIcon.Normal, QIcon.Off)
-        icon11.addFile(u":/icons/png2svg/logout-white.svg", QSize(), QIcon.Active, QIcon.Off)
-        icon11.addFile(u":/icons/png2svg/logout-green.svg", QSize(), QIcon.Active, QIcon.On)
-        self.LogoutButton.setIcon(icon11)
+        icon10 = QIcon()
+        icon10.addFile(u":/icons/png2svg/logout-white.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon10.addFile(u":/icons/png2svg/logout-white.svg", QSize(), QIcon.Active, QIcon.Off)
+        icon10.addFile(u":/icons/png2svg/logout-green.svg", QSize(), QIcon.Active, QIcon.On)
+        self.LogoutButton.setIcon(icon10)
         self.LogoutButton.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_4.addWidget(self.LogoutButton)
@@ -615,6 +603,10 @@ class Ui_MainWindow(object):
 
         self.usernameLoggedinlabel = QLabelThemed(self.LoggedInframe)
         self.usernameLoggedinlabel.setObjectName(u"usernameLoggedinlabel")
+        font = QFont()
+        font.setPointSize(12)
+        font.setBold(True)
+        self.usernameLoggedinlabel.setFont(font)
 
         self.verticalLayout_7.addWidget(self.usernameLoggedinlabel)
 
@@ -656,7 +648,6 @@ class Ui_MainWindow(object):
 
         self.CameraSettingComboBox = QComboBox(self.camerasettingthread)
         self.CameraSettingComboBox.addItem("")
-        self.CameraSettingComboBox.addItem("")
         self.CameraSettingComboBox.setObjectName(u"CameraSettingComboBox")
         self.CameraSettingComboBox.setEditable(False)
         self.CameraSettingComboBox.setMaxVisibleItems(10)
@@ -666,22 +657,17 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_42.addWidget(self.camerasettingthread)
 
+        self.CameraRescan = QPushButtonThemed(self.SettingsIconFrame)
+        self.CameraRescan.setObjectName(u"CameraRescan")
+
+        self.verticalLayout_42.addWidget(self.CameraRescan, 0, Qt.AlignHCenter)
+
         self.frame_2 = QFrame(self.SettingsIconFrame)
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setFrameShape(QFrame.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_26 = QHBoxLayout(self.frame_2)
         self.horizontalLayout_26.setObjectName(u"horizontalLayout_26")
-        self.label_3 = QLabelThemed(self.frame_2)
-        self.label_3.setObjectName(u"label_3")
-
-        self.horizontalLayout_26.addWidget(self.label_3)
-
-        self.comboBox = QComboBox(self.frame_2)
-        self.comboBox.setObjectName(u"comboBox")
-
-        self.horizontalLayout_26.addWidget(self.comboBox)
-
 
         self.verticalLayout_42.addWidget(self.frame_2)
 
@@ -705,11 +691,33 @@ class Ui_MainWindow(object):
         self.NotFrame.setFrameShape(QFrame.StyledPanel)
         self.NotFrame.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_5 = QHBoxLayout(self.NotFrame)
+        self.horizontalLayout_5.setSpacing(0)
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+        self.horizontalLayout_5.setContentsMargins(0, 0, 7, 0)
+        self.iconNot = QLabelThemed(self.NotFrame)
+        self.iconNot.setObjectName(u"iconNot")
+        sizePolicy4 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.iconNot.sizePolicy().hasHeightForWidth())
+        self.iconNot.setSizePolicy(sizePolicy4)
+        self.iconNot.setPixmap(QPixmap(u":/icons/png2svg/notifications_icon.svg"))
+
+        self.horizontalLayout_5.addWidget(self.iconNot, 0, Qt.AlignLeft)
+
         self.labelNot = QLabelThemed(self.NotFrame)
         self.labelNot.setObjectName(u"labelNot")
 
-        self.horizontalLayout_5.addWidget(self.labelNot)
+        self.horizontalLayout_5.addWidget(self.labelNot, 0, Qt.AlignLeft)
+
+        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_5.addItem(self.horizontalSpacer_2)
+
+        self.AcknowledgeNotifications = QPushButtonThemed(self.NotFrame)
+        self.AcknowledgeNotifications.setObjectName(u"AcknowledgeNotifications")
+
+        self.horizontalLayout_5.addWidget(self.AcknowledgeNotifications, 0, Qt.AlignRight)
 
 
         self.verticalLayout_14.addWidget(self.NotFrame, 0, Qt.AlignTop)
@@ -721,20 +729,19 @@ class Ui_MainWindow(object):
         self.Notification_Frame.setFrameShape(QFrame.StyledPanel)
         self.Notification_Frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_15 = QVBoxLayout(self.Notification_Frame)
+        self.verticalLayout_15.setSpacing(0)
         self.verticalLayout_15.setObjectName(u"verticalLayout_15")
+        self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
         self.scrollArea_2 = QScrollArea(self.Notification_Frame)
         self.scrollArea_2.setObjectName(u"scrollArea_2")
         self.scrollArea_2.setWidgetResizable(True)
         self.Notifications_Panel = QWidget()
         self.Notifications_Panel.setObjectName(u"Notifications_Panel")
-        self.Notifications_Panel.setGeometry(QRect(0, 0, 355, 180))
+        self.Notifications_Panel.setGeometry(QRect(0, 0, 401, 173))
         self.verticalLayout_41 = QVBoxLayout(self.Notifications_Panel)
+        self.verticalLayout_41.setSpacing(0)
         self.verticalLayout_41.setObjectName(u"verticalLayout_41")
-        self.Notifications_Label = QLabelThemed(self.Notifications_Panel)
-        self.Notifications_Label.setObjectName(u"Notifications_Label")
-
-        self.verticalLayout_41.addWidget(self.Notifications_Label)
-
+        self.verticalLayout_41.setContentsMargins(0, 0, 0, 0)
         self.scrollArea_2.setWidget(self.Notifications_Panel)
 
         self.verticalLayout_15.addWidget(self.scrollArea_2)
@@ -758,70 +765,14 @@ class Ui_MainWindow(object):
         self.verticalLayout_16.setContentsMargins(0, 0, 0, 0)
         self.MainWidget = QCustomQStackedWidget(self.Main_body)
         self.MainWidget.setObjectName(u"MainWidget")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
         sizePolicy4.setHeightForWidth(self.MainWidget.sizePolicy().hasHeightForWidth())
         self.MainWidget.setSizePolicy(sizePolicy4)
-        self.Dashboard = QWidget()
-        self.Dashboard.setObjectName(u"Dashboard")
-        self.verticalLayout_25 = QVBoxLayout(self.Dashboard)
-        self.verticalLayout_25.setObjectName(u"verticalLayout_25")
-        self.verticalLayout_25.setContentsMargins(0, 0, 0, 0)
-        self.UpperDashboardFrame = QFrame(self.Dashboard)
-        self.UpperDashboardFrame.setObjectName(u"UpperDashboardFrame")
-        self.UpperDashboardFrame.setFrameShape(QFrame.StyledPanel)
-        self.UpperDashboardFrame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_40 = QVBoxLayout(self.UpperDashboardFrame)
-        self.verticalLayout_40.setObjectName(u"verticalLayout_40")
-        self.verticalLayout_40.setContentsMargins(0, 0, 0, 0)
-        self.label_19 = QLabelThemed(self.UpperDashboardFrame)
-        self.label_19.setObjectName(u"label_19")
-
-        self.verticalLayout_40.addWidget(self.label_19)
-
-        self.CategorySelectorFrame = QFrame(self.UpperDashboardFrame)
-        self.CategorySelectorFrame.setObjectName(u"CategorySelectorFrame")
-        self.CategorySelectorFrame.setFrameShape(QFrame.StyledPanel)
-        self.CategorySelectorFrame.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_16 = QHBoxLayout(self.CategorySelectorFrame)
-        self.horizontalLayout_16.setSpacing(0)
-        self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
-        self.label_21 = QLabelThemed(self.CategorySelectorFrame)
-        self.label_21.setObjectName(u"label_21")
-
-        self.horizontalLayout_16.addWidget(self.label_21, 0, Qt.AlignLeft)
-
-        self.DashboardCategorySelector = QComboBox(self.CategorySelectorFrame)
-        self.DashboardCategorySelector.setObjectName(u"DashboardCategorySelector")
-
-        self.horizontalLayout_16.addWidget(self.DashboardCategorySelector)
-
-
-        self.verticalLayout_40.addWidget(self.CategorySelectorFrame)
-
-
-        self.verticalLayout_25.addWidget(self.UpperDashboardFrame, 0, Qt.AlignTop)
-
-        self.MainDashboardWidget = QWidget(self.Dashboard)
-        self.MainDashboardWidget.setObjectName(u"MainDashboardWidget")
-        sizePolicy3.setHeightForWidth(self.MainDashboardWidget.sizePolicy().hasHeightForWidth())
-        self.MainDashboardWidget.setSizePolicy(sizePolicy3)
-        self.verticalLayout_39 = QVBoxLayout(self.MainDashboardWidget)
-        self.verticalLayout_39.setObjectName(u"verticalLayout_39")
-        self.label_20 = QLabelThemed(self.MainDashboardWidget)
-        self.label_20.setObjectName(u"label_20")
-
-        self.verticalLayout_39.addWidget(self.label_20)
-
-
-        self.verticalLayout_25.addWidget(self.MainDashboardWidget)
-
-        self.MainWidget.addWidget(self.Dashboard)
         self.Translator = QWidget()
         self.Translator.setObjectName(u"Translator")
         self.verticalLayout_23 = QVBoxLayout(self.Translator)
+        self.verticalLayout_23.setSpacing(0)
         self.verticalLayout_23.setObjectName(u"verticalLayout_23")
+        self.verticalLayout_23.setContentsMargins(0, 0, 0, 10)
         self.UpperTranslatorFrame = QFrame(self.Translator)
         self.UpperTranslatorFrame.setObjectName(u"UpperTranslatorFrame")
         self.UpperTranslatorFrame.setFrameShape(QFrame.StyledPanel)
@@ -841,11 +792,17 @@ class Ui_MainWindow(object):
         sizePolicy3.setHeightForWidth(self.MainTranslatorWidget.sizePolicy().hasHeightForWidth())
         self.MainTranslatorWidget.setSizePolicy(sizePolicy3)
         self.horizontalLayout_13 = QHBoxLayout(self.MainTranslatorWidget)
+        self.horizontalLayout_13.setSpacing(0)
         self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
+        self.horizontalLayout_13.setContentsMargins(0, 0, 0, 0)
         self.LiveTranslationWidget = QWidget(self.MainTranslatorWidget)
         self.LiveTranslationWidget.setObjectName(u"LiveTranslationWidget")
+        sizePolicy.setHeightForWidth(self.LiveTranslationWidget.sizePolicy().hasHeightForWidth())
+        self.LiveTranslationWidget.setSizePolicy(sizePolicy)
         self.verticalLayout_10 = QVBoxLayout(self.LiveTranslationWidget)
+        self.verticalLayout_10.setSpacing(0)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.verticalLayout_10.setContentsMargins(0, 0, 0, 0)
         self.LiveTranslationTop = QFrame(self.LiveTranslationWidget)
         self.LiveTranslationTop.setObjectName(u"LiveTranslationTop")
         self.LiveTranslationTop.setFrameShape(QFrame.StyledPanel)
@@ -905,8 +862,11 @@ class Ui_MainWindow(object):
 
         self.SpellingBeeWidget = QWidget(self.MainTranslatorWidget)
         self.SpellingBeeWidget.setObjectName(u"SpellingBeeWidget")
+        sizePolicy.setHeightForWidth(self.SpellingBeeWidget.sizePolicy().hasHeightForWidth())
+        self.SpellingBeeWidget.setSizePolicy(sizePolicy)
         self.verticalLayout_13 = QVBoxLayout(self.SpellingBeeWidget)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
+        self.verticalLayout_13.setContentsMargins(0, 0, 0, -1)
         self.BeeTopFrame = QFrame(self.SpellingBeeWidget)
         self.BeeTopFrame.setObjectName(u"BeeTopFrame")
         self.BeeTopFrame.setFrameShape(QFrame.StyledPanel)
@@ -943,10 +903,26 @@ class Ui_MainWindow(object):
 
         self.BeeTranBottomFrame = QFrame(self.SpellingBeeWidget)
         self.BeeTranBottomFrame.setObjectName(u"BeeTranBottomFrame")
+        sizePolicy4.setHeightForWidth(self.BeeTranBottomFrame.sizePolicy().hasHeightForWidth())
+        self.BeeTranBottomFrame.setSizePolicy(sizePolicy4)
         self.BeeTranBottomFrame.setFrameShape(QFrame.StyledPanel)
         self.BeeTranBottomFrame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_20 = QVBoxLayout(self.BeeTranBottomFrame)
+        self.verticalLayout_20.setSpacing(28)
         self.verticalLayout_20.setObjectName(u"verticalLayout_20")
+        self.verticalLayout_20.setContentsMargins(0, 0, 0, 0)
+        self.SpellingBeenotificationlabel = QLabelThemed(self.BeeTranBottomFrame)
+        self.SpellingBeenotificationlabel.setObjectName(u"SpellingBeenotificationlabel")
+        self.SpellingBeenotificationlabel.setFont(font)
+        self.SpellingBeenotificationlabel.setWordWrap(True)
+
+        self.verticalLayout_20.addWidget(self.SpellingBeenotificationlabel)
+
+        self.SpellingBeeWordEntry = QLineEdit(self.BeeTranBottomFrame)
+        self.SpellingBeeWordEntry.setObjectName(u"SpellingBeeWordEntry")
+
+        self.verticalLayout_20.addWidget(self.SpellingBeeWordEntry)
+
         self.StartSpellingBeeButton = QPushButtonThemed(self.BeeTranBottomFrame)
         self.StartSpellingBeeButton.setObjectName(u"StartSpellingBeeButton")
         self.StartSpellingBeeButton.setIconSize(QSize(24, 24))
@@ -957,12 +933,16 @@ class Ui_MainWindow(object):
         self.verticalLayout_13.addWidget(self.BeeTranBottomFrame, 0, Qt.AlignBottom)
 
 
-        self.horizontalLayout_13.addWidget(self.SpellingBeeWidget)
+        self.horizontalLayout_13.addWidget(self.SpellingBeeWidget, 0, Qt.AlignHCenter)
 
         self.CatalogueTranWidget = QWidget(self.MainTranslatorWidget)
         self.CatalogueTranWidget.setObjectName(u"CatalogueTranWidget")
+        sizePolicy.setHeightForWidth(self.CatalogueTranWidget.sizePolicy().hasHeightForWidth())
+        self.CatalogueTranWidget.setSizePolicy(sizePolicy)
         self.verticalLayout_18 = QVBoxLayout(self.CatalogueTranWidget)
+        self.verticalLayout_18.setSpacing(0)
         self.verticalLayout_18.setObjectName(u"verticalLayout_18")
+        self.verticalLayout_18.setContentsMargins(0, 0, 0, 0)
         self.CatalogueTranUpperframe = QFrame(self.CatalogueTranWidget)
         self.CatalogueTranUpperframe.setObjectName(u"CatalogueTranUpperframe")
         self.CatalogueTranUpperframe.setFrameShape(QFrame.StyledPanel)
@@ -1039,11 +1019,11 @@ class Ui_MainWindow(object):
 
         self.CatalogueToTranslatorButton = QPushButtonThemed(self.CatalogueUpperMenuFrame)
         self.CatalogueToTranslatorButton.setObjectName(u"CatalogueToTranslatorButton")
-        icon12 = QIcon()
-        icon12.addFile(u":/icons/png2svg/goback-white.svg", QSize(), QIcon.Normal, QIcon.Off)
-        icon12.addFile(u":/icons/png2svg/goback-white.svg", QSize(), QIcon.Active, QIcon.Off)
-        icon12.addFile(u":/icons/png2svg/goback-green.svg", QSize(), QIcon.Active, QIcon.On)
-        self.CatalogueToTranslatorButton.setIcon(icon12)
+        icon11 = QIcon()
+        icon11.addFile(u":/icons/png2svg/goback-white.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon11.addFile(u":/icons/png2svg/goback-white.svg", QSize(), QIcon.Active, QIcon.Off)
+        icon11.addFile(u":/icons/png2svg/goback-green.svg", QSize(), QIcon.Active, QIcon.On)
+        self.CatalogueToTranslatorButton.setIcon(icon11)
         self.CatalogueToTranslatorButton.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_8.addWidget(self.CatalogueToTranslatorButton, 0, Qt.AlignRight)
@@ -1163,7 +1143,7 @@ class Ui_MainWindow(object):
 
         self.OverviewToCatalogueButton = QPushButtonThemed(self.UpperOverviewFrame)
         self.OverviewToCatalogueButton.setObjectName(u"OverviewToCatalogueButton")
-        self.OverviewToCatalogueButton.setIcon(icon12)
+        self.OverviewToCatalogueButton.setIcon(icon11)
         self.OverviewToCatalogueButton.setIconSize(QSize(24, 24))
 
         self.horizontalLayout_14.addWidget(self.OverviewToCatalogueButton, 0, Qt.AlignRight)
@@ -1184,7 +1164,7 @@ class Ui_MainWindow(object):
         self.OverviewInfoFrame.setFrameShape(QFrame.StyledPanel)
         self.OverviewInfoFrame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_37 = QVBoxLayout(self.OverviewInfoFrame)
-        self.verticalLayout_37.setSpacing(0)
+        self.verticalLayout_37.setSpacing(14)
         self.verticalLayout_37.setObjectName(u"verticalLayout_37")
         self.verticalLayout_37.setContentsMargins(0, 0, 0, 0)
         self.WordOverviewFrame = QFrame(self.OverviewInfoFrame)
@@ -1200,6 +1180,7 @@ class Ui_MainWindow(object):
 
         self.WordOverviewlabel = QLabelThemed(self.WordOverviewFrame)
         self.WordOverviewlabel.setObjectName(u"WordOverviewlabel")
+        self.WordOverviewlabel.setFont(font)
 
         self.horizontalLayout_29.addWidget(self.WordOverviewlabel)
 
@@ -1220,6 +1201,7 @@ class Ui_MainWindow(object):
 
         self.CategoryOverviewLabel = QLabelThemed(self.CategoryOverviewFrame)
         self.CategoryOverviewLabel.setObjectName(u"CategoryOverviewLabel")
+        self.CategoryOverviewLabel.setFont(font)
 
         self.horizontalLayout_27.addWidget(self.CategoryOverviewLabel)
 
@@ -1241,6 +1223,7 @@ class Ui_MainWindow(object):
 
         self.NoAttemptsOverviewLabel = QLabelThemed(self.AttemptsOverviewFrame)
         self.NoAttemptsOverviewLabel.setObjectName(u"NoAttemptsOverviewLabel")
+        self.NoAttemptsOverviewLabel.setFont(font)
 
         self.horizontalLayout_28.addWidget(self.NoAttemptsOverviewLabel)
 
@@ -1259,9 +1242,69 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.VideoWidget.sizePolicy().hasHeightForWidth())
         self.VideoWidget.setSizePolicy(sizePolicy)
         self.verticalLayout_38 = QVBoxLayout(self.VideoWidget)
-        self.verticalLayout_38.setSpacing(0)
         self.verticalLayout_38.setObjectName(u"verticalLayout_38")
-        self.verticalLayout_38.setContentsMargins(0, 0, 0, 0)
+        self.VideoPlayingWidget = QWidget(self.VideoWidget)
+        self.VideoPlayingWidget.setObjectName(u"VideoPlayingWidget")
+        sizePolicy3.setHeightForWidth(self.VideoPlayingWidget.sizePolicy().hasHeightForWidth())
+        self.VideoPlayingWidget.setSizePolicy(sizePolicy3)
+        self.verticalLayout_65 = QVBoxLayout(self.VideoPlayingWidget)
+        self.verticalLayout_65.setObjectName(u"verticalLayout_65")
+
+        self.verticalLayout_38.addWidget(self.VideoPlayingWidget)
+
+        self.VideoControlsFrane = QFrame(self.VideoWidget)
+        self.VideoControlsFrane.setObjectName(u"VideoControlsFrane")
+        self.VideoControlsFrane.setFrameShape(QFrame.StyledPanel)
+        self.VideoControlsFrane.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_64 = QVBoxLayout(self.VideoControlsFrane)
+        self.verticalLayout_64.setObjectName(u"verticalLayout_64")
+        self.SeekerFrame = QFrame(self.VideoControlsFrane)
+        self.SeekerFrame.setObjectName(u"SeekerFrame")
+        self.SeekerFrame.setFrameShape(QFrame.StyledPanel)
+        self.SeekerFrame.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_31 = QHBoxLayout(self.SeekerFrame)
+        self.horizontalLayout_31.setObjectName(u"horizontalLayout_31")
+        self.DurationWatchedlabel = QLabelThemed(self.SeekerFrame)
+        self.DurationWatchedlabel.setObjectName(u"DurationWatchedlabel")
+        self.DurationWatchedlabel.setFont(font)
+
+        self.horizontalLayout_31.addWidget(self.DurationWatchedlabel)
+
+        self.Vidlengthlabel = QLabelThemed(self.SeekerFrame)
+        self.Vidlengthlabel.setObjectName(u"Vidlengthlabel")
+        self.Vidlengthlabel.setFont(font)
+
+        self.horizontalLayout_31.addWidget(self.Vidlengthlabel)
+
+        self.VideoSeekerSlider = QSlider(self.SeekerFrame)
+        self.VideoSeekerSlider.setObjectName(u"VideoSeekerSlider")
+        self.VideoSeekerSlider.setCursor(QCursor(Qt.OpenHandCursor))
+        self.VideoSeekerSlider.setOrientation(Qt.Horizontal)
+
+        self.horizontalLayout_31.addWidget(self.VideoSeekerSlider)
+
+        self.PlayVideoButton = QPushButtonThemed(self.SeekerFrame)
+        self.PlayVideoButton.setObjectName(u"PlayVideoButton")
+        icon12 = QIcon()
+        icon12.addFile(u":/icons/png2svg/play_white.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon12.addFile(u":/icons/png2svg/play_white.svg", QSize(), QIcon.Active, QIcon.Off)
+        icon12.addFile(u":/icons/png2svg/play_green.svg", QSize(), QIcon.Active, QIcon.On)
+        self.PlayVideoButton.setIcon(icon12)
+        self.PlayVideoButton.setIconSize(QSize(24, 24))
+
+        self.horizontalLayout_31.addWidget(self.PlayVideoButton)
+
+
+        self.verticalLayout_64.addWidget(self.SeekerFrame, 0, Qt.AlignBottom)
+
+
+        self.verticalLayout_38.addWidget(self.VideoControlsFrane, 0, Qt.AlignBottom)
+
+        self.label_11 = QLabelThemed(self.VideoWidget)
+        self.label_11.setObjectName(u"label_11")
+
+        self.verticalLayout_38.addWidget(self.label_11)
+
 
         self.horizontalLayout_15.addWidget(self.VideoWidget)
 
@@ -1270,6 +1313,7 @@ class Ui_MainWindow(object):
 
         self.StartSigningButton = QPushButtonThemed(self.Overview)
         self.StartSigningButton.setObjectName(u"StartSigningButton")
+        self.StartSigningButton.setCursor(QCursor(Qt.OpenHandCursor))
         icon13 = QIcon()
         icon13.addFile(u":/icons/png2svg/Signit-white.svg", QSize(), QIcon.Normal, QIcon.Off)
         icon13.addFile(u":/icons/png2svg/Signit-white.svg", QSize(), QIcon.Active, QIcon.Off)
@@ -1280,11 +1324,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_36.addWidget(self.StartSigningButton, 0, Qt.AlignHCenter)
 
         self.MainWidget.addWidget(self.Overview)
-        self.Live = QWidget()
-        self.Live.setObjectName(u"Live")
-        self.verticalLayout_43 = QVBoxLayout(self.Live)
+        self.Live_pg = QWidget()
+        self.Live_pg.setObjectName(u"Live_pg")
+        self.verticalLayout_43 = QVBoxLayout(self.Live_pg)
         self.verticalLayout_43.setObjectName(u"verticalLayout_43")
-        self.LiveTopFrame = QFrame(self.Live)
+        self.LiveTopFrame = QFrame(self.Live_pg)
         self.LiveTopFrame.setObjectName(u"LiveTopFrame")
         self.LiveTopFrame.setFrameShape(QFrame.StyledPanel)
         self.LiveTopFrame.setFrameShadow(QFrame.Raised)
@@ -1297,8 +1341,8 @@ class Ui_MainWindow(object):
 
         self.LiveModeLabel = QLabelThemed(self.LiveTopFrame)
         self.LiveModeLabel.setObjectName(u"LiveModeLabel")
-        sizePolicy4.setHeightForWidth(self.LiveModeLabel.sizePolicy().hasHeightForWidth())
-        self.LiveModeLabel.setSizePolicy(sizePolicy4)
+        sizePolicy.setHeightForWidth(self.LiveModeLabel.sizePolicy().hasHeightForWidth())
+        self.LiveModeLabel.setSizePolicy(sizePolicy)
 
         self.horizontalLayout_17.addWidget(self.LiveModeLabel)
 
@@ -1309,408 +1353,227 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_43.addWidget(self.LiveTopFrame)
 
-        self.LiveModes = QStackedWidget(self.Live)
-        self.LiveModes.setObjectName(u"LiveModes")
-        self.LiveSpellingBeePage = QWidget()
-        self.LiveSpellingBeePage.setObjectName(u"LiveSpellingBeePage")
-        self.horizontalLayout_18 = QHBoxLayout(self.LiveSpellingBeePage)
+        self.CameraStatus = QLabelThemed(self.Live_pg)
+        self.CameraStatus.setObjectName(u"CameraStatus")
+
+        self.verticalLayout_43.addWidget(self.CameraStatus, 0, Qt.AlignTop)
+
+        self.LiveMainWidget = QWidget(self.Live_pg)
+        self.LiveMainWidget.setObjectName(u"LiveMainWidget")
+        self.horizontalLayout_18 = QHBoxLayout(self.LiveMainWidget)
         self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
-        self.leftbeeframe = QFrame(self.LiveSpellingBeePage)
-        self.leftbeeframe.setObjectName(u"leftbeeframe")
-        sizePolicy.setHeightForWidth(self.leftbeeframe.sizePolicy().hasHeightForWidth())
-        self.leftbeeframe.setSizePolicy(sizePolicy)
-        self.leftbeeframe.setFrameShape(QFrame.StyledPanel)
-        self.leftbeeframe.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_45 = QVBoxLayout(self.leftbeeframe)
+        self.leftframe = QFrame(self.LiveMainWidget)
+        self.leftframe.setObjectName(u"leftframe")
+        sizePolicy6 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.leftframe.sizePolicy().hasHeightForWidth())
+        self.leftframe.setSizePolicy(sizePolicy6)
+        self.leftframe.setFrameShape(QFrame.StyledPanel)
+        self.leftframe.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_45 = QVBoxLayout(self.leftframe)
+        self.verticalLayout_45.setSpacing(0)
         self.verticalLayout_45.setObjectName(u"verticalLayout_45")
-        self.BeeCVframe = QFrame(self.leftbeeframe)
-        self.BeeCVframe.setObjectName(u"BeeCVframe")
-        sizePolicy3.setHeightForWidth(self.BeeCVframe.sizePolicy().hasHeightForWidth())
-        self.BeeCVframe.setSizePolicy(sizePolicy3)
-        self.BeeCVframe.setFrameShape(QFrame.StyledPanel)
-        self.BeeCVframe.setFrameShadow(QFrame.Raised)
-
-        self.verticalLayout_45.addWidget(self.BeeCVframe)
-
-        self.bottomBeeFrame = QFrame(self.leftbeeframe)
-        self.bottomBeeFrame.setObjectName(u"bottomBeeFrame")
-        self.bottomBeeFrame.setFrameShape(QFrame.StyledPanel)
-        self.bottomBeeFrame.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_19 = QHBoxLayout(self.bottomBeeFrame)
-        self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
-        self.BeeBottomInfoFrame = QFrame(self.bottomBeeFrame)
-        self.BeeBottomInfoFrame.setObjectName(u"BeeBottomInfoFrame")
-        self.BeeBottomInfoFrame.setFrameShape(QFrame.StyledPanel)
-        self.BeeBottomInfoFrame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_47 = QVBoxLayout(self.BeeBottomInfoFrame)
-        self.verticalLayout_47.setObjectName(u"verticalLayout_47")
-        self.BeePredictionLabel = QLabelThemed(self.BeeBottomInfoFrame)
-        self.BeePredictionLabel.setObjectName(u"BeePredictionLabel")
-
-        self.verticalLayout_47.addWidget(self.BeePredictionLabel)
-
-        self.BeeAccuracyLabel = QLabelThemed(self.BeeBottomInfoFrame)
-        self.BeeAccuracyLabel.setObjectName(u"BeeAccuracyLabel")
-
-        self.verticalLayout_47.addWidget(self.BeeAccuracyLabel)
-
-
-        self.horizontalLayout_19.addWidget(self.BeeBottomInfoFrame)
-
-        self.BeeButtonsFrame = QFrame(self.bottomBeeFrame)
-        self.BeeButtonsFrame.setObjectName(u"BeeButtonsFrame")
-        self.BeeButtonsFrame.setFrameShape(QFrame.StyledPanel)
-        self.BeeButtonsFrame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_46 = QVBoxLayout(self.BeeButtonsFrame)
-        self.verticalLayout_46.setObjectName(u"verticalLayout_46")
-        self.BeeRetryButton = QPushButtonThemed(self.BeeButtonsFrame)
-        self.BeeRetryButton.setObjectName(u"BeeRetryButton")
-        icon14 = QIcon()
-        icon14.addFile(u":/icons/png2svg/retry-white.svg", QSize(), QIcon.Normal, QIcon.Off)
-        icon14.addFile(u":/icons/png2svg/retry-white.svg", QSize(), QIcon.Active, QIcon.Off)
-        icon14.addFile(u":/icons/png2svg/retry-green.svg", QSize(), QIcon.Active, QIcon.On)
-        self.BeeRetryButton.setIcon(icon14)
-        self.BeeRetryButton.setIconSize(QSize(24, 24))
-
-        self.verticalLayout_46.addWidget(self.BeeRetryButton)
-
-        self.BeeContinueButton = QPushButtonThemed(self.BeeButtonsFrame)
-        self.BeeContinueButton.setObjectName(u"BeeContinueButton")
-        icon15 = QIcon()
-        icon15.addFile(u":/icons/png2svg/continue-white.svg", QSize(), QIcon.Normal, QIcon.Off)
-        icon15.addFile(u":/icons/png2svg/continue-white.svg", QSize(), QIcon.Active, QIcon.Off)
-        icon15.addFile(u":/icons/png2svg/continue-green.svg", QSize(), QIcon.Active, QIcon.On)
-        self.BeeContinueButton.setIcon(icon15)
-        self.BeeContinueButton.setIconSize(QSize(24, 24))
-
-        self.verticalLayout_46.addWidget(self.BeeContinueButton)
-
-
-        self.horizontalLayout_19.addWidget(self.BeeButtonsFrame)
-
-
-        self.verticalLayout_45.addWidget(self.bottomBeeFrame, 0, Qt.AlignBottom)
-
-
-        self.horizontalLayout_18.addWidget(self.leftbeeframe)
-
-        self.BeeRightFrame = QFrame(self.LiveSpellingBeePage)
-        self.BeeRightFrame.setObjectName(u"BeeRightFrame")
-        self.BeeRightFrame.setFrameShape(QFrame.StyledPanel)
-        self.BeeRightFrame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_44 = QVBoxLayout(self.BeeRightFrame)
-        self.verticalLayout_44.setObjectName(u"verticalLayout_44")
-        self.BeeToTranslatorButton = QPushButtonThemed(self.BeeRightFrame)
-        self.BeeToTranslatorButton.setObjectName(u"BeeToTranslatorButton")
-        self.BeeToTranslatorButton.setIcon(icon8)
-        self.BeeToTranslatorButton.setIconSize(QSize(24, 24))
-
-        self.verticalLayout_44.addWidget(self.BeeToTranslatorButton, 0, Qt.AlignRight)
-
-        self.BeeWordFrame = QFrame(self.BeeRightFrame)
-        self.BeeWordFrame.setObjectName(u"BeeWordFrame")
-        self.BeeWordFrame.setFrameShape(QFrame.StyledPanel)
-        self.BeeWordFrame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_60 = QVBoxLayout(self.BeeWordFrame)
-        self.verticalLayout_60.setObjectName(u"verticalLayout_60")
-        self.BeeWordLabel = QLabelThemed(self.BeeWordFrame)
-        self.BeeWordLabel.setObjectName(u"BeeWordLabel")
-
-        self.verticalLayout_60.addWidget(self.BeeWordLabel)
-
-        self.CurrentWordLabel = QLabelThemed(self.BeeWordFrame)
-        self.CurrentWordLabel.setObjectName(u"CurrentWordLabel")
-
-        self.verticalLayout_60.addWidget(self.CurrentWordLabel)
-
-
-        self.verticalLayout_44.addWidget(self.BeeWordFrame, 0, Qt.AlignVCenter)
-
-        self.AccuracyFrame = QFrame(self.BeeRightFrame)
-        self.AccuracyFrame.setObjectName(u"AccuracyFrame")
-        self.AccuracyFrame.setFrameShape(QFrame.StyledPanel)
-        self.AccuracyFrame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_48 = QVBoxLayout(self.AccuracyFrame)
-        self.verticalLayout_48.setObjectName(u"verticalLayout_48")
-        self.BeeAccuracyinfoLabel = QLabelThemed(self.AccuracyFrame)
-        self.BeeAccuracyinfoLabel.setObjectName(u"BeeAccuracyinfoLabel")
-
-        self.verticalLayout_48.addWidget(self.BeeAccuracyinfoLabel)
-
-        self.BeeAVgAccuracyLabel = QLabelThemed(self.AccuracyFrame)
-        self.BeeAVgAccuracyLabel.setObjectName(u"BeeAVgAccuracyLabel")
-
-        self.verticalLayout_48.addWidget(self.BeeAVgAccuracyLabel)
-
-
-        self.verticalLayout_44.addWidget(self.AccuracyFrame, 0, Qt.AlignTop)
-
-
-        self.horizontalLayout_18.addWidget(self.BeeRightFrame, 0, Qt.AlignRight)
-
-        self.LiveModes.addWidget(self.LiveSpellingBeePage)
-        self.LiveWordPage = QWidget()
-        self.LiveWordPage.setObjectName(u"LiveWordPage")
-        self.horizontalLayout_21 = QHBoxLayout(self.LiveWordPage)
-        self.horizontalLayout_21.setObjectName(u"horizontalLayout_21")
-        self.WordMainFrame = QFrame(self.LiveWordPage)
-        self.WordMainFrame.setObjectName(u"WordMainFrame")
-        sizePolicy.setHeightForWidth(self.WordMainFrame.sizePolicy().hasHeightForWidth())
-        self.WordMainFrame.setSizePolicy(sizePolicy)
-        self.WordMainFrame.setFrameShape(QFrame.StyledPanel)
-        self.WordMainFrame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_49 = QVBoxLayout(self.WordMainFrame)
-        self.verticalLayout_49.setObjectName(u"verticalLayout_49")
-        self.WordCVframe = QFrame(self.WordMainFrame)
-        self.WordCVframe.setObjectName(u"WordCVframe")
-        sizePolicy3.setHeightForWidth(self.WordCVframe.sizePolicy().hasHeightForWidth())
-        self.WordCVframe.setSizePolicy(sizePolicy3)
-        self.WordCVframe.setFrameShape(QFrame.StyledPanel)
-        self.WordCVframe.setFrameShadow(QFrame.Raised)
-
-        self.verticalLayout_49.addWidget(self.WordCVframe)
-
-        self.WordBottomFrame = QFrame(self.WordMainFrame)
-        self.WordBottomFrame.setObjectName(u"WordBottomFrame")
-        self.WordBottomFrame.setFrameShape(QFrame.StyledPanel)
-        self.WordBottomFrame.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_20 = QHBoxLayout(self.WordBottomFrame)
-        self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
-        self.WordLabelsframe = QFrame(self.WordBottomFrame)
-        self.WordLabelsframe.setObjectName(u"WordLabelsframe")
-        self.WordLabelsframe.setFrameShape(QFrame.StyledPanel)
-        self.WordLabelsframe.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_50 = QVBoxLayout(self.WordLabelsframe)
+        self.verticalLayout_45.setContentsMargins(0, 0, 0, -1)
+        self.LiveCVframe = QFrame(self.leftframe)
+        self.LiveCVframe.setObjectName(u"LiveCVframe")
+        sizePolicy6.setHeightForWidth(self.LiveCVframe.sizePolicy().hasHeightForWidth())
+        self.LiveCVframe.setSizePolicy(sizePolicy6)
+        self.LiveCVframe.setFrameShape(QFrame.StyledPanel)
+        self.LiveCVframe.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_50 = QVBoxLayout(self.LiveCVframe)
+        self.verticalLayout_50.setSpacing(0)
         self.verticalLayout_50.setObjectName(u"verticalLayout_50")
-        self.WordPredictionLabel = QLabelThemed(self.WordLabelsframe)
-        self.WordPredictionLabel.setObjectName(u"WordPredictionLabel")
+        self.verticalLayout_50.setContentsMargins(0, 0, 0, 0)
+        self.LiveFootageLabel = QLabelThemed(self.LiveCVframe)
+        self.LiveFootageLabel.setObjectName(u"LiveFootageLabel")
+        sizePolicy6.setHeightForWidth(self.LiveFootageLabel.sizePolicy().hasHeightForWidth())
+        self.LiveFootageLabel.setSizePolicy(sizePolicy6)
+
+        self.verticalLayout_50.addWidget(self.LiveFootageLabel)
+
+
+        self.verticalLayout_45.addWidget(self.LiveCVframe)
+
+        self.bottomLiveFrame = QFrame(self.leftframe)
+        self.bottomLiveFrame.setObjectName(u"bottomLiveFrame")
+        self.bottomLiveFrame.setFrameShape(QFrame.StyledPanel)
+        self.bottomLiveFrame.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_19 = QHBoxLayout(self.bottomLiveFrame)
+        self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
+        self.LiveBottomInfoFrame = QFrame(self.bottomLiveFrame)
+        self.LiveBottomInfoFrame.setObjectName(u"LiveBottomInfoFrame")
+        self.LiveBottomInfoFrame.setFrameShape(QFrame.StyledPanel)
+        self.LiveBottomInfoFrame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_47 = QVBoxLayout(self.LiveBottomInfoFrame)
+        self.verticalLayout_47.setObjectName(u"verticalLayout_47")
+        self.frame_7 = QFrame(self.LiveBottomInfoFrame)
+        self.frame_7.setObjectName(u"frame_7")
+        self.frame_7.setFrameShape(QFrame.StyledPanel)
+        self.frame_7.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_32 = QHBoxLayout(self.frame_7)
+        self.horizontalLayout_32.setObjectName(u"horizontalLayout_32")
+        self.LivePredictionLabel = QLabelThemed(self.frame_7)
+        self.LivePredictionLabel.setObjectName(u"LivePredictionLabel")
+
+        self.horizontalLayout_32.addWidget(self.LivePredictionLabel)
+
+        self.predictionlabel = QLabelThemed(self.frame_7)
+        self.predictionlabel.setObjectName(u"predictionlabel")
+        font1 = QFont()
+        font1.setPointSize(16)
+        font1.setBold(True)
+        self.predictionlabel.setFont(font1)
+
+        self.horizontalLayout_32.addWidget(self.predictionlabel)
+
+
+        self.verticalLayout_47.addWidget(self.frame_7)
+
+
+        self.horizontalLayout_19.addWidget(self.LiveBottomInfoFrame)
+
+        self.LiveButtonsFrame = QFrame(self.bottomLiveFrame)
+        self.LiveButtonsFrame.setObjectName(u"LiveButtonsFrame")
+        self.LiveButtonsFrame.setFrameShape(QFrame.StyledPanel)
+        self.LiveButtonsFrame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_46 = QVBoxLayout(self.LiveButtonsFrame)
+        self.verticalLayout_46.setObjectName(u"verticalLayout_46")
+        self.LiveAddtoTypedButton = QPushButtonThemed(self.LiveButtonsFrame)
+        self.LiveAddtoTypedButton.setObjectName(u"LiveAddtoTypedButton")
+        self.LiveAddtoTypedButton.setIconSize(QSize(24, 24))
+
+        self.verticalLayout_46.addWidget(self.LiveAddtoTypedButton)
+
+        self.LiveContinueButton = QPushButtonThemed(self.LiveButtonsFrame)
+        self.LiveContinueButton.setObjectName(u"LiveContinueButton")
+        icon14 = QIcon()
+        icon14.addFile(u":/icons/png2svg/continue-white.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon14.addFile(u":/icons/png2svg/continue-white.svg", QSize(), QIcon.Active, QIcon.Off)
+        icon14.addFile(u":/icons/png2svg/continue-green.svg", QSize(), QIcon.Active, QIcon.On)
+        self.LiveContinueButton.setIcon(icon14)
+        self.LiveContinueButton.setIconSize(QSize(24, 24))
+
+        self.verticalLayout_46.addWidget(self.LiveContinueButton)
+
+
+        self.horizontalLayout_19.addWidget(self.LiveButtonsFrame)
+
+
+        self.verticalLayout_45.addWidget(self.bottomLiveFrame, 0, Qt.AlignBottom)
+
+
+        self.horizontalLayout_18.addWidget(self.leftframe)
+
+        self.LiveRightFrame = QFrame(self.LiveMainWidget)
+        self.LiveRightFrame.setObjectName(u"LiveRightFrame")
+        self.LiveRightFrame.setFrameShape(QFrame.StyledPanel)
+        self.LiveRightFrame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_44 = QVBoxLayout(self.LiveRightFrame)
+        self.verticalLayout_44.setObjectName(u"verticalLayout_44")
+        self.LiveToTranslatorButton = QPushButtonThemed(self.LiveRightFrame)
+        self.LiveToTranslatorButton.setObjectName(u"LiveToTranslatorButton")
+        self.LiveToTranslatorButton.setIcon(icon7)
+        self.LiveToTranslatorButton.setIconSize(QSize(24, 24))
 
-        self.verticalLayout_50.addWidget(self.WordPredictionLabel)
+        self.verticalLayout_44.addWidget(self.LiveToTranslatorButton)
 
-        self.WordAccuracyLabel = QLabelThemed(self.WordLabelsframe)
-        self.WordAccuracyLabel.setObjectName(u"WordAccuracyLabel")
+        self.scrollArea_3 = QScrollArea(self.LiveRightFrame)
+        self.scrollArea_3.setObjectName(u"scrollArea_3")
+        sizePolicy2.setHeightForWidth(self.scrollArea_3.sizePolicy().hasHeightForWidth())
+        self.scrollArea_3.setSizePolicy(sizePolicy2)
+        self.scrollArea_3.setMinimumSize(QSize(200, 0))
+        self.scrollArea_3.setMaximumSize(QSize(200, 16777215))
+        self.scrollArea_3.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 200, 92))
+        self.verticalLayout_39 = QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout_39.setObjectName(u"verticalLayout_39")
+        self.typedinfolabel = QLabelThemed(self.scrollAreaWidgetContents)
+        self.typedinfolabel.setObjectName(u"typedinfolabel")
 
-        self.verticalLayout_50.addWidget(self.WordAccuracyLabel)
+        self.verticalLayout_39.addWidget(self.typedinfolabel)
 
+        self.typedinputlabel = QLabelThemed(self.scrollAreaWidgetContents)
+        self.typedinputlabel.setObjectName(u"typedinputlabel")
+        self.typedinputlabel.setFont(font)
 
-        self.horizontalLayout_20.addWidget(self.WordLabelsframe)
+        self.verticalLayout_39.addWidget(self.typedinputlabel)
 
-        self.WordButtonFrames = QFrame(self.WordBottomFrame)
-        self.WordButtonFrames.setObjectName(u"WordButtonFrames")
-        self.WordButtonFrames.setFrameShape(QFrame.StyledPanel)
-        self.WordButtonFrames.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_51 = QVBoxLayout(self.WordButtonFrames)
-        self.verticalLayout_51.setObjectName(u"verticalLayout_51")
-        self.WordRetrybutton = QPushButtonThemed(self.WordButtonFrames)
-        self.WordRetrybutton.setObjectName(u"WordRetrybutton")
-        self.WordRetrybutton.setIcon(icon14)
-        self.WordRetrybutton.setIconSize(QSize(24, 24))
+        self.scrollArea_3.setWidget(self.scrollAreaWidgetContents)
 
-        self.verticalLayout_51.addWidget(self.WordRetrybutton)
+        self.verticalLayout_44.addWidget(self.scrollArea_3)
 
-        self.WordEndButton = QPushButtonThemed(self.WordButtonFrames)
-        self.WordEndButton.setObjectName(u"WordEndButton")
-        self.WordEndButton.setIcon(icon15)
-        self.WordEndButton.setIconSize(QSize(24, 24))
+        self.frame_6 = QFrame(self.LiveRightFrame)
+        self.frame_6.setObjectName(u"frame_6")
+        self.frame_6.setFrameShape(QFrame.StyledPanel)
+        self.frame_6.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_25 = QVBoxLayout(self.frame_6)
+        self.verticalLayout_25.setSpacing(0)
+        self.verticalLayout_25.setObjectName(u"verticalLayout_25")
+        self.verticalLayout_25.setContentsMargins(6, 7, 0, 0)
+        self.LiveLabel = QLabelThemed(self.frame_6)
+        self.LiveLabel.setObjectName(u"LiveLabel")
 
-        self.verticalLayout_51.addWidget(self.WordEndButton)
+        self.verticalLayout_25.addWidget(self.LiveLabel)
 
+        self.CurrentWordLabel = QLabelThemed(self.frame_6)
+        self.CurrentWordLabel.setObjectName(u"CurrentWordLabel")
+        sizePolicy3.setHeightForWidth(self.CurrentWordLabel.sizePolicy().hasHeightForWidth())
+        self.CurrentWordLabel.setSizePolicy(sizePolicy3)
+        self.CurrentWordLabel.setFont(font)
 
-        self.horizontalLayout_20.addWidget(self.WordButtonFrames)
+        self.verticalLayout_25.addWidget(self.CurrentWordLabel)
 
 
-        self.verticalLayout_49.addWidget(self.WordBottomFrame, 0, Qt.AlignBottom)
+        self.verticalLayout_44.addWidget(self.frame_6, 0, Qt.AlignVCenter)
 
+        self.ScoreFrame = QFrame(self.LiveRightFrame)
+        self.ScoreFrame.setObjectName(u"ScoreFrame")
+        self.ScoreFrame.setFrameShape(QFrame.StyledPanel)
+        self.ScoreFrame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_48 = QVBoxLayout(self.ScoreFrame)
+        self.verticalLayout_48.setObjectName(u"verticalLayout_48")
+        self.ScoreInfoLabel = QLabelThemed(self.ScoreFrame)
+        self.ScoreInfoLabel.setObjectName(u"ScoreInfoLabel")
 
-        self.horizontalLayout_21.addWidget(self.WordMainFrame)
+        self.verticalLayout_48.addWidget(self.ScoreInfoLabel)
 
-        self.RightWordFrame = QFrame(self.LiveWordPage)
-        self.RightWordFrame.setObjectName(u"RightWordFrame")
-        self.RightWordFrame.setFrameShape(QFrame.StyledPanel)
-        self.RightWordFrame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_52 = QVBoxLayout(self.RightWordFrame)
-        self.verticalLayout_52.setObjectName(u"verticalLayout_52")
-        self.WordToOverviewButton = QPushButtonThemed(self.RightWordFrame)
-        self.WordToOverviewButton.setObjectName(u"WordToOverviewButton")
-        self.WordToOverviewButton.setIcon(icon8)
-        self.WordToOverviewButton.setIconSize(QSize(24, 24))
+        self.ScoreLabel = QLabelThemed(self.ScoreFrame)
+        self.ScoreLabel.setObjectName(u"ScoreLabel")
 
-        self.verticalLayout_52.addWidget(self.WordToOverviewButton, 0, Qt.AlignRight)
+        self.verticalLayout_48.addWidget(self.ScoreLabel)
 
-        self.WordInfoFrame = QFrame(self.RightWordFrame)
-        self.WordInfoFrame.setObjectName(u"WordInfoFrame")
-        self.WordInfoFrame.setFrameShape(QFrame.StyledPanel)
-        self.WordInfoFrame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_53 = QVBoxLayout(self.WordInfoFrame)
-        self.verticalLayout_53.setObjectName(u"verticalLayout_53")
-        self.CategoryInfoLabel = QLabelThemed(self.WordInfoFrame)
-        self.CategoryInfoLabel.setObjectName(u"CategoryInfoLabel")
 
-        self.verticalLayout_53.addWidget(self.CategoryInfoLabel)
+        self.verticalLayout_44.addWidget(self.ScoreFrame, 0, Qt.AlignVCenter)
 
-        self.CategoryLabel = QLabelThemed(self.WordInfoFrame)
-        self.CategoryLabel.setObjectName(u"CategoryLabel")
+        self.frame_8 = QFrame(self.LiveRightFrame)
+        self.frame_8.setObjectName(u"frame_8")
+        self.frame_8.setFrameShape(QFrame.StyledPanel)
+        self.frame_8.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_20 = QHBoxLayout(self.frame_8)
+        self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
+        self.ToggleCamera = QPushButtonThemed(self.frame_8)
+        self.ToggleCamera.setObjectName(u"ToggleCamera")
+        icon15 = QIcon()
+        icon15.addFile(u":/icons/png2svg/camera-On.svg", QSize(), QIcon.Normal, QIcon.Off)
+        icon15.addFile(u":/icons/png2svg/Camera-Off.svg", QSize(), QIcon.Normal, QIcon.On)
+        self.ToggleCamera.setIcon(icon15)
+        self.ToggleCamera.setIconSize(QSize(24, 24))
 
-        self.verticalLayout_53.addWidget(self.CategoryLabel)
+        self.horizontalLayout_20.addWidget(self.ToggleCamera)
 
-        self.WordInfoLabel = QLabelThemed(self.WordInfoFrame)
-        self.WordInfoLabel.setObjectName(u"WordInfoLabel")
 
-        self.verticalLayout_53.addWidget(self.WordInfoLabel)
+        self.verticalLayout_44.addWidget(self.frame_8, 0, Qt.AlignTop)
 
-        self.WordLabel = QLabelThemed(self.WordInfoFrame)
-        self.WordLabel.setObjectName(u"WordLabel")
 
-        self.verticalLayout_53.addWidget(self.WordLabel)
+        self.horizontalLayout_18.addWidget(self.LiveRightFrame, 0, Qt.AlignRight)
 
 
-        self.verticalLayout_52.addWidget(self.WordInfoFrame, 0, Qt.AlignVCenter)
+        self.verticalLayout_43.addWidget(self.LiveMainWidget)
 
-
-        self.horizontalLayout_21.addWidget(self.RightWordFrame)
-
-        self.LiveModes.addWidget(self.LiveWordPage)
-        self.LiveWritingPage = QWidget()
-        self.LiveWritingPage.setObjectName(u"LiveWritingPage")
-        self.horizontalLayout_23 = QHBoxLayout(self.LiveWritingPage)
-        self.horizontalLayout_23.setObjectName(u"horizontalLayout_23")
-        self.LivepageLeftFrame = QFrame(self.LiveWritingPage)
-        self.LivepageLeftFrame.setObjectName(u"LivepageLeftFrame")
-        sizePolicy.setHeightForWidth(self.LivepageLeftFrame.sizePolicy().hasHeightForWidth())
-        self.LivepageLeftFrame.setSizePolicy(sizePolicy)
-        self.LivepageLeftFrame.setFrameShape(QFrame.StyledPanel)
-        self.LivepageLeftFrame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_54 = QVBoxLayout(self.LivepageLeftFrame)
-        self.verticalLayout_54.setObjectName(u"verticalLayout_54")
-        self.WritingCVframe = QFrame(self.LivepageLeftFrame)
-        self.WritingCVframe.setObjectName(u"WritingCVframe")
-        sizePolicy3.setHeightForWidth(self.WritingCVframe.sizePolicy().hasHeightForWidth())
-        self.WritingCVframe.setSizePolicy(sizePolicy3)
-        self.WritingCVframe.setFrameShape(QFrame.StyledPanel)
-        self.WritingCVframe.setFrameShadow(QFrame.Raised)
-
-        self.verticalLayout_54.addWidget(self.WritingCVframe)
-
-        self.bottomliveframe = QFrame(self.LivepageLeftFrame)
-        self.bottomliveframe.setObjectName(u"bottomliveframe")
-        self.bottomliveframe.setFrameShape(QFrame.StyledPanel)
-        self.bottomliveframe.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_22 = QHBoxLayout(self.bottomliveframe)
-        self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
-        self.labelsliveframe = QFrame(self.bottomliveframe)
-        self.labelsliveframe.setObjectName(u"labelsliveframe")
-        self.labelsliveframe.setFrameShape(QFrame.StyledPanel)
-        self.labelsliveframe.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_55 = QVBoxLayout(self.labelsliveframe)
-        self.verticalLayout_55.setObjectName(u"verticalLayout_55")
-        self.WritingPredictionLabel = QLabelThemed(self.labelsliveframe)
-        self.WritingPredictionLabel.setObjectName(u"WritingPredictionLabel")
-
-        self.verticalLayout_55.addWidget(self.WritingPredictionLabel)
-
-        self.WritingPrediction = QLabelThemed(self.labelsliveframe)
-        self.WritingPrediction.setObjectName(u"WritingPrediction")
-
-        self.verticalLayout_55.addWidget(self.WritingPrediction)
-
-
-        self.horizontalLayout_22.addWidget(self.labelsliveframe)
-
-        self.buttonsliveframe = QFrame(self.bottomliveframe)
-        self.buttonsliveframe.setObjectName(u"buttonsliveframe")
-        self.buttonsliveframe.setFrameShape(QFrame.StyledPanel)
-        self.buttonsliveframe.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_56 = QVBoxLayout(self.buttonsliveframe)
-        self.verticalLayout_56.setObjectName(u"verticalLayout_56")
-        self.retryWritingButton = QPushButtonThemed(self.buttonsliveframe)
-        self.retryWritingButton.setObjectName(u"retryWritingButton")
-        self.retryWritingButton.setIcon(icon14)
-        self.retryWritingButton.setIconSize(QSize(24, 24))
-
-        self.verticalLayout_56.addWidget(self.retryWritingButton)
-
-        self.ContinueWritingButton = QPushButtonThemed(self.buttonsliveframe)
-        self.ContinueWritingButton.setObjectName(u"ContinueWritingButton")
-        self.ContinueWritingButton.setIcon(icon15)
-        self.ContinueWritingButton.setIconSize(QSize(24, 24))
-
-        self.verticalLayout_56.addWidget(self.ContinueWritingButton)
-
-
-        self.horizontalLayout_22.addWidget(self.buttonsliveframe)
-
-
-        self.verticalLayout_54.addWidget(self.bottomliveframe, 0, Qt.AlignBottom)
-
-
-        self.horizontalLayout_23.addWidget(self.LivepageLeftFrame)
-
-        self.LiveWritingRightPanel = QFrame(self.LiveWritingPage)
-        self.LiveWritingRightPanel.setObjectName(u"LiveWritingRightPanel")
-        self.LiveWritingRightPanel.setFrameShape(QFrame.StyledPanel)
-        self.LiveWritingRightPanel.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_57 = QVBoxLayout(self.LiveWritingRightPanel)
-        self.verticalLayout_57.setObjectName(u"verticalLayout_57")
-        self.WritingToTranslatorButton = QPushButtonThemed(self.LiveWritingRightPanel)
-        self.WritingToTranslatorButton.setObjectName(u"WritingToTranslatorButton")
-        icon16 = QIcon()
-        icon16.addFile(u":/icons/png2svg/quitmenu-white.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.WritingToTranslatorButton.setIcon(icon16)
-        self.WritingToTranslatorButton.setIconSize(QSize(24, 24))
-
-        self.verticalLayout_57.addWidget(self.WritingToTranslatorButton, 0, Qt.AlignRight)
-
-        self.WritingOutputframe = QFrame(self.LiveWritingRightPanel)
-        self.WritingOutputframe.setObjectName(u"WritingOutputframe")
-        self.WritingOutputframe.setFrameShape(QFrame.StyledPanel)
-        self.WritingOutputframe.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_59 = QVBoxLayout(self.WritingOutputframe)
-        self.verticalLayout_59.setObjectName(u"verticalLayout_59")
-        self.label_16 = QLabelThemed(self.WritingOutputframe)
-        self.label_16.setObjectName(u"label_16")
-
-        self.verticalLayout_59.addWidget(self.label_16)
-
-        self.WrtitingOutputLabel = QLabelThemed(self.WritingOutputframe)
-        self.WrtitingOutputLabel.setObjectName(u"WrtitingOutputLabel")
-
-        self.verticalLayout_59.addWidget(self.WrtitingOutputLabel)
-
-
-        self.verticalLayout_57.addWidget(self.WritingOutputframe, 0, Qt.AlignVCenter)
-
-        self.WritingInfoFrame = QFrame(self.LiveWritingRightPanel)
-        self.WritingInfoFrame.setObjectName(u"WritingInfoFrame")
-        self.WritingInfoFrame.setFrameShape(QFrame.StyledPanel)
-        self.WritingInfoFrame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_58 = QVBoxLayout(self.WritingInfoFrame)
-        self.verticalLayout_58.setObjectName(u"verticalLayout_58")
-        self.label_34 = QLabelThemed(self.WritingInfoFrame)
-        self.label_34.setObjectName(u"label_34")
-
-        self.verticalLayout_58.addWidget(self.label_34)
-
-        self.label_35 = QLabelThemed(self.WritingInfoFrame)
-        self.label_35.setObjectName(u"label_35")
-
-        self.verticalLayout_58.addWidget(self.label_35)
-
-        self.label_36 = QLabelThemed(self.WritingInfoFrame)
-        self.label_36.setObjectName(u"label_36")
-
-        self.verticalLayout_58.addWidget(self.label_36)
-
-
-        self.verticalLayout_57.addWidget(self.WritingInfoFrame)
-
-
-        self.horizontalLayout_23.addWidget(self.LiveWritingRightPanel)
-
-        self.LiveModes.addWidget(self.LiveWritingPage)
-
-        self.verticalLayout_43.addWidget(self.LiveModes)
-
-        self.MainWidget.addWidget(self.Live)
+        self.MainWidget.addWidget(self.Live_pg)
 
         self.verticalLayout_16.addWidget(self.MainWidget)
 
@@ -1721,11 +1584,10 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.OptionsWidget.setCurrentIndex(2)
-        self.AccountNavWidget.setCurrentIndex(0)
+        self.OptionsWidget.setCurrentIndex(0)
+        self.AccountNavWidget.setCurrentIndex(1)
         self.AccountCreationWidget.setCurrentIndex(1)
         self.MainWidget.setCurrentIndex(3)
-        self.LiveModes.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1746,10 +1608,6 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.ProfileButton.setText(QCoreApplication.translate("MainWindow", u"My Profile", None))
 #if QT_CONFIG(tooltip)
-        self.TranslatorButton.setToolTip(QCoreApplication.translate("MainWindow", u"Translator - MENU", None))
-#endif // QT_CONFIG(tooltip)
-        self.TranslatorButton.setText(QCoreApplication.translate("MainWindow", u"Translator", None))
-#if QT_CONFIG(tooltip)
         self.LiveButton.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Live Translation- SHORTCUT</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.LiveButton.setText(QCoreApplication.translate("MainWindow", u"Live", None))
@@ -1757,6 +1615,9 @@ class Ui_MainWindow(object):
         self.SettingsButton.setToolTip(QCoreApplication.translate("MainWindow", u"Settings", None))
 #endif // QT_CONFIG(tooltip)
         self.SettingsButton.setText(QCoreApplication.translate("MainWindow", u"Settings", None))
+#if QT_CONFIG(tooltip)
+        self.MinimiseButton.setToolTip(QCoreApplication.translate("MainWindow", u"Minimise", None))
+#endif // QT_CONFIG(tooltip)
         self.MinimiseButton.setText(QCoreApplication.translate("MainWindow", u"Minimise", None))
 #if QT_CONFIG(tooltip)
         self.ExitButton.setToolTip(QCoreApplication.translate("MainWindow", u"Exit", None))
@@ -1778,7 +1639,7 @@ class Ui_MainWindow(object):
         self.detailstosignuplabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">Enter details to Sign Up</span></p></body></html>", None))
         self.alreadyaccountlabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt;\">Already have an Account?</span></p><p align=\"center\"><span style=\" font-size:10pt;\">Click below to Login</span></p></body></html>", None))
 #if QT_CONFIG(tooltip)
-        self.toLoginbutton.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">To Login</p></body></html>", None))
+        self.toLoginbutton.setToolTip(QCoreApplication.translate("MainWindow", u"To login", None))
 #endif // QT_CONFIG(tooltip)
         self.toLoginbutton.setText(QCoreApplication.translate("MainWindow", u"Login", None))
         self.loginlabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700;\">Login</span></p></body></html>", None))
@@ -1787,6 +1648,9 @@ class Ui_MainWindow(object):
         self.PassLoginEdit.setInputMask("")
         self.PassLoginEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Password", None))
         self.forgotpasslabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><a href=\"https://www.google.com/\"><span style=\" text-decoration: underline; color:#0000ff;\">Forgot your password?</span></a></p></body></html>", None))
+#if QT_CONFIG(tooltip)
+        self.Login_Button.setToolTip(QCoreApplication.translate("MainWindow", u"Log In", None))
+#endif // QT_CONFIG(tooltip)
         self.Login_Button.setText(QCoreApplication.translate("MainWindow", u"Login", None))
         self.SignUplabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:700;\">Sign Up</span></p></body></html>", None))
         self.UsernameSignupEdit.setText("")
@@ -1804,23 +1668,23 @@ class Ui_MainWindow(object):
         self.LogoutButton.setText(QCoreApplication.translate("MainWindow", u"LogOut", None))
         self.LoggedInLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Logged in as:</span></p></body></html>", None))
         self.usernameLoggedinlabel.setText("")
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.label_6.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.label_5.setText("")
+        self.label_6.setText("")
         self.label_9.setText("")
-        self.CameraSettingComboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"Main Camera", None))
-        self.CameraSettingComboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"0", None))
+        self.CameraSettingComboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"Select Main Camera", None))
 
-        self.CameraSettingComboBox.setCurrentText("")
-        self.CameraSettingComboBox.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Main Camera", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.CameraSettingComboBox.setCurrentText(QCoreApplication.translate("MainWindow", u"Select Main Camera", None))
+        self.CameraSettingComboBox.setPlaceholderText("")
+        self.CameraRescan.setText(QCoreApplication.translate("MainWindow", u"Rescan for Cameras", None))
 #if QT_CONFIG(tooltip)
         self.NotificationsWidget.setToolTip(QCoreApplication.translate("MainWindow", u"Login", None))
 #endif // QT_CONFIG(tooltip)
+        self.iconNot.setText("")
         self.labelNot.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt;\">Notifications:</span></p></body></html>", None))
-        self.Notifications_Label.setText("")
-        self.label_19.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:16pt; font-weight:700; text-decoration: underline;\">| Dashboard:</span></p></body></html>", None))
-        self.label_21.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Category:</span></p></body></html>", None))
-        self.label_20.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+#if QT_CONFIG(tooltip)
+        self.AcknowledgeNotifications.setToolTip(QCoreApplication.translate("MainWindow", u"Acknowledge all notifications", None))
+#endif // QT_CONFIG(tooltip)
+        self.AcknowledgeNotifications.setText(QCoreApplication.translate("MainWindow", u"Acknowledge All", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:16pt; font-weight:700; text-decoration: underline;\">| Translator</span></p></body></html>", None))
         self.livecameradisplay.setText("")
         self.livelabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:16pt; font-weight:700;\">Live</span></p></body></html>", None))
@@ -1832,6 +1696,8 @@ class Ui_MainWindow(object):
         self.label_4.setText("")
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:16pt; font-weight:700;\">Spelling </span></p><p><span style=\" font-size:16pt; font-weight:700;\">       Bee</span></p></body></html>", None))
         self.BeeTranDescription.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.SpellingBeenotificationlabel.setText("")
+        self.SpellingBeeWordEntry.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Enter Word for bee", None))
 #if QT_CONFIG(tooltip)
         self.StartSpellingBeeButton.setToolTip(QCoreApplication.translate("MainWindow", u"Start Spelling Bee", None))
 #endif // QT_CONFIG(tooltip)
@@ -1849,9 +1715,15 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.CatalogueToTranslatorButton.setText("")
         self.SearchIconLabel.setText("")
+#if QT_CONFIG(tooltip)
+        self.CatalogueSearchBar.setToolTip(QCoreApplication.translate("MainWindow", u"Search Words", None))
+#endif // QT_CONFIG(tooltip)
         self.categorySearchLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Category:</span></p></body></html>", None))
         self.CatalogueCategoryselector.setItemText(0, QCoreApplication.translate("MainWindow", u"All", None))
 
+#if QT_CONFIG(tooltip)
+        self.CatalogueCategoryselector.setToolTip(QCoreApplication.translate("MainWindow", u"Search by Category", None))
+#endif // QT_CONFIG(tooltip)
         self.CatalogueCategoryselector.setCurrentText(QCoreApplication.translate("MainWindow", u"All", None))
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:16pt; font-weight:700; text-decoration: underline;\">| Overview:</span></p></body></html>", None))
 #if QT_CONFIG(tooltip)
@@ -1859,47 +1731,37 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.OverviewToCatalogueButton.setText("")
         self.OverviewWordLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Word:</span></p></body></html>", None))
-        self.WordOverviewlabel.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.WordOverviewlabel.setText("")
         self.OverviewCategoryLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Category</span></p></body></html>", None))
-        self.CategoryOverviewLabel.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.CategoryOverviewLabel.setText("")
         self.OverviewNoAttemptsLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Number of </span></p><p><span style=\" font-size:12pt; font-weight:700;\">Attempts:</span></p></body></html>", None))
-        self.NoAttemptsOverviewLabel.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.NoAttemptsOverviewLabel.setText("")
+        self.DurationWatchedlabel.setText("")
+        self.Vidlengthlabel.setText("")
+#if QT_CONFIG(tooltip)
+        self.PlayVideoButton.setToolTip(QCoreApplication.translate("MainWindow", u"Start Video", None))
+#endif // QT_CONFIG(tooltip)
+        self.PlayVideoButton.setText(QCoreApplication.translate("MainWindow", u"Play", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Press Play to start the video", None))
         self.StartSigningButton.setText(QCoreApplication.translate("MainWindow", u"Sign It", None))
         self.Livetoplabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:16pt; font-weight:700;\">| Live: </span></p></body></html>", None))
-        self.LiveModeLabel.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.BeePredictionLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Prediction:</span></p></body></html>", None))
-        self.BeeAccuracyLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Accuracy:</span></p></body></html>", None))
-        self.BeeRetryButton.setText(QCoreApplication.translate("MainWindow", u"Retry", None))
-        self.BeeContinueButton.setText(QCoreApplication.translate("MainWindow", u"Continue", None))
+        self.LiveModeLabel.setText("")
+        self.CameraStatus.setText("")
+        self.LiveFootageLabel.setText("")
+        self.LivePredictionLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Prediction:</span></p></body></html>", None))
+        self.predictionlabel.setText("")
+        self.LiveAddtoTypedButton.setText(QCoreApplication.translate("MainWindow", u"ADD", None))
+        self.LiveContinueButton.setText(QCoreApplication.translate("MainWindow", u"Ready?", None))
 #if QT_CONFIG(tooltip)
-        self.BeeToTranslatorButton.setToolTip(QCoreApplication.translate("MainWindow", u"To Translator", None))
+        self.LiveToTranslatorButton.setToolTip(QCoreApplication.translate("MainWindow", u"To Translator", None))
 #endif // QT_CONFIG(tooltip)
-        self.BeeToTranslatorButton.setText("")
-        self.BeeWordLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Word:</span></p></body></html>", None))
-        self.CurrentWordLabel.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.BeeAccuracyinfoLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Average </span></p><p><span style=\" font-size:12pt; font-weight:700;\">Accuracy:</span></p></body></html>", None))
-        self.BeeAVgAccuracyLabel.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.WordPredictionLabel.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.WordAccuracyLabel.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.WordRetrybutton.setText(QCoreApplication.translate("MainWindow", u"Retry", None))
-        self.WordEndButton.setText(QCoreApplication.translate("MainWindow", u"Continue", None))
-        self.WordToOverviewButton.setText("")
-        self.CategoryInfoLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Category:</span></p></body></html>", None))
-        self.CategoryLabel.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.WordInfoLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Word:</span></p></body></html>", None))
-        self.WordLabel.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.WritingPredictionLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Prediction:</span></p></body></html>", None))
-        self.WritingPrediction.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.retryWritingButton.setText(QCoreApplication.translate("MainWindow", u"Retry", None))
-        self.ContinueWritingButton.setText(QCoreApplication.translate("MainWindow", u"Continue", None))
-#if QT_CONFIG(tooltip)
-        self.WritingToTranslatorButton.setToolTip(QCoreApplication.translate("MainWindow", u"To Translator", None))
-#endif // QT_CONFIG(tooltip)
-        self.WritingToTranslatorButton.setText("")
-        self.label_16.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:700;\">Typed:</span></p></body></html>", None))
-        self.WrtitingOutputLabel.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.label_34.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.label_35.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.label_36.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.LiveToTranslatorButton.setText("")
+        self.typedinfolabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Typed:</span></p></body></html>", None))
+        self.typedinputlabel.setText("")
+        self.LiveLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Word:</span></p></body></html>", None))
+        self.CurrentWordLabel.setText("")
+        self.ScoreInfoLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Score</span></p></body></html>", None))
+        self.ScoreLabel.setText("")
+        self.ToggleCamera.setText(QCoreApplication.translate("MainWindow", u"Turn Camera On", None))
     # retranslateUi
 

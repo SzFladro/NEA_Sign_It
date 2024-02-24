@@ -3,7 +3,9 @@ import hashlib
 import hmac
 import re
 from DataBase import config, SQLQueries
+from Interface import Notifications 
 
+notificationhandler = Notifications.NotificationHandler
 config_user = config.Config()
 
 #Hashes the user password using their username and salt, then stores it within the database
@@ -29,10 +31,10 @@ def create_User(user_name,password):
         SQLQuery = "INSERT INTO Users (username, password,Salt) VALUES(?,?,?)"
         parameters = (user_name, Hashpassword, salt)
         msg = SQLQueries.AccountSQLExecutor(SQLQuery, parameters, "Create")
-        print(msg)
+        return True
                         
     else:
-        print("The Username is taken")
+        return False
 
 def Login(user_name,password):
     if SQLQueries.checkuser(user_name):
@@ -42,14 +44,13 @@ def Login(user_name,password):
         hashpass = hash_password(user_name,password, salt)
         if hashpass == hashedpassword:
             config_user.set_username(user_name)
-            print(user_name)
-            return f"Logged In Successfully as {user_name}"
+            return True
         else:
-            return "Incorrect Password"
+            return False
             
          
     else:
-        return "The username doesn't exist, maybe try creating an account?"
+        notificationhandler.trigger_notification("The account doesn't exist,\n maybe try creating an account?",1,"info")
             
 def password_strength(password):
     # Initialize score and rating

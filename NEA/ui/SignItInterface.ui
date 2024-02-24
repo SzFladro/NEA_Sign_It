@@ -262,31 +262,6 @@ QLineEdit{
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="TranslatorButton">
-               <property name="cursor">
-                <cursorShape>OpenHandCursor</cursorShape>
-               </property>
-               <property name="toolTip">
-                <string>Translator - MENU</string>
-               </property>
-               <property name="text">
-                <string>Translator</string>
-               </property>
-               <property name="icon">
-                <iconset resource="../qss/icons/Icons.qrc">
-                 <normaloff>:/icons/png2svg/ai-white.svg</normaloff>
-                 <activeoff>:/icons/png2svg/ai-white.svg</activeoff>
-                 <activeon>:/icons/png2svg/ai-green.svg</activeon>:/icons/png2svg/ai-white.svg</iconset>
-               </property>
-               <property name="iconSize">
-                <size>
-                 <width>24</width>
-                 <height>24</height>
-                </size>
-               </property>
-              </widget>
-             </item>
-             <item>
               <widget class="QPushButton" name="LiveButton">
                <property name="cursor">
                 <cursorShape>OpenHandCursor</cursorShape>
@@ -375,6 +350,9 @@ QLineEdit{
              </item>
              <item>
               <widget class="QPushButton" name="MinimiseButton">
+               <property name="toolTip">
+                <string>Minimise</string>
+               </property>
                <property name="text">
                 <string>Minimise</string>
                </property>
@@ -533,7 +511,7 @@ QLineEdit{
        <item>
         <widget class="QStackedWidget" name="OptionsWidget">
          <property name="currentIndex">
-          <number>2</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="Account_pg">
           <layout class="QVBoxLayout" name="verticalLayout_17">
@@ -549,7 +527,7 @@ QLineEdit{
               <item>
                <widget class="QCustomQStackedWidget" name="AccountNavWidget">
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="LoginnavWidget">
                  <layout class="QVBoxLayout" name="verticalLayout_26">
@@ -762,7 +740,7 @@ QLineEdit{
                         <cursorShape>OpenHandCursor</cursorShape>
                        </property>
                        <property name="toolTip">
-                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;To Login&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                        <string>To login</string>
                        </property>
                        <property name="text">
                         <string>Login</string>
@@ -843,6 +821,13 @@ QLineEdit{
                        <layout class="QVBoxLayout" name="verticalLayout_62">
                         <item>
                          <widget class="QLineEdit" name="UsernameLoginEdit">
+                          <property name="font">
+                           <font>
+                            <pointsize>-1</pointsize>
+                            <italic>false</italic>
+                            <bold>true</bold>
+                           </font>
+                          </property>
                           <property name="autoFillBackground">
                            <bool>false</bool>
                           </property>
@@ -859,6 +844,13 @@ QLineEdit{
                         </item>
                         <item>
                          <widget class="QLineEdit" name="PassLoginEdit">
+                          <property name="font">
+                           <font>
+                            <pointsize>-1</pointsize>
+                            <italic>false</italic>
+                            <bold>true</bold>
+                           </font>
+                          </property>
                           <property name="inputMask">
                            <string/>
                           </property>
@@ -893,6 +885,9 @@ QLineEdit{
                       <widget class="QPushButton" name="Login_Button">
                        <property name="cursor">
                         <cursorShape>OpenHandCursor</cursorShape>
+                       </property>
+                       <property name="toolTip">
+                        <string>Log In</string>
                        </property>
                        <property name="text">
                         <string>Login</string>
@@ -996,6 +991,13 @@ QLineEdit{
                         </property>
                         <item>
                          <widget class="QLineEdit" name="UsernameSignupEdit">
+                          <property name="font">
+                           <font>
+                            <pointsize>-1</pointsize>
+                            <italic>false</italic>
+                            <bold>true</bold>
+                           </font>
+                          </property>
                           <property name="autoFillBackground">
                            <bool>false</bool>
                           </property>
@@ -1009,6 +1011,13 @@ QLineEdit{
                         </item>
                         <item>
                          <widget class="QLineEdit" name="PassSignupEdit">
+                          <property name="font">
+                           <font>
+                            <pointsize>-1</pointsize>
+                            <italic>false</italic>
+                            <bold>true</bold>
+                           </font>
+                          </property>
                           <property name="echoMode">
                            <enum>QLineEdit::Normal</enum>
                           </property>
@@ -1019,6 +1028,13 @@ QLineEdit{
                         </item>
                         <item>
                          <widget class="QLineEdit" name="ConfirmPassEdit">
+                          <property name="font">
+                           <font>
+                            <pointsize>-1</pointsize>
+                            <italic>false</italic>
+                            <bold>true</bold>
+                           </font>
+                          </property>
                           <property name="echoMode">
                            <enum>QLineEdit::Normal</enum>
                           </property>
@@ -1032,6 +1048,12 @@ QLineEdit{
                         </item>
                         <item>
                          <widget class="QProgressBar" name="Strengthmeter">
+                          <property name="font">
+                           <font>
+                            <pointsize>11</pointsize>
+                            <bold>true</bold>
+                           </font>
+                          </property>
                           <property name="value">
                            <number>0</number>
                           </property>
@@ -1177,6 +1199,12 @@ QLineEdit{
               </item>
               <item>
                <widget class="QLabel" name="usernameLoggedinlabel">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string/>
                 </property>
@@ -1185,14 +1213,14 @@ QLineEdit{
               <item>
                <widget class="QLabel" name="label_5">
                 <property name="text">
-                 <string>TextLabel</string>
+                 <string/>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QLabel" name="label_6">
                 <property name="text">
-                 <string>TextLabel</string>
+                 <string/>
                 </property>
                </widget>
               </item>
@@ -1233,31 +1261,38 @@ QLineEdit{
                  </item>
                  <item>
                   <widget class="QComboBox" name="CameraSettingComboBox">
+                   <property name="font">
+                    <font>
+                     <pointsize>12</pointsize>
+                    </font>
+                   </property>
                    <property name="editable">
                     <bool>false</bool>
                    </property>
                    <property name="currentText">
-                    <string/>
+                    <string>Select Main Camera</string>
                    </property>
                    <property name="maxVisibleItems">
                     <number>10</number>
                    </property>
                    <property name="placeholderText">
-                    <string>Main Camera</string>
+                    <string/>
                    </property>
                    <item>
                     <property name="text">
-                     <string>Main Camera</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>0</string>
+                     <string>Select Main Camera</string>
                     </property>
                    </item>
                   </widget>
                  </item>
                 </layout>
+               </widget>
+              </item>
+              <item alignment="Qt::AlignHCenter">
+               <widget class="QPushButton" name="CameraRescan">
+                <property name="text">
+                 <string>Rescan for Cameras</string>
+                </property>
                </widget>
               </item>
               <item>
@@ -1268,18 +1303,7 @@ QLineEdit{
                 <property name="frameShadow">
                  <enum>QFrame::Raised</enum>
                 </property>
-                <layout class="QHBoxLayout" name="horizontalLayout_26">
-                 <item>
-                  <widget class="QLabel" name="label_3">
-                   <property name="text">
-                    <string>TextLabel</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QComboBox" name="comboBox"/>
-                 </item>
-                </layout>
+                <layout class="QHBoxLayout" name="horizontalLayout_26"/>
                </widget>
               </item>
              </layout>
@@ -1325,10 +1349,64 @@ QLineEdit{
              <enum>QFrame::Raised</enum>
             </property>
             <layout class="QHBoxLayout" name="horizontalLayout_5">
-             <item>
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>7</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item alignment="Qt::AlignLeft">
+              <widget class="QLabel" name="iconNot">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+               <property name="pixmap">
+                <pixmap resource="../qss/icons/Icons.qrc">:/icons/png2svg/notifications_icon.svg</pixmap>
+               </property>
+              </widget>
+             </item>
+             <item alignment="Qt::AlignLeft">
               <widget class="QLabel" name="labelNot">
                <property name="text">
                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Notifications:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="horizontalSpacer_2">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item alignment="Qt::AlignRight">
+              <widget class="QPushButton" name="AcknowledgeNotifications">
+               <property name="toolTip">
+                <string>Acknowledge all notifications</string>
+               </property>
+               <property name="text">
+                <string>Acknowledge All</string>
                </property>
               </widget>
              </item>
@@ -1350,6 +1428,21 @@ QLineEdit{
              <enum>QFrame::Raised</enum>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_15">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
              <item>
               <widget class="QScrollArea" name="scrollArea_2">
                <property name="widgetResizable">
@@ -1360,18 +1453,26 @@ QLineEdit{
                  <rect>
                   <x>0</x>
                   <y>0</y>
-                  <width>355</width>
-                  <height>180</height>
+                  <width>401</width>
+                  <height>169</height>
                  </rect>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_41">
-                 <item>
-                  <widget class="QLabel" name="Notifications_Label">
-                   <property name="text">
-                    <string/>
-                   </property>
-                  </widget>
-                 </item>
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
                 </layout>
                </widget>
               </widget>
@@ -1420,8 +1521,11 @@ QLineEdit{
          <property name="currentIndex">
           <number>3</number>
          </property>
-         <widget class="QWidget" name="Dashboard">
-          <layout class="QVBoxLayout" name="verticalLayout_25">
+         <widget class="QWidget" name="Translator">
+          <layout class="QVBoxLayout" name="verticalLayout_23">
+           <property name="spacing">
+            <number>0</number>
+           </property>
            <property name="leftMargin">
             <number>0</number>
            </property>
@@ -1432,87 +1536,8 @@ QLineEdit{
             <number>0</number>
            </property>
            <property name="bottomMargin">
-            <number>0</number>
+            <number>10</number>
            </property>
-           <item alignment="Qt::AlignTop">
-            <widget class="QFrame" name="UpperDashboardFrame">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_40">
-              <property name="leftMargin">
-               <number>0</number>
-              </property>
-              <property name="topMargin">
-               <number>0</number>
-              </property>
-              <property name="rightMargin">
-               <number>0</number>
-              </property>
-              <property name="bottomMargin">
-               <number>0</number>
-              </property>
-              <item>
-               <widget class="QLabel" name="label_19">
-                <property name="text">
-                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:16pt; font-weight:700; text-decoration: underline;&quot;&gt;| Dashboard:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QFrame" name="CategorySelectorFrame">
-                <property name="frameShape">
-                 <enum>QFrame::StyledPanel</enum>
-                </property>
-                <property name="frameShadow">
-                 <enum>QFrame::Raised</enum>
-                </property>
-                <layout class="QHBoxLayout" name="horizontalLayout_16">
-                 <property name="spacing">
-                  <number>0</number>
-                 </property>
-                 <item alignment="Qt::AlignLeft">
-                  <widget class="QLabel" name="label_21">
-                   <property name="text">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Category:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QComboBox" name="DashboardCategorySelector"/>
-                 </item>
-                </layout>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QWidget" name="MainDashboardWidget" native="true">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_39">
-              <item>
-               <widget class="QLabel" name="label_20">
-                <property name="text">
-                 <string>TextLabel</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="Translator">
-          <layout class="QVBoxLayout" name="verticalLayout_23">
            <item alignment="Qt::AlignTop">
             <widget class="QFrame" name="UpperTranslatorFrame">
              <property name="frameShape">
@@ -1541,9 +1566,45 @@ QLineEdit{
               </sizepolicy>
              </property>
              <layout class="QHBoxLayout" name="horizontalLayout_13">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
               <item>
                <widget class="QWidget" name="LiveTranslationWidget" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <layout class="QVBoxLayout" name="verticalLayout_10">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
                  <item alignment="Qt::AlignTop">
                   <widget class="QFrame" name="LiveTranslationTop">
                    <property name="frameShape">
@@ -1599,6 +1660,11 @@ QLineEdit{
                    <layout class="QVBoxLayout" name="verticalLayout_12">
                     <item>
                      <widget class="QLabel" name="LiveTranDescription">
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
                       <property name="text">
                        <string>TextLabel</string>
                       </property>
@@ -1621,6 +1687,14 @@ QLineEdit{
                    <layout class="QVBoxLayout" name="verticalLayout_11">
                     <item>
                      <widget class="QPushButton" name="StartLiveTranslationbutton">
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
+                      <property name="cursor">
+                       <cursorShape>OpenHandCursor</cursorShape>
+                      </property>
                       <property name="text">
                        <string>Open </string>
                       </property>
@@ -1638,9 +1712,24 @@ QLineEdit{
                 </layout>
                </widget>
               </item>
-              <item>
+              <item alignment="Qt::AlignHCenter">
                <widget class="QWidget" name="SpellingBeeWidget" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <layout class="QVBoxLayout" name="verticalLayout_13">
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
                  <item alignment="Qt::AlignTop">
                   <widget class="QFrame" name="BeeTopFrame">
                    <property name="frameShape">
@@ -1681,6 +1770,11 @@ QLineEdit{
                    <layout class="QVBoxLayout" name="verticalLayout_22">
                     <item>
                      <widget class="QLabel" name="BeeTranDescription">
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
                       <property name="text">
                        <string>TextLabel</string>
                       </property>
@@ -1691,6 +1785,12 @@ QLineEdit{
                  </item>
                  <item alignment="Qt::AlignBottom">
                   <widget class="QFrame" name="BeeTranBottomFrame">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
                    </property>
@@ -1698,8 +1798,61 @@ QLineEdit{
                     <enum>QFrame::Raised</enum>
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_20">
+                    <property name="spacing">
+                     <number>28</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="SpellingBeenotificationlabel">
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="wordWrap">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="SpellingBeeWordEntry">
+                      <property name="font">
+                       <font>
+                        <pointsize>-1</pointsize>
+                        <italic>false</italic>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="placeholderText">
+                       <string>Enter Word for bee</string>
+                      </property>
+                     </widget>
+                    </item>
                     <item>
                      <widget class="QPushButton" name="StartSpellingBeeButton">
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
+                      <property name="cursor">
+                       <cursorShape>OpenHandCursor</cursorShape>
+                      </property>
                       <property name="toolTip">
                        <string>Start Spelling Bee</string>
                       </property>
@@ -1722,7 +1875,28 @@ QLineEdit{
               </item>
               <item>
                <widget class="QWidget" name="CatalogueTranWidget" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
                 <layout class="QVBoxLayout" name="verticalLayout_18">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
                  <item alignment="Qt::AlignTop">
                   <widget class="QFrame" name="CatalogueTranUpperframe">
                    <property name="frameShape">
@@ -1763,6 +1937,11 @@ QLineEdit{
                    <layout class="QVBoxLayout" name="verticalLayout_19">
                     <item>
                      <widget class="QLabel" name="label_10">
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
                       <property name="text">
                        <string>TextLabel</string>
                       </property>
@@ -1773,6 +1952,11 @@ QLineEdit{
                  </item>
                  <item alignment="Qt::AlignBottom">
                   <widget class="QFrame" name="TranCatBottomFrame">
+                   <property name="font">
+                    <font>
+                     <pointsize>12</pointsize>
+                    </font>
+                   </property>
                    <property name="toolTip">
                     <string>Open Catalogue</string>
                    </property>
@@ -1785,6 +1969,14 @@ QLineEdit{
                    <layout class="QVBoxLayout" name="verticalLayout_21">
                     <item>
                      <widget class="QPushButton" name="OpenCatalogueButton">
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
+                      <property name="cursor">
+                       <cursorShape>OpenHandCursor</cursorShape>
+                      </property>
                       <property name="text">
                        <string>Open</string>
                       </property>
@@ -1973,6 +2165,16 @@ QLineEdit{
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>-1</pointsize>
+                        <italic>false</italic>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="toolTip">
+                       <string>Search Words</string>
+                      </property>
                       <property name="echoMode">
                        <enum>QLineEdit::Normal</enum>
                       </property>
@@ -2020,6 +2222,17 @@ QLineEdit{
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
+                      <property name="cursor">
+                       <cursorShape>OpenHandCursor</cursorShape>
+                      </property>
+                      <property name="toolTip">
+                       <string>Search by Category</string>
+                      </property>
                       <property name="editable">
                        <bool>false</bool>
                       </property>
@@ -2058,7 +2271,7 @@ QLineEdit{
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>638</width>
+                   <width>610</width>
                    <height>447</height>
                   </rect>
                  </property>
@@ -2106,6 +2319,14 @@ QLineEdit{
               </item>
               <item alignment="Qt::AlignRight">
                <widget class="QPushButton" name="OverviewToCatalogueButton">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
+                <property name="cursor">
+                 <cursorShape>OpenHandCursor</cursorShape>
+                </property>
                 <property name="toolTip">
                  <string>Back to Catalogue</string>
                 </property>
@@ -2163,7 +2384,7 @@ QLineEdit{
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_37">
                  <property name="spacing">
-                  <number>0</number>
+                  <number>14</number>
                  </property>
                  <property name="leftMargin">
                   <number>0</number>
@@ -2195,8 +2416,14 @@ QLineEdit{
                     </item>
                     <item>
                      <widget class="QLabel" name="WordOverviewlabel">
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="text">
-                       <string>TextLabel</string>
+                       <string/>
                       </property>
                      </widget>
                     </item>
@@ -2233,8 +2460,14 @@ QLineEdit{
                     </item>
                     <item>
                      <widget class="QLabel" name="CategoryOverviewLabel">
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="text">
-                       <string>TextLabel</string>
+                       <string/>
                       </property>
                      </widget>
                     </item>
@@ -2274,8 +2507,14 @@ QLineEdit{
                     </item>
                     <item>
                      <widget class="QLabel" name="NoAttemptsOverviewLabel">
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="text">
-                       <string>TextLabel</string>
+                       <string/>
                       </property>
                      </widget>
                     </item>
@@ -2307,21 +2546,109 @@ QLineEdit{
                  </sizepolicy>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_38">
-                 <property name="spacing">
-                  <number>0</number>
-                 </property>
-                 <property name="leftMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>0</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>0</number>
-                 </property>
+                 <item>
+                  <widget class="QWidget" name="VideoPlayingWidget" native="true">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_65"/>
+                  </widget>
+                 </item>
+                 <item alignment="Qt::AlignBottom">
+                  <widget class="QFrame" name="VideoControlsFrane">
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_64">
+                    <item alignment="Qt::AlignBottom">
+                     <widget class="QFrame" name="SeekerFrame">
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <layout class="QHBoxLayout" name="horizontalLayout_31">
+                       <item>
+                        <widget class="QLabel" name="DurationWatchedlabel">
+                         <property name="font">
+                          <font>
+                           <pointsize>12</pointsize>
+                           <bold>true</bold>
+                          </font>
+                         </property>
+                         <property name="text">
+                          <string/>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="Vidlengthlabel">
+                         <property name="font">
+                          <font>
+                           <pointsize>12</pointsize>
+                           <bold>true</bold>
+                          </font>
+                         </property>
+                         <property name="text">
+                          <string/>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QSlider" name="VideoSeekerSlider">
+                         <property name="cursor">
+                          <cursorShape>OpenHandCursor</cursorShape>
+                         </property>
+                         <property name="orientation">
+                          <enum>Qt::Horizontal</enum>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="PlayVideoButton">
+                         <property name="cursor">
+                          <cursorShape>OpenHandCursor</cursorShape>
+                         </property>
+                         <property name="toolTip">
+                          <string>Start Video</string>
+                         </property>
+                         <property name="text">
+                          <string>Play</string>
+                         </property>
+                         <property name="icon">
+                          <iconset resource="../qss/icons/Icons.qrc">
+                           <normaloff>:/icons/png2svg/play_white.svg</normaloff>
+                           <activeoff>:/icons/png2svg/play_white.svg</activeoff>
+                           <activeon>:/icons/png2svg/play_green.svg</activeon>:/icons/png2svg/play_white.svg</iconset>
+                         </property>
+                         <property name="iconSize">
+                          <size>
+                           <width>24</width>
+                           <height>24</height>
+                          </size>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_11">
+                   <property name="text">
+                    <string>Press Play to start the video</string>
+                   </property>
+                  </widget>
+                 </item>
                 </layout>
                </widget>
               </item>
@@ -2330,6 +2657,14 @@ QLineEdit{
            </item>
            <item alignment="Qt::AlignHCenter">
             <widget class="QPushButton" name="StartSigningButton">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="cursor">
+              <cursorShape>OpenHandCursor</cursorShape>
+             </property>
              <property name="text">
               <string>Sign It</string>
              </property>
@@ -2349,7 +2684,7 @@ QLineEdit{
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="Live">
+         <widget class="QWidget" name="Live_pg">
           <layout class="QVBoxLayout" name="verticalLayout_43">
            <item>
             <widget class="QFrame" name="LiveTopFrame">
@@ -2370,13 +2705,19 @@ QLineEdit{
               <item>
                <widget class="QLabel" name="LiveModeLabel">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
-                 <string>TextLabel</string>
+                 <string/>
                 </property>
                </widget>
               </item>
@@ -2396,637 +2737,409 @@ QLineEdit{
              </layout>
             </widget>
            </item>
-           <item>
-            <widget class="QStackedWidget" name="LiveModes">
-             <property name="currentIndex">
-              <number>2</number>
+           <item alignment="Qt::AlignTop">
+            <widget class="QLabel" name="CameraStatus">
+             <property name="text">
+              <string/>
              </property>
-             <widget class="QWidget" name="LiveSpellingBeePage">
-              <layout class="QHBoxLayout" name="horizontalLayout_18">
-               <item>
-                <widget class="QFrame" name="leftbeeframe">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
+            </widget>
+           </item>
+           <item>
+            <widget class="QWidget" name="LiveMainWidget" native="true">
+             <layout class="QHBoxLayout" name="horizontalLayout_18">
+              <item>
+               <widget class="QFrame" name="leftframe">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_45">
+                 <property name="spacing">
+                  <number>0</number>
                  </property>
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
+                 <property name="leftMargin">
+                  <number>0</number>
                  </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
+                 <property name="topMargin">
+                  <number>0</number>
                  </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_45">
-                  <item>
-                   <widget class="QFrame" name="BeeCVframe">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
+                 <property name="rightMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QFrame" name="LiveCVframe">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_50">
+                    <property name="spacing">
+                     <number>0</number>
                     </property>
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
+                    <property name="leftMargin">
+                     <number>0</number>
                     </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
+                    <property name="topMargin">
+                     <number>0</number>
                     </property>
-                   </widget>
-                  </item>
-                  <item alignment="Qt::AlignBottom">
-                   <widget class="QFrame" name="bottomBeeFrame">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
+                    <property name="rightMargin">
+                     <number>0</number>
                     </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
+                    <property name="bottomMargin">
+                     <number>0</number>
                     </property>
-                    <layout class="QHBoxLayout" name="horizontalLayout_19">
+                    <item>
+                     <widget class="QLabel" name="LiveFootageLabel">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item alignment="Qt::AlignBottom">
+                  <widget class="QFrame" name="bottomLiveFrame">
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_19">
+                    <item>
+                     <widget class="QFrame" name="LiveBottomInfoFrame">
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_47">
+                       <item>
+                        <widget class="QFrame" name="frame_7">
+                         <property name="frameShape">
+                          <enum>QFrame::StyledPanel</enum>
+                         </property>
+                         <property name="frameShadow">
+                          <enum>QFrame::Raised</enum>
+                         </property>
+                         <layout class="QHBoxLayout" name="horizontalLayout_32">
+                          <item>
+                           <widget class="QLabel" name="LivePredictionLabel">
+                            <property name="font">
+                             <font>
+                              <pointsize>12</pointsize>
+                              <bold>true</bold>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Prediction:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                            </property>
+                           </widget>
+                          </item>
+                          <item>
+                           <widget class="QLabel" name="predictionlabel">
+                            <property name="font">
+                             <font>
+                              <pointsize>16</pointsize>
+                              <bold>true</bold>
+                             </font>
+                            </property>
+                            <property name="text">
+                             <string/>
+                            </property>
+                           </widget>
+                          </item>
+                         </layout>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QFrame" name="LiveButtonsFrame">
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Raised</enum>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_46">
+                       <item>
+                        <widget class="QPushButton" name="LiveAddtoTypedButton">
+                         <property name="font">
+                          <font>
+                           <pointsize>12</pointsize>
+                           <bold>false</bold>
+                          </font>
+                         </property>
+                         <property name="text">
+                          <string>ADD</string>
+                         </property>
+                         <property name="iconSize">
+                          <size>
+                           <width>24</width>
+                           <height>24</height>
+                          </size>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="LiveContinueButton">
+                         <property name="font">
+                          <font>
+                           <pointsize>12</pointsize>
+                          </font>
+                         </property>
+                         <property name="text">
+                          <string>Ready?</string>
+                         </property>
+                         <property name="icon">
+                          <iconset resource="../qss/icons/Icons.qrc">
+                           <normaloff>:/icons/png2svg/continue-white.svg</normaloff>
+                           <activeoff>:/icons/png2svg/continue-white.svg</activeoff>
+                           <activeon>:/icons/png2svg/continue-green.svg</activeon>:/icons/png2svg/continue-white.svg</iconset>
+                         </property>
+                         <property name="iconSize">
+                          <size>
+                           <width>24</width>
+                           <height>24</height>
+                          </size>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item alignment="Qt::AlignRight">
+               <widget class="QFrame" name="LiveRightFrame">
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_44">
+                 <item>
+                  <widget class="QPushButton" name="LiveToTranslatorButton">
+                   <property name="font">
+                    <font>
+                     <pointsize>12</pointsize>
+                    </font>
+                   </property>
+                   <property name="cursor">
+                    <cursorShape>OpenHandCursor</cursorShape>
+                   </property>
+                   <property name="toolTip">
+                    <string>To Translator</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="icon">
+                    <iconset resource="../qss/icons/Icons.qrc">
+                     <normaloff>:/icons/png2svg/quitmenu-white.svg</normaloff>
+                     <activeoff>:/icons/png2svg/quitmenu-white.svg</activeoff>
+                     <activeon>:/icons/png2svg/quitmenu-green.svg</activeon>:/icons/png2svg/quitmenu-white.svg</iconset>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>24</width>
+                     <height>24</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QScrollArea" name="scrollArea_3">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>200</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>200</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="widgetResizable">
+                    <bool>true</bool>
+                   </property>
+                   <widget class="QWidget" name="scrollAreaWidgetContents">
+                    <property name="geometry">
+                     <rect>
+                      <x>0</x>
+                      <y>0</y>
+                      <width>200</width>
+                      <height>125</height>
+                     </rect>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_39">
                      <item>
-                      <widget class="QFrame" name="BeeBottomInfoFrame">
-                       <property name="frameShape">
-                        <enum>QFrame::StyledPanel</enum>
+                      <widget class="QLabel" name="typedinfolabel">
+                       <property name="font">
+                        <font>
+                         <pointsize>14</pointsize>
+                         <bold>true</bold>
+                        </font>
                        </property>
-                       <property name="frameShadow">
-                        <enum>QFrame::Raised</enum>
-                       </property>
-                       <layout class="QVBoxLayout" name="verticalLayout_47">
-                        <item>
-                         <widget class="QLabel" name="BeePredictionLabel">
-                          <property name="text">
-                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Prediction:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QLabel" name="BeeAccuracyLabel">
-                          <property name="text">
-                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Accuracy:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QFrame" name="BeeButtonsFrame">
-                       <property name="frameShape">
-                        <enum>QFrame::StyledPanel</enum>
-                       </property>
-                       <property name="frameShadow">
-                        <enum>QFrame::Raised</enum>
-                       </property>
-                       <layout class="QVBoxLayout" name="verticalLayout_46">
-                        <item>
-                         <widget class="QPushButton" name="BeeRetryButton">
-                          <property name="text">
-                           <string>Retry</string>
-                          </property>
-                          <property name="icon">
-                           <iconset resource="../qss/icons/Icons.qrc">
-                            <normaloff>:/icons/png2svg/retry-white.svg</normaloff>
-                            <activeoff>:/icons/png2svg/retry-white.svg</activeoff>
-                            <activeon>:/icons/png2svg/retry-green.svg</activeon>:/icons/png2svg/retry-white.svg</iconset>
-                          </property>
-                          <property name="iconSize">
-                           <size>
-                            <width>24</width>
-                            <height>24</height>
-                           </size>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="BeeContinueButton">
-                          <property name="text">
-                           <string>Continue</string>
-                          </property>
-                          <property name="icon">
-                           <iconset resource="../qss/icons/Icons.qrc">
-                            <normaloff>:/icons/png2svg/continue-white.svg</normaloff>
-                            <activeoff>:/icons/png2svg/continue-white.svg</activeoff>
-                            <activeon>:/icons/png2svg/continue-green.svg</activeon>:/icons/png2svg/continue-white.svg</iconset>
-                          </property>
-                          <property name="iconSize">
-                           <size>
-                            <width>24</width>
-                            <height>24</height>
-                           </size>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item alignment="Qt::AlignRight">
-                <widget class="QFrame" name="BeeRightFrame">
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_44">
-                  <item alignment="Qt::AlignRight">
-                   <widget class="QPushButton" name="BeeToTranslatorButton">
-                    <property name="toolTip">
-                     <string>To Translator</string>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                    <property name="icon">
-                     <iconset resource="../qss/icons/Icons.qrc">
-                      <normaloff>:/icons/png2svg/quitmenu-white.svg</normaloff>
-                      <activeoff>:/icons/png2svg/quitmenu-white.svg</activeoff>
-                      <activeon>:/icons/png2svg/quitmenu-green.svg</activeon>:/icons/png2svg/quitmenu-white.svg</iconset>
-                    </property>
-                    <property name="iconSize">
-                     <size>
-                      <width>24</width>
-                      <height>24</height>
-                     </size>
-                    </property>
-                   </widget>
-                  </item>
-                  <item alignment="Qt::AlignVCenter">
-                   <widget class="QFrame" name="BeeWordFrame">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
-                    </property>
-                    <layout class="QVBoxLayout" name="verticalLayout_60">
-                     <item>
-                      <widget class="QLabel" name="BeeWordLabel">
                        <property name="text">
-                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Word:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Typed:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                        </property>
                       </widget>
                      </item>
                      <item>
-                      <widget class="QLabel" name="CurrentWordLabel">
+                      <widget class="QLabel" name="typedinputlabel">
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                         <bold>true</bold>
+                        </font>
+                       </property>
                        <property name="text">
-                        <string>TextLabel</string>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                  <item alignment="Qt::AlignTop">
-                   <widget class="QFrame" name="AccuracyFrame">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
-                    </property>
-                    <layout class="QVBoxLayout" name="verticalLayout_48">
-                     <item>
-                      <widget class="QLabel" name="BeeAccuracyinfoLabel">
-                       <property name="text">
-                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Average &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Accuracy:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="BeeAVgAccuracyLabel">
-                       <property name="text">
-                        <string>TextLabel</string>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-             <widget class="QWidget" name="LiveWordPage">
-              <layout class="QHBoxLayout" name="horizontalLayout_21">
-               <item>
-                <widget class="QFrame" name="WordMainFrame">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_49">
-                  <item>
-                   <widget class="QFrame" name="WordCVframe">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
-                    </property>
-                   </widget>
-                  </item>
-                  <item alignment="Qt::AlignBottom">
-                   <widget class="QFrame" name="WordBottomFrame">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
-                    </property>
-                    <layout class="QHBoxLayout" name="horizontalLayout_20">
-                     <item>
-                      <widget class="QFrame" name="WordLabelsframe">
-                       <property name="frameShape">
-                        <enum>QFrame::StyledPanel</enum>
-                       </property>
-                       <property name="frameShadow">
-                        <enum>QFrame::Raised</enum>
-                       </property>
-                       <layout class="QVBoxLayout" name="verticalLayout_50">
-                        <item>
-                         <widget class="QLabel" name="WordPredictionLabel">
-                          <property name="text">
-                           <string>TextLabel</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QLabel" name="WordAccuracyLabel">
-                          <property name="text">
-                           <string>TextLabel</string>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QFrame" name="WordButtonFrames">
-                       <property name="frameShape">
-                        <enum>QFrame::StyledPanel</enum>
-                       </property>
-                       <property name="frameShadow">
-                        <enum>QFrame::Raised</enum>
-                       </property>
-                       <layout class="QVBoxLayout" name="verticalLayout_51">
-                        <item>
-                         <widget class="QPushButton" name="WordRetrybutton">
-                          <property name="text">
-                           <string>Retry</string>
-                          </property>
-                          <property name="icon">
-                           <iconset resource="../qss/icons/Icons.qrc">
-                            <normaloff>:/icons/png2svg/retry-white.svg</normaloff>
-                            <activeoff>:/icons/png2svg/retry-white.svg</activeoff>
-                            <activeon>:/icons/png2svg/retry-green.svg</activeon>:/icons/png2svg/retry-white.svg</iconset>
-                          </property>
-                          <property name="iconSize">
-                           <size>
-                            <width>24</width>
-                            <height>24</height>
-                           </size>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="WordEndButton">
-                          <property name="text">
-                           <string>Continue</string>
-                          </property>
-                          <property name="icon">
-                           <iconset resource="../qss/icons/Icons.qrc">
-                            <normaloff>:/icons/png2svg/continue-white.svg</normaloff>
-                            <activeoff>:/icons/png2svg/continue-white.svg</activeoff>
-                            <activeon>:/icons/png2svg/continue-green.svg</activeon>:/icons/png2svg/continue-white.svg</iconset>
-                          </property>
-                          <property name="iconSize">
-                           <size>
-                            <width>24</width>
-                            <height>24</height>
-                           </size>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item>
-                <widget class="QFrame" name="RightWordFrame">
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_52">
-                  <item alignment="Qt::AlignRight">
-                   <widget class="QPushButton" name="WordToOverviewButton">
-                    <property name="text">
-                     <string/>
-                    </property>
-                    <property name="icon">
-                     <iconset resource="../qss/icons/Icons.qrc">
-                      <normaloff>:/icons/png2svg/quitmenu-white.svg</normaloff>
-                      <activeoff>:/icons/png2svg/quitmenu-white.svg</activeoff>
-                      <activeon>:/icons/png2svg/quitmenu-green.svg</activeon>:/icons/png2svg/quitmenu-white.svg</iconset>
-                    </property>
-                    <property name="iconSize">
-                     <size>
-                      <width>24</width>
-                      <height>24</height>
-                     </size>
-                    </property>
-                   </widget>
-                  </item>
-                  <item alignment="Qt::AlignVCenter">
-                   <widget class="QFrame" name="WordInfoFrame">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
-                    </property>
-                    <layout class="QVBoxLayout" name="verticalLayout_53">
-                     <item>
-                      <widget class="QLabel" name="CategoryInfoLabel">
-                       <property name="text">
-                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Category:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="CategoryLabel">
-                       <property name="text">
-                        <string>TextLabel</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="WordInfoLabel">
-                       <property name="text">
-                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Word:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="WordLabel">
-                       <property name="text">
-                        <string>TextLabel</string>
+                        <string/>
                        </property>
                       </widget>
                      </item>
                     </layout>
                    </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-              </layout>
-             </widget>
-             <widget class="QWidget" name="LiveWritingPage">
-              <layout class="QHBoxLayout" name="horizontalLayout_23">
-               <item>
-                <widget class="QFrame" name="LivepageLeftFrame">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_54">
-                  <item>
-                   <widget class="QFrame" name="WritingCVframe">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
+                  </widget>
+                 </item>
+                 <item alignment="Qt::AlignVCenter">
+                  <widget class="QFrame" name="frame_6">
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_25">
+                    <property name="spacing">
+                     <number>0</number>
                     </property>
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
+                    <property name="leftMargin">
+                     <number>6</number>
                     </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
+                    <property name="topMargin">
+                     <number>7</number>
                     </property>
-                   </widget>
-                  </item>
-                  <item alignment="Qt::AlignBottom">
-                   <widget class="QFrame" name="bottomliveframe">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
+                    <property name="rightMargin">
+                     <number>0</number>
                     </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
+                    <property name="bottomMargin">
+                     <number>0</number>
                     </property>
-                    <layout class="QHBoxLayout" name="horizontalLayout_22">
-                     <item>
-                      <widget class="QFrame" name="labelsliveframe">
-                       <property name="frameShape">
-                        <enum>QFrame::StyledPanel</enum>
-                       </property>
-                       <property name="frameShadow">
-                        <enum>QFrame::Raised</enum>
-                       </property>
-                       <layout class="QVBoxLayout" name="verticalLayout_55">
-                        <item>
-                         <widget class="QLabel" name="WritingPredictionLabel">
-                          <property name="text">
-                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Prediction:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QLabel" name="WritingPrediction">
-                          <property name="text">
-                           <string>TextLabel</string>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QFrame" name="buttonsliveframe">
-                       <property name="frameShape">
-                        <enum>QFrame::StyledPanel</enum>
-                       </property>
-                       <property name="frameShadow">
-                        <enum>QFrame::Raised</enum>
-                       </property>
-                       <layout class="QVBoxLayout" name="verticalLayout_56">
-                        <item>
-                         <widget class="QPushButton" name="retryWritingButton">
-                          <property name="text">
-                           <string>Retry</string>
-                          </property>
-                          <property name="icon">
-                           <iconset resource="../qss/icons/Icons.qrc">
-                            <normaloff>:/icons/png2svg/retry-white.svg</normaloff>
-                            <activeoff>:/icons/png2svg/retry-white.svg</activeoff>
-                            <activeon>:/icons/png2svg/retry-green.svg</activeon>:/icons/png2svg/retry-white.svg</iconset>
-                          </property>
-                          <property name="iconSize">
-                           <size>
-                            <width>24</width>
-                            <height>24</height>
-                           </size>
-                          </property>
-                         </widget>
-                        </item>
-                        <item>
-                         <widget class="QPushButton" name="ContinueWritingButton">
-                          <property name="text">
-                           <string>Continue</string>
-                          </property>
-                          <property name="icon">
-                           <iconset resource="../qss/icons/Icons.qrc">
-                            <normaloff>:/icons/png2svg/continue-white.svg</normaloff>
-                            <activeoff>:/icons/png2svg/continue-white.svg</activeoff>
-                            <activeon>:/icons/png2svg/continue-green.svg</activeon>:/icons/png2svg/continue-white.svg</iconset>
-                          </property>
-                          <property name="iconSize">
-                           <size>
-                            <width>24</width>
-                            <height>24</height>
-                           </size>
-                          </property>
-                         </widget>
-                        </item>
-                       </layout>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item>
-                <widget class="QFrame" name="LiveWritingRightPanel">
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_57">
-                  <item alignment="Qt::AlignRight">
-                   <widget class="QPushButton" name="WritingToTranslatorButton">
-                    <property name="toolTip">
-                     <string>To Translator</string>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                    <property name="icon">
-                     <iconset resource="../qss/icons/Icons.qrc">
-                      <normaloff>:/icons/png2svg/quitmenu-white.svg</normaloff>:/icons/png2svg/quitmenu-white.svg</iconset>
-                    </property>
-                    <property name="iconSize">
-                     <size>
-                      <width>24</width>
-                      <height>24</height>
-                     </size>
-                    </property>
-                   </widget>
-                  </item>
-                  <item alignment="Qt::AlignVCenter">
-                   <widget class="QFrame" name="WritingOutputframe">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
-                    </property>
-                    <layout class="QVBoxLayout" name="verticalLayout_59">
-                     <item>
-                      <widget class="QLabel" name="label_16">
-                       <property name="text">
-                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Typed:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="WrtitingOutputLabel">
-                       <property name="text">
-                        <string>TextLabel</string>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QFrame" name="WritingInfoFrame">
-                    <property name="frameShape">
-                     <enum>QFrame::StyledPanel</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Raised</enum>
-                    </property>
-                    <layout class="QVBoxLayout" name="verticalLayout_58">
-                     <item>
-                      <widget class="QLabel" name="label_34">
-                       <property name="text">
-                        <string>TextLabel</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="label_35">
-                       <property name="text">
-                        <string>TextLabel</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabel" name="label_36">
-                       <property name="text">
-                        <string>TextLabel</string>
-                       </property>
-                      </widget>
-                     </item>
-                    </layout>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-              </layout>
-             </widget>
+                    <item>
+                     <widget class="QLabel" name="LiveLabel">
+                      <property name="font">
+                       <font>
+                        <pointsize>16</pointsize>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Word:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="CurrentWordLabel">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item alignment="Qt::AlignTop">
+                  <widget class="QFrame" name="frame_8">
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_20">
+                    <item>
+                     <widget class="QPushButton" name="ToggleCamera">
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Turn Camera On</string>
+                      </property>
+                      <property name="icon">
+                       <iconset resource="../qss/icons/Icons.qrc">
+                        <normaloff>:/icons/png2svg/camera-On.svg</normaloff>
+                        <normalon>:/icons/png2svg/Camera-Off.svg</normalon>:/icons/png2svg/camera-On.svg</iconset>
+                      </property>
+                      <property name="iconSize">
+                       <size>
+                        <width>24</width>
+                        <height>24</height>
+                       </size>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
           </layout>

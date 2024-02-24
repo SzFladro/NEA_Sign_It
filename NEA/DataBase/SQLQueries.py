@@ -1,4 +1,7 @@
 import sqlite3
+from Interface import Notifications
+notificationhandler = Notifications.NotificationHandler
+
 
 def DBopenner():
     conn = sqlite3.connect("DataBase\SIGNIT2.db")
@@ -32,8 +35,7 @@ def AccountSQLExecutor(Query,parameters,Setting):
             hashedpassword, salt = result
             return hashedpassword, salt
     except sqlite3.Error as error:
-        return "There has been an error when trying to connect to the database"
-    
+        notificationhandler.trigger_notification("There has been an error when trying to connect to the database",1,"warning")
     finally:
         conn.close()
 
@@ -49,7 +51,7 @@ def wordGetter():
         word_data = cursor.fetchall()
         return word_data
     except sqlite3.Error as error:
-        return "There has been an error when trying to connect to the database"
+        notificationhandler.trigger_notification("There has been an error when trying to connect to the database",1,"warning")
     
     finally:
         conn.close()

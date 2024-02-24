@@ -94,18 +94,10 @@
         {
           "navigationButtons": [
             {
-              "HomeButton": "Dashboard",
+              "HomeButton": "Translator",
               "OpenCatalogueButton": "Catalogue",
               "OverviewToCatalogueButton": "Catalogue",
-              "TranslatorButton": "Translator",
-              "CatalogueToTranslatorButton": "Translator",
-              "BeeToTranslatorButton": "Translator",
-              "WritingToTranslatorButton": "Translator",
-              "StartLiveTranslationbutton": "Live",
-              "LiveButton": "Live"
-
-
-
+              "CatalogueToTranslatorButton": "Translator"
 
             }
           ]

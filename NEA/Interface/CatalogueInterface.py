@@ -13,6 +13,7 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QHBoxLayout,
     QVBoxLayout, QWidget, QLabel, QPushButton)
 
 from Interface import OverviewInterface 
+OverviewUI = OverviewInterface.InterfaceOverview
 
 class InterfaceCatalogue:
     _existingFrames = [] 
@@ -21,9 +22,10 @@ class InterfaceCatalogue:
     @classmethod
     def set_ui(cls, ui_instance):
         cls.UI = ui_instance
+        OverviewUI.set_ui(ui_instance)
 
     @classmethod
-    def createWidgets(cls,class_instance, row_number, column_number):
+    def createWidgets(cls,word_instance, row_number, column_number):
         frame = QFrame(cls.UI.CatalogueWidget)
         frame.setObjectName(u"frame")
         frame.setMinimumSize(100, 100)
@@ -41,7 +43,7 @@ class InterfaceCatalogue:
 
         word_label = QLabel(word_frame)
         word_label.setObjectName(u"WordLabel")
-        word_label.setText(class_instance.name)
+        word_label.setText(word_instance.name)
         vertical_layout_2.addWidget(word_label)
         vertical_layout.addWidget(word_frame, 0, Qt.AlignTop)
 
@@ -65,7 +67,7 @@ class InterfaceCatalogue:
         go_to_button = QPushButton(button_frame)
         go_to_button.setObjectName(u"GoToButton")
         go_to_button.setText("GoToOverview")
-        go_to_button.clicked.connect(lambda: cls.goto_overview(class_instance))
+        go_to_button.clicked.connect(lambda: cls.goto_overview(word_instance))
         vertical_layout_3.addWidget(go_to_button, 0, Qt.AlignRight)
 
         vertical_layout.addWidget(button_frame, 0, Qt.AlignBottom)
@@ -100,8 +102,6 @@ class InterfaceCatalogue:
 
     @classmethod
     def goto_overview(cls, word):
-        OverviewUI = OverviewInterface.InterfaceOverview
-        OverviewUI.set_ui(cls.UI)
         OverviewUI.set_wordinstance(word)
         OverviewUI.overviewInterface()
 
