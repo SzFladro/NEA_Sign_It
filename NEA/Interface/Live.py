@@ -141,10 +141,15 @@ class LiveInterface:
 
     @classmethod
     def Live_Controls(self):
-        self.UI.ToggleCamera.clicked.connect(self.CameraControls)
-        self.UI.LiveContinueButton.clicked.connect(self.ready_Up)
+        self.UI.ToggleCamera.clicked.connect(lambda: self.CameraControls())
+        self.UI.LiveContinueButton.clicked.connect(lambda:self.ready_Up())
         self.UI.LiveAddtoTypedButton.clicked.connect(lambda: self.pushtoType())
-        self.UI.LiveToTranslatorButton.clicked.connect(self.returnbacktoUI)
+        self.UI.LiveToTranslatorButton.clicked.connect(lambda: self.returnbacktoUI())
+        self.UI.removetypedButton.clicked.connect(lambda:self.remove_typed())
+
+    @classmethod
+    def remove_typed(self):
+        self.UI.typedinputlabel.setText("")
 
     @classmethod
     def update_image(self, cv_img):
@@ -158,7 +163,7 @@ class LiveInterface:
         h, w, ch = rgb_image.shape
         bytes_per_line = ch * w
         convert_to_Qt_format = QImage(rgb_image.data, w, h, bytes_per_line, QImage.Format.Format_RGB888)
-        # Scale the image to match the dimensions of the LiveCVframe
+        # Scales image to match the dimensions of the LiveCVframe
         scaled_image = convert_to_Qt_format.scaled(self.frame_width, self.frame_height, Qt.AspectRatioMode.KeepAspectRatio, Qt.SmoothTransformation)
         return QPixmap.fromImage(scaled_image)
 

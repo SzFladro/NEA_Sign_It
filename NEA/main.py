@@ -185,6 +185,7 @@ class MainWindow(QMainWindow):
 
     def closeEvent(self,event):
         OverviewUI.closeEvent(event)
+        LiveUI.closeEvent(event)
         
      
 ########################################################################

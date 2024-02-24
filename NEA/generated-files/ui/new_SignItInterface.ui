@@ -2270,8 +2270,8 @@ QLineEdit{
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>610</width>
-                   <height>447</height>
+                   <width>100</width>
+                   <height>30</height>
                   </rect>
                  </property>
                  <layout class="QGridLayout" name="gridLayout" />
@@ -3081,6 +3081,21 @@ Attempt</string>
                        </property>
                        <property name="text">
                         <string />
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QPushButtonThemed" name="removetypedButton">
+                       <property name="font">
+                        <font>
+                         <pointsize>12</pointsize>
+                        </font>
+                       </property>
+                       <property name="cursor">
+                        <cursorShape>OpenHandCursor</cursorShape>
+                       </property>
+                       <property name="text">
+                        <string>Remove Typed</string>
                        </property>
                       </widget>
                      </item>

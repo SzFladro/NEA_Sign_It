@@ -1139,7 +1139,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.CatalogueWidget = QWidget()
         self.CatalogueWidget.setObjectName(u"CatalogueWidget")
-        self.CatalogueWidget.setGeometry(QRect(0, 0, 610, 447))
+        self.CatalogueWidget.setGeometry(QRect(0, 0, 100, 30))
         self.gridLayout = QGridLayout(self.CatalogueWidget)
         self.gridLayout.setObjectName(u"gridLayout")
         self.scrollArea.setWidget(self.CatalogueWidget)
@@ -1573,6 +1573,13 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_39.addWidget(self.typedinputlabel, 0, Qt.AlignTop)
 
+        self.removetypedButton = QPushButtonThemed(self.scrollAreaWidgetContents)
+        self.removetypedButton.setObjectName(u"removetypedButton")
+        self.removetypedButton.setFont(font3)
+        self.removetypedButton.setCursor(QCursor(Qt.OpenHandCursor))
+
+        self.verticalLayout_39.addWidget(self.removetypedButton)
+
         self.scrollArea_3.setWidget(self.scrollAreaWidgetContents)
 
         self.verticalLayout_44.addWidget(self.scrollArea_3)
@@ -1815,6 +1822,7 @@ class Ui_MainWindow(object):
         self.LiveToTranslatorButton.setText("")
         self.typedinfolabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Typed:</span></p></body></html>", None))
         self.typedinputlabel.setText("")
+        self.removetypedButton.setText(QCoreApplication.translate("MainWindow", u"Remove Typed", None))
         self.LiveLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Word:</span></p></body></html>", None))
         self.CurrentWordLabel.setText("")
         self.ToggleCamera.setText(QCoreApplication.translate("MainWindow", u"Turn Camera On", None))

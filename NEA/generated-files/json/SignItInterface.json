@@ -101,6 +101,10 @@
       "icon": "qss/icons/png2svg/quitmenu-white.svg"
     },
     {
+      "name": "removetypedButton",
+      "icon": "default_icon_url"
+    },
+    {
       "name": "ToggleCamera",
       "icon": "qss/icons/png2svg/camera-On.svg"
     }
