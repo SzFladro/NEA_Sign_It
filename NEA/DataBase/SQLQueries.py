@@ -1,7 +1,8 @@
 import sqlite3
+from datetime import datetime
 from Interface import Notifications
-notificationhandler = Notifications.NotificationHandler
 
+notificationhandler = Notifications.NotificationHandler
 
 def DBopenner():
     conn = sqlite3.connect("DataBase\SIGNIT2.db")
@@ -37,7 +38,8 @@ def AccountSQLExecutor(Query,parameters,Setting):
     except sqlite3.Error as error:
         notificationhandler.trigger_notification("There has been an error when trying to connect to the database",1,"warning")
     finally:
-        conn.close()
+        if conn:
+            conn.close()
 
 def wordGetter():
     try:
@@ -54,61 +56,43 @@ def wordGetter():
         notificationhandler.trigger_notification("There has been an error when trying to connect to the database",1,"warning")
     
     finally:
-        conn.close()
+        if conn:
+            conn.close()
 
-def GetavgperCat(cursor,user_name) -> str:
-    cursor.execute("""SELECT
-                          C.Cat_name,
-                          AVG(UW.accuracy) AS AvgAccuracy
-                      FROM
-                         Categories AS C
-                      JOIN
-                         Words AS W ON C.Cat_ID = W.Cat_ID
-                      JOIN
-                         UserWords AS UW ON W.word_id = UW.word_id
-                      JOIN
-                         Users AS U ON UW.User_id = U.User_id
-                      WHERE
-                         U.username = ?
-                      GROUP BY
-                         C.Cat_name""", 
-                                      (user_name,))
-    avgpCat = cursor.fetchall()
-    return avgpCat
-
-def GetProgress(user_name):
+def AttemptGetter(username,word_name):
     try:
-        conn = sqlite3.connect("SIGNIT2.db")
-        cursor = conn.cursor()
-        if checkuser(cursor, user_name):
-            cursor.execute("""SELECT
-                                    C.Cat_name,
-                                    W.word_name,
-                                    UW.accuracy,
-                                    UW.NoAttempts
-                                FROM
-                                    Categories AS C
-                                JOIN
-                                    Words AS W ON C.Cat_ID = W.Cat_ID
-                                JOIN
-                                    UserWords AS UW ON W.word_id = UW.word_id
-                                JOIN
-                                    Users AS U ON UW.User_id = U.User_id
-                                WHERE
-                                    U.username = ?""", 
-                                                     (user_name,))
-            result = cursor.fetchall()
-            for row in result:
-                print(row)
-            avgpCat = GetavgperCat(cursor,user_name)
-            for row in avgpCat:
-                print(row)
-        else:
-            print("Can't") #get rid of this
+        cursor, conn = DBopenner()
+        query = """
+            SELECT COUNT(UserWords.User_id) AS attempt_count, MAX(UserWords.DateOfAttempt) AS most_recent_date
+            FROM UserWords
+            JOIN Users ON UserWords.User_id = Users.User_id
+            JOIN Words ON UserWords.word_id = Words.word_id
+            WHERE Users.username = "Szymon" AND Words.word_name = "A"
 
+        """
+        cursor.execute(query, (username, word_name))
+        result = cursor.fetchone()
+        return result
     except sqlite3.Error as error:
-        print("Error") #get rid of this
+        notificationhandler.trigger_notification("There has been an error when trying to connect to the database",1,"warning")
     
     finally:
-        conn.close()
+        if conn:
+            conn.close()
+
+def AddAttempt(username,word_name):
+    current_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    try:
+        cursor, conn = DBopenner()
+        cursor.execute("""
+            INSERT INTO UserWords (User_id, word_id, DateOfAttempt)
+            VALUES (?, ?, ?)""", (user_id, word_id, current_date))
+        conn.commit()
+    except sqlite3.Error as error:
+        notificationhandler.trigger_notification("There has been an error when trying to connect to the database",1,"warning")
+    
+    finally:
+        if conn:
+            conn.close()
+    
 

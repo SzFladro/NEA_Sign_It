@@ -434,6 +434,10 @@ class Ui_MainWindow(object):
         self.verticalLayout_62.setObjectName(u"verticalLayout_62")
         self.UsernameLoginEdit = QLineEdit(self.frame_4)
         self.UsernameLoginEdit.setObjectName(u"UsernameLoginEdit")
+        font = QFont()
+        font.setBold(True)
+        font.setItalic(False)
+        self.UsernameLoginEdit.setFont(font)
         self.UsernameLoginEdit.setAutoFillBackground(False)
         self.UsernameLoginEdit.setEchoMode(QLineEdit.Normal)
 
@@ -441,6 +445,7 @@ class Ui_MainWindow(object):
 
         self.PassLoginEdit = QLineEdit(self.frame_4)
         self.PassLoginEdit.setObjectName(u"PassLoginEdit")
+        self.PassLoginEdit.setFont(font)
         self.PassLoginEdit.setFrame(True)
         self.PassLoginEdit.setEchoMode(QLineEdit.Normal)
         self.PassLoginEdit.setReadOnly(False)
@@ -449,12 +454,6 @@ class Ui_MainWindow(object):
 
 
         self.verticalLayout_31.addWidget(self.frame_4, 0, Qt.AlignBottom)
-
-        self.forgotpasslabel = QLabelThemed(self.loginFrame)
-        self.forgotpasslabel.setObjectName(u"forgotpasslabel")
-        self.forgotpasslabel.setCursor(QCursor(Qt.OpenHandCursor))
-
-        self.verticalLayout_31.addWidget(self.forgotpasslabel)
 
         self.Login_Button = QPushButtonThemed(self.loginFrame)
         self.Login_Button.setObjectName(u"Login_Button")
@@ -503,18 +502,21 @@ class Ui_MainWindow(object):
         self.verticalLayout_9.setContentsMargins(0, 0, 0, 0)
         self.UsernameSignupEdit = QLineEdit(self.frame)
         self.UsernameSignupEdit.setObjectName(u"UsernameSignupEdit")
+        self.UsernameSignupEdit.setFont(font)
         self.UsernameSignupEdit.setAutoFillBackground(False)
 
         self.verticalLayout_9.addWidget(self.UsernameSignupEdit)
 
         self.PassSignupEdit = QLineEdit(self.frame)
         self.PassSignupEdit.setObjectName(u"PassSignupEdit")
+        self.PassSignupEdit.setFont(font)
         self.PassSignupEdit.setEchoMode(QLineEdit.Normal)
 
         self.verticalLayout_9.addWidget(self.PassSignupEdit)
 
         self.ConfirmPassEdit = QLineEdit(self.frame)
         self.ConfirmPassEdit.setObjectName(u"ConfirmPassEdit")
+        self.ConfirmPassEdit.setFont(font)
         self.ConfirmPassEdit.setEchoMode(QLineEdit.Normal)
         self.ConfirmPassEdit.setClearButtonEnabled(False)
 
@@ -522,6 +524,10 @@ class Ui_MainWindow(object):
 
         self.Strengthmeter = QProgressBar(self.frame)
         self.Strengthmeter.setObjectName(u"Strengthmeter")
+        font1 = QFont()
+        font1.setPointSize(11)
+        font1.setBold(True)
+        self.Strengthmeter.setFont(font1)
         self.Strengthmeter.setValue(0)
         self.Strengthmeter.setTextVisible(True)
         self.Strengthmeter.setInvertedAppearance(False)
@@ -603,10 +609,10 @@ class Ui_MainWindow(object):
 
         self.usernameLoggedinlabel = QLabelThemed(self.LoggedInframe)
         self.usernameLoggedinlabel.setObjectName(u"usernameLoggedinlabel")
-        font = QFont()
-        font.setPointSize(12)
-        font.setBold(True)
-        self.usernameLoggedinlabel.setFont(font)
+        font2 = QFont()
+        font2.setPointSize(12)
+        font2.setBold(True)
+        self.usernameLoggedinlabel.setFont(font2)
 
         self.verticalLayout_7.addWidget(self.usernameLoggedinlabel)
 
@@ -649,6 +655,9 @@ class Ui_MainWindow(object):
         self.CameraSettingComboBox = QComboBox(self.camerasettingthread)
         self.CameraSettingComboBox.addItem("")
         self.CameraSettingComboBox.setObjectName(u"CameraSettingComboBox")
+        font3 = QFont()
+        font3.setPointSize(12)
+        self.CameraSettingComboBox.setFont(font3)
         self.CameraSettingComboBox.setEditable(False)
         self.CameraSettingComboBox.setMaxVisibleItems(10)
 
@@ -737,7 +746,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.Notifications_Panel = QWidget()
         self.Notifications_Panel.setObjectName(u"Notifications_Panel")
-        self.Notifications_Panel.setGeometry(QRect(0, 0, 401, 173))
+        self.Notifications_Panel.setGeometry(QRect(0, 0, 373, 169))
         self.verticalLayout_41 = QVBoxLayout(self.Notifications_Panel)
         self.verticalLayout_41.setSpacing(0)
         self.verticalLayout_41.setObjectName(u"verticalLayout_41")
@@ -818,12 +827,12 @@ class Ui_MainWindow(object):
         self.livecameradisplay.setScaledContents(True)
         self.livecameradisplay.setIndent(1)
 
-        self.horizontalLayout_10.addWidget(self.livecameradisplay, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+        self.horizontalLayout_10.addWidget(self.livecameradisplay, 0, Qt.AlignRight|Qt.AlignVCenter)
 
         self.livelabel = QLabelThemed(self.LiveTranslationTop)
         self.livelabel.setObjectName(u"livelabel")
 
-        self.horizontalLayout_10.addWidget(self.livelabel)
+        self.horizontalLayout_10.addWidget(self.livelabel, 0, Qt.AlignLeft)
 
 
         self.verticalLayout_10.addWidget(self.LiveTranslationTop, 0, Qt.AlignTop)
@@ -836,6 +845,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
         self.LiveTranDescription = QLabelThemed(self.LiveTranslationInfo)
         self.LiveTranDescription.setObjectName(u"LiveTranDescription")
+        self.LiveTranDescription.setFont(font3)
+        self.LiveTranDescription.setWordWrap(True)
 
         self.verticalLayout_12.addWidget(self.LiveTranDescription)
 
@@ -850,6 +861,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_11.setObjectName(u"verticalLayout_11")
         self.StartLiveTranslationbutton = QPushButtonThemed(self.LiveTranslationBottom)
         self.StartLiveTranslationbutton.setObjectName(u"StartLiveTranslationbutton")
+        self.StartLiveTranslationbutton.setFont(font3)
+        self.StartLiveTranslationbutton.setCursor(QCursor(Qt.OpenHandCursor))
         self.StartLiveTranslationbutton.setIconSize(QSize(24, 24))
 
         self.verticalLayout_11.addWidget(self.StartLiveTranslationbutton)
@@ -877,12 +890,12 @@ class Ui_MainWindow(object):
         self.label_4.setObjectName(u"label_4")
         self.label_4.setPixmap(QPixmap(u":/icons/png2svg/SpellingBee.svg"))
 
-        self.horizontalLayout_11.addWidget(self.label_4)
+        self.horizontalLayout_11.addWidget(self.label_4, 0, Qt.AlignRight)
 
         self.label_2 = QLabelThemed(self.BeeTopFrame)
         self.label_2.setObjectName(u"label_2")
 
-        self.horizontalLayout_11.addWidget(self.label_2)
+        self.horizontalLayout_11.addWidget(self.label_2, 0, Qt.AlignLeft)
 
 
         self.verticalLayout_13.addWidget(self.BeeTopFrame, 0, Qt.AlignTop)
@@ -895,6 +908,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_22.setObjectName(u"verticalLayout_22")
         self.BeeTranDescription = QLabelThemed(self.BeeInfoFrame)
         self.BeeTranDescription.setObjectName(u"BeeTranDescription")
+        self.BeeTranDescription.setFont(font3)
+        self.BeeTranDescription.setWordWrap(True)
 
         self.verticalLayout_22.addWidget(self.BeeTranDescription)
 
@@ -913,18 +928,21 @@ class Ui_MainWindow(object):
         self.verticalLayout_20.setContentsMargins(0, 0, 0, 0)
         self.SpellingBeenotificationlabel = QLabelThemed(self.BeeTranBottomFrame)
         self.SpellingBeenotificationlabel.setObjectName(u"SpellingBeenotificationlabel")
-        self.SpellingBeenotificationlabel.setFont(font)
+        self.SpellingBeenotificationlabel.setFont(font2)
         self.SpellingBeenotificationlabel.setWordWrap(True)
 
         self.verticalLayout_20.addWidget(self.SpellingBeenotificationlabel)
 
         self.SpellingBeeWordEntry = QLineEdit(self.BeeTranBottomFrame)
         self.SpellingBeeWordEntry.setObjectName(u"SpellingBeeWordEntry")
+        self.SpellingBeeWordEntry.setFont(font)
 
         self.verticalLayout_20.addWidget(self.SpellingBeeWordEntry)
 
         self.StartSpellingBeeButton = QPushButtonThemed(self.BeeTranBottomFrame)
         self.StartSpellingBeeButton.setObjectName(u"StartSpellingBeeButton")
+        self.StartSpellingBeeButton.setFont(font3)
+        self.StartSpellingBeeButton.setCursor(QCursor(Qt.OpenHandCursor))
         self.StartSpellingBeeButton.setIconSize(QSize(24, 24))
 
         self.verticalLayout_20.addWidget(self.StartSpellingBeeButton)
@@ -953,12 +971,12 @@ class Ui_MainWindow(object):
         self.label_8.setObjectName(u"label_8")
         self.label_8.setPixmap(QPixmap(u":/icons/png2svg/Catalogue.svg"))
 
-        self.horizontalLayout_12.addWidget(self.label_8)
+        self.horizontalLayout_12.addWidget(self.label_8, 0, Qt.AlignRight)
 
         self.label_7 = QLabelThemed(self.CatalogueTranUpperframe)
         self.label_7.setObjectName(u"label_7")
 
-        self.horizontalLayout_12.addWidget(self.label_7)
+        self.horizontalLayout_12.addWidget(self.label_7, 0, Qt.AlignLeft)
 
 
         self.verticalLayout_18.addWidget(self.CatalogueTranUpperframe, 0, Qt.AlignTop)
@@ -971,6 +989,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
         self.label_10 = QLabelThemed(self.CatalogueDescription)
         self.label_10.setObjectName(u"label_10")
+        self.label_10.setFont(font3)
+        self.label_10.setWordWrap(True)
 
         self.verticalLayout_19.addWidget(self.label_10)
 
@@ -979,12 +999,15 @@ class Ui_MainWindow(object):
 
         self.TranCatBottomFrame = QFrame(self.CatalogueTranWidget)
         self.TranCatBottomFrame.setObjectName(u"TranCatBottomFrame")
+        self.TranCatBottomFrame.setFont(font3)
         self.TranCatBottomFrame.setFrameShape(QFrame.StyledPanel)
         self.TranCatBottomFrame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_21 = QVBoxLayout(self.TranCatBottomFrame)
         self.verticalLayout_21.setObjectName(u"verticalLayout_21")
         self.OpenCatalogueButton = QPushButtonThemed(self.TranCatBottomFrame)
         self.OpenCatalogueButton.setObjectName(u"OpenCatalogueButton")
+        self.OpenCatalogueButton.setFont(font3)
+        self.OpenCatalogueButton.setCursor(QCursor(Qt.OpenHandCursor))
         self.OpenCatalogueButton.setIconSize(QSize(24, 24))
 
         self.verticalLayout_21.addWidget(self.OpenCatalogueButton)
@@ -1070,6 +1093,7 @@ class Ui_MainWindow(object):
         sizePolicy5.setVerticalStretch(0)
         sizePolicy5.setHeightForWidth(self.CatalogueSearchBar.sizePolicy().hasHeightForWidth())
         self.CatalogueSearchBar.setSizePolicy(sizePolicy5)
+        self.CatalogueSearchBar.setFont(font)
         self.CatalogueSearchBar.setEchoMode(QLineEdit.Normal)
 
         self.horizontalLayout_24.addWidget(self.CatalogueSearchBar)
@@ -1095,6 +1119,8 @@ class Ui_MainWindow(object):
         self.CatalogueCategoryselector.setObjectName(u"CatalogueCategoryselector")
         sizePolicy2.setHeightForWidth(self.CatalogueCategoryselector.sizePolicy().hasHeightForWidth())
         self.CatalogueCategoryselector.setSizePolicy(sizePolicy2)
+        self.CatalogueCategoryselector.setFont(font3)
+        self.CatalogueCategoryselector.setCursor(QCursor(Qt.OpenHandCursor))
         self.CatalogueCategoryselector.setEditable(False)
 
         self.verticalLayout_8.addWidget(self.CatalogueCategoryselector)
@@ -1113,7 +1139,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.CatalogueWidget = QWidget()
         self.CatalogueWidget.setObjectName(u"CatalogueWidget")
-        self.CatalogueWidget.setGeometry(QRect(0, 0, 638, 447))
+        self.CatalogueWidget.setGeometry(QRect(0, 0, 610, 447))
         self.gridLayout = QGridLayout(self.CatalogueWidget)
         self.gridLayout.setObjectName(u"gridLayout")
         self.scrollArea.setWidget(self.CatalogueWidget)
@@ -1143,6 +1169,8 @@ class Ui_MainWindow(object):
 
         self.OverviewToCatalogueButton = QPushButtonThemed(self.UpperOverviewFrame)
         self.OverviewToCatalogueButton.setObjectName(u"OverviewToCatalogueButton")
+        self.OverviewToCatalogueButton.setFont(font3)
+        self.OverviewToCatalogueButton.setCursor(QCursor(Qt.OpenHandCursor))
         self.OverviewToCatalogueButton.setIcon(icon11)
         self.OverviewToCatalogueButton.setIconSize(QSize(24, 24))
 
@@ -1180,7 +1208,7 @@ class Ui_MainWindow(object):
 
         self.WordOverviewlabel = QLabelThemed(self.WordOverviewFrame)
         self.WordOverviewlabel.setObjectName(u"WordOverviewlabel")
-        self.WordOverviewlabel.setFont(font)
+        self.WordOverviewlabel.setFont(font2)
 
         self.horizontalLayout_29.addWidget(self.WordOverviewlabel)
 
@@ -1201,7 +1229,7 @@ class Ui_MainWindow(object):
 
         self.CategoryOverviewLabel = QLabelThemed(self.CategoryOverviewFrame)
         self.CategoryOverviewLabel.setObjectName(u"CategoryOverviewLabel")
-        self.CategoryOverviewLabel.setFont(font)
+        self.CategoryOverviewLabel.setFont(font2)
 
         self.horizontalLayout_27.addWidget(self.CategoryOverviewLabel)
 
@@ -1218,17 +1246,40 @@ class Ui_MainWindow(object):
         self.horizontalLayout_28.setContentsMargins(0, 6, 0, 0)
         self.OverviewNoAttemptsLabel = QLabelThemed(self.AttemptsOverviewFrame)
         self.OverviewNoAttemptsLabel.setObjectName(u"OverviewNoAttemptsLabel")
+        self.OverviewNoAttemptsLabel.setFont(font3)
 
         self.horizontalLayout_28.addWidget(self.OverviewNoAttemptsLabel)
 
         self.NoAttemptsOverviewLabel = QLabelThemed(self.AttemptsOverviewFrame)
         self.NoAttemptsOverviewLabel.setObjectName(u"NoAttemptsOverviewLabel")
-        self.NoAttemptsOverviewLabel.setFont(font)
+        self.NoAttemptsOverviewLabel.setFont(font2)
 
         self.horizontalLayout_28.addWidget(self.NoAttemptsOverviewLabel)
 
 
         self.verticalLayout_37.addWidget(self.AttemptsOverviewFrame)
+
+        self.LatestAttemptOverview = QFrame(self.OverviewInfoFrame)
+        self.LatestAttemptOverview.setObjectName(u"LatestAttemptOverview")
+        self.LatestAttemptOverview.setFrameShape(QFrame.StyledPanel)
+        self.LatestAttemptOverview.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_16 = QHBoxLayout(self.LatestAttemptOverview)
+        self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
+        self.LatestInfo = QLabelThemed(self.LatestAttemptOverview)
+        self.LatestInfo.setObjectName(u"LatestInfo")
+        self.LatestInfo.setFont(font2)
+
+        self.horizontalLayout_16.addWidget(self.LatestInfo)
+
+        self.LatestDate = QLabelThemed(self.LatestAttemptOverview)
+        self.LatestDate.setObjectName(u"LatestDate")
+        self.LatestDate.setFont(font2)
+        self.LatestDate.setWordWrap(True)
+
+        self.horizontalLayout_16.addWidget(self.LatestDate)
+
+
+        self.verticalLayout_37.addWidget(self.LatestAttemptOverview)
 
         self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -1266,13 +1317,13 @@ class Ui_MainWindow(object):
         self.horizontalLayout_31.setObjectName(u"horizontalLayout_31")
         self.DurationWatchedlabel = QLabelThemed(self.SeekerFrame)
         self.DurationWatchedlabel.setObjectName(u"DurationWatchedlabel")
-        self.DurationWatchedlabel.setFont(font)
+        self.DurationWatchedlabel.setFont(font2)
 
         self.horizontalLayout_31.addWidget(self.DurationWatchedlabel)
 
         self.Vidlengthlabel = QLabelThemed(self.SeekerFrame)
         self.Vidlengthlabel.setObjectName(u"Vidlengthlabel")
-        self.Vidlengthlabel.setFont(font)
+        self.Vidlengthlabel.setFont(font2)
 
         self.horizontalLayout_31.addWidget(self.Vidlengthlabel)
 
@@ -1285,6 +1336,7 @@ class Ui_MainWindow(object):
 
         self.PlayVideoButton = QPushButtonThemed(self.SeekerFrame)
         self.PlayVideoButton.setObjectName(u"PlayVideoButton")
+        self.PlayVideoButton.setCursor(QCursor(Qt.OpenHandCursor))
         icon12 = QIcon()
         icon12.addFile(u":/icons/png2svg/play_white.svg", QSize(), QIcon.Normal, QIcon.Off)
         icon12.addFile(u":/icons/png2svg/play_white.svg", QSize(), QIcon.Active, QIcon.Off)
@@ -1313,6 +1365,7 @@ class Ui_MainWindow(object):
 
         self.StartSigningButton = QPushButtonThemed(self.Overview)
         self.StartSigningButton.setObjectName(u"StartSigningButton")
+        self.StartSigningButton.setFont(font3)
         self.StartSigningButton.setCursor(QCursor(Qt.OpenHandCursor))
         icon13 = QIcon()
         icon13.addFile(u":/icons/png2svg/Signit-white.svg", QSize(), QIcon.Normal, QIcon.Off)
@@ -1343,6 +1396,7 @@ class Ui_MainWindow(object):
         self.LiveModeLabel.setObjectName(u"LiveModeLabel")
         sizePolicy.setHeightForWidth(self.LiveModeLabel.sizePolicy().hasHeightForWidth())
         self.LiveModeLabel.setSizePolicy(sizePolicy)
+        self.LiveModeLabel.setFont(font2)
 
         self.horizontalLayout_17.addWidget(self.LiveModeLabel)
 
@@ -1364,7 +1418,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
         self.leftframe = QFrame(self.LiveMainWidget)
         self.leftframe.setObjectName(u"leftframe")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy6 = QSizePolicy(QSizePolicy.MinimumExpanding, QSizePolicy.MinimumExpanding)
         sizePolicy6.setHorizontalStretch(0)
         sizePolicy6.setVerticalStretch(0)
         sizePolicy6.setHeightForWidth(self.leftframe.sizePolicy().hasHeightForWidth())
@@ -1377,8 +1431,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_45.setContentsMargins(0, 0, 0, -1)
         self.LiveCVframe = QFrame(self.leftframe)
         self.LiveCVframe.setObjectName(u"LiveCVframe")
-        sizePolicy6.setHeightForWidth(self.LiveCVframe.sizePolicy().hasHeightForWidth())
-        self.LiveCVframe.setSizePolicy(sizePolicy6)
+        sizePolicy7 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.LiveCVframe.sizePolicy().hasHeightForWidth())
+        self.LiveCVframe.setSizePolicy(sizePolicy7)
         self.LiveCVframe.setFrameShape(QFrame.StyledPanel)
         self.LiveCVframe.setFrameShadow(QFrame.Raised)
         self.verticalLayout_50 = QVBoxLayout(self.LiveCVframe)
@@ -1387,8 +1444,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_50.setContentsMargins(0, 0, 0, 0)
         self.LiveFootageLabel = QLabelThemed(self.LiveCVframe)
         self.LiveFootageLabel.setObjectName(u"LiveFootageLabel")
-        sizePolicy6.setHeightForWidth(self.LiveFootageLabel.sizePolicy().hasHeightForWidth())
-        self.LiveFootageLabel.setSizePolicy(sizePolicy6)
+        sizePolicy8 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Maximum)
+        sizePolicy8.setHorizontalStretch(0)
+        sizePolicy8.setVerticalStretch(0)
+        sizePolicy8.setHeightForWidth(self.LiveFootageLabel.sizePolicy().hasHeightForWidth())
+        self.LiveFootageLabel.setSizePolicy(sizePolicy8)
 
         self.verticalLayout_50.addWidget(self.LiveFootageLabel)
 
@@ -1415,17 +1475,18 @@ class Ui_MainWindow(object):
         self.horizontalLayout_32.setObjectName(u"horizontalLayout_32")
         self.LivePredictionLabel = QLabelThemed(self.frame_7)
         self.LivePredictionLabel.setObjectName(u"LivePredictionLabel")
+        self.LivePredictionLabel.setFont(font2)
 
-        self.horizontalLayout_32.addWidget(self.LivePredictionLabel)
+        self.horizontalLayout_32.addWidget(self.LivePredictionLabel, 0, Qt.AlignRight)
 
         self.predictionlabel = QLabelThemed(self.frame_7)
         self.predictionlabel.setObjectName(u"predictionlabel")
-        font1 = QFont()
-        font1.setPointSize(16)
-        font1.setBold(True)
-        self.predictionlabel.setFont(font1)
+        font4 = QFont()
+        font4.setPointSize(16)
+        font4.setBold(True)
+        self.predictionlabel.setFont(font4)
 
-        self.horizontalLayout_32.addWidget(self.predictionlabel)
+        self.horizontalLayout_32.addWidget(self.predictionlabel, 0, Qt.AlignLeft)
 
 
         self.verticalLayout_47.addWidget(self.frame_7)
@@ -1441,12 +1502,17 @@ class Ui_MainWindow(object):
         self.verticalLayout_46.setObjectName(u"verticalLayout_46")
         self.LiveAddtoTypedButton = QPushButtonThemed(self.LiveButtonsFrame)
         self.LiveAddtoTypedButton.setObjectName(u"LiveAddtoTypedButton")
+        font5 = QFont()
+        font5.setPointSize(12)
+        font5.setBold(False)
+        self.LiveAddtoTypedButton.setFont(font5)
         self.LiveAddtoTypedButton.setIconSize(QSize(24, 24))
 
         self.verticalLayout_46.addWidget(self.LiveAddtoTypedButton)
 
         self.LiveContinueButton = QPushButtonThemed(self.LiveButtonsFrame)
         self.LiveContinueButton.setObjectName(u"LiveContinueButton")
+        self.LiveContinueButton.setFont(font3)
         icon14 = QIcon()
         icon14.addFile(u":/icons/png2svg/continue-white.svg", QSize(), QIcon.Normal, QIcon.Off)
         icon14.addFile(u":/icons/png2svg/continue-white.svg", QSize(), QIcon.Active, QIcon.Off)
@@ -1473,6 +1539,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_44.setObjectName(u"verticalLayout_44")
         self.LiveToTranslatorButton = QPushButtonThemed(self.LiveRightFrame)
         self.LiveToTranslatorButton.setObjectName(u"LiveToTranslatorButton")
+        self.LiveToTranslatorButton.setFont(font3)
+        self.LiveToTranslatorButton.setCursor(QCursor(Qt.OpenHandCursor))
         self.LiveToTranslatorButton.setIcon(icon7)
         self.LiveToTranslatorButton.setIconSize(QSize(24, 24))
 
@@ -1487,19 +1555,23 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 200, 92))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 200, 125))
         self.verticalLayout_39 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_39.setObjectName(u"verticalLayout_39")
         self.typedinfolabel = QLabelThemed(self.scrollAreaWidgetContents)
         self.typedinfolabel.setObjectName(u"typedinfolabel")
+        font6 = QFont()
+        font6.setPointSize(14)
+        font6.setBold(True)
+        self.typedinfolabel.setFont(font6)
 
-        self.verticalLayout_39.addWidget(self.typedinfolabel)
+        self.verticalLayout_39.addWidget(self.typedinfolabel, 0, Qt.AlignBottom)
 
         self.typedinputlabel = QLabelThemed(self.scrollAreaWidgetContents)
         self.typedinputlabel.setObjectName(u"typedinputlabel")
-        self.typedinputlabel.setFont(font)
+        self.typedinputlabel.setFont(font2)
 
-        self.verticalLayout_39.addWidget(self.typedinputlabel)
+        self.verticalLayout_39.addWidget(self.typedinputlabel, 0, Qt.AlignTop)
 
         self.scrollArea_3.setWidget(self.scrollAreaWidgetContents)
 
@@ -1515,6 +1587,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_25.setContentsMargins(6, 7, 0, 0)
         self.LiveLabel = QLabelThemed(self.frame_6)
         self.LiveLabel.setObjectName(u"LiveLabel")
+        self.LiveLabel.setFont(font4)
 
         self.verticalLayout_25.addWidget(self.LiveLabel)
 
@@ -1522,31 +1595,12 @@ class Ui_MainWindow(object):
         self.CurrentWordLabel.setObjectName(u"CurrentWordLabel")
         sizePolicy3.setHeightForWidth(self.CurrentWordLabel.sizePolicy().hasHeightForWidth())
         self.CurrentWordLabel.setSizePolicy(sizePolicy3)
-        self.CurrentWordLabel.setFont(font)
+        self.CurrentWordLabel.setFont(font2)
 
         self.verticalLayout_25.addWidget(self.CurrentWordLabel)
 
 
         self.verticalLayout_44.addWidget(self.frame_6, 0, Qt.AlignVCenter)
-
-        self.ScoreFrame = QFrame(self.LiveRightFrame)
-        self.ScoreFrame.setObjectName(u"ScoreFrame")
-        self.ScoreFrame.setFrameShape(QFrame.StyledPanel)
-        self.ScoreFrame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_48 = QVBoxLayout(self.ScoreFrame)
-        self.verticalLayout_48.setObjectName(u"verticalLayout_48")
-        self.ScoreInfoLabel = QLabelThemed(self.ScoreFrame)
-        self.ScoreInfoLabel.setObjectName(u"ScoreInfoLabel")
-
-        self.verticalLayout_48.addWidget(self.ScoreInfoLabel)
-
-        self.ScoreLabel = QLabelThemed(self.ScoreFrame)
-        self.ScoreLabel.setObjectName(u"ScoreLabel")
-
-        self.verticalLayout_48.addWidget(self.ScoreLabel)
-
-
-        self.verticalLayout_44.addWidget(self.ScoreFrame, 0, Qt.AlignVCenter)
 
         self.frame_8 = QFrame(self.LiveRightFrame)
         self.frame_8.setObjectName(u"frame_8")
@@ -1556,6 +1610,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
         self.ToggleCamera = QPushButtonThemed(self.frame_8)
         self.ToggleCamera.setObjectName(u"ToggleCamera")
+        self.ToggleCamera.setFont(font3)
         icon15 = QIcon()
         icon15.addFile(u":/icons/png2svg/camera-On.svg", QSize(), QIcon.Normal, QIcon.Off)
         icon15.addFile(u":/icons/png2svg/Camera-Off.svg", QSize(), QIcon.Normal, QIcon.On)
@@ -1586,7 +1641,7 @@ class Ui_MainWindow(object):
 
         self.OptionsWidget.setCurrentIndex(0)
         self.AccountNavWidget.setCurrentIndex(1)
-        self.AccountCreationWidget.setCurrentIndex(1)
+        self.AccountCreationWidget.setCurrentIndex(0)
         self.MainWidget.setCurrentIndex(3)
 
 
@@ -1647,7 +1702,6 @@ class Ui_MainWindow(object):
         self.UsernameLoginEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Username", None))
         self.PassLoginEdit.setInputMask("")
         self.PassLoginEdit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Password", None))
-        self.forgotpasslabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><a href=\"https://www.google.com/\"><span style=\" text-decoration: underline; color:#0000ff;\">Forgot your password?</span></a></p></body></html>", None))
 #if QT_CONFIG(tooltip)
         self.Login_Button.setToolTip(QCoreApplication.translate("MainWindow", u"Log In", None))
 #endif // QT_CONFIG(tooltip)
@@ -1688,14 +1742,14 @@ class Ui_MainWindow(object):
         self.label.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:16pt; font-weight:700; text-decoration: underline;\">| Translator</span></p></body></html>", None))
         self.livecameradisplay.setText("")
         self.livelabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:16pt; font-weight:700;\">Live</span></p></body></html>", None))
-        self.LiveTranDescription.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.LiveTranDescription.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Experience sign language at your own pace with limitless possibilities</p></body></html>", None))
 #if QT_CONFIG(tooltip)
         self.LiveTranslationBottom.setToolTip(QCoreApplication.translate("MainWindow", u"Open Live", None))
 #endif // QT_CONFIG(tooltip)
         self.StartLiveTranslationbutton.setText(QCoreApplication.translate("MainWindow", u"Open ", None))
         self.label_4.setText("")
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:16pt; font-weight:700;\">Spelling </span></p><p><span style=\" font-size:16pt; font-weight:700;\">       Bee</span></p></body></html>", None))
-        self.BeeTranDescription.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.BeeTranDescription.setText(QCoreApplication.translate("MainWindow", u"Embark on an adventure with the spelling bee. Simply input a word of your choice and witness the magic as the letters appear whilst you sign", None))
         self.SpellingBeenotificationlabel.setText("")
         self.SpellingBeeWordEntry.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Enter Word for bee", None))
 #if QT_CONFIG(tooltip)
@@ -1704,7 +1758,7 @@ class Ui_MainWindow(object):
         self.StartSpellingBeeButton.setText(QCoreApplication.translate("MainWindow", u"Start", None))
         self.label_8.setText("")
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:16pt; font-weight:700;\">Catalogue</span></p></body></html>", None))
-        self.label_10.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Your personal Sign Language Catalogue - a treasure trove of words at your disposal along with captivating videos and expressive sign language demonstrations. ", None))
 #if QT_CONFIG(tooltip)
         self.TranCatBottomFrame.setToolTip(QCoreApplication.translate("MainWindow", u"Open Catalogue", None))
 #endif // QT_CONFIG(tooltip)
@@ -1736,6 +1790,9 @@ class Ui_MainWindow(object):
         self.CategoryOverviewLabel.setText("")
         self.OverviewNoAttemptsLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Number of </span></p><p><span style=\" font-size:12pt; font-weight:700;\">Attempts:</span></p></body></html>", None))
         self.NoAttemptsOverviewLabel.setText("")
+        self.LatestInfo.setText(QCoreApplication.translate("MainWindow", u"Latest\n"
+"Attempt", None))
+        self.LatestDate.setText("")
         self.DurationWatchedlabel.setText("")
         self.Vidlengthlabel.setText("")
 #if QT_CONFIG(tooltip)
@@ -1751,7 +1808,7 @@ class Ui_MainWindow(object):
         self.LivePredictionLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Prediction:</span></p></body></html>", None))
         self.predictionlabel.setText("")
         self.LiveAddtoTypedButton.setText(QCoreApplication.translate("MainWindow", u"ADD", None))
-        self.LiveContinueButton.setText(QCoreApplication.translate("MainWindow", u"Ready?", None))
+        self.LiveContinueButton.setText(QCoreApplication.translate("MainWindow", u"Start", None))
 #if QT_CONFIG(tooltip)
         self.LiveToTranslatorButton.setToolTip(QCoreApplication.translate("MainWindow", u"To Translator", None))
 #endif // QT_CONFIG(tooltip)
@@ -1760,8 +1817,6 @@ class Ui_MainWindow(object):
         self.typedinputlabel.setText("")
         self.LiveLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Word:</span></p></body></html>", None))
         self.CurrentWordLabel.setText("")
-        self.ScoreInfoLabel.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:700;\">Score</span></p></body></html>", None))
-        self.ScoreLabel.setText("")
         self.ToggleCamera.setText(QCoreApplication.translate("MainWindow", u"Turn Camera On", None))
     # retranslateUi
 

@@ -760,7 +760,7 @@ QLineEdit{
                  <enum>QFrame::Plain</enum>
                 </property>
                 <property name="currentIndex">
-                 <number>1</number>
+                 <number>0</number>
                 </property>
                 <widget class="QWidget" name="LoginWidget">
                  <layout class="QVBoxLayout" name="verticalLayout_30">
@@ -821,6 +821,13 @@ QLineEdit{
                        <layout class="QVBoxLayout" name="verticalLayout_62">
                         <item>
                          <widget class="QLineEdit" name="UsernameLoginEdit">
+                          <property name="font">
+                           <font>
+                            <pointsize>-1</pointsize>
+                            <italic>false</italic>
+                            <bold>true</bold>
+                           </font>
+                          </property>
                           <property name="autoFillBackground">
                            <bool>false</bool>
                           </property>
@@ -837,6 +844,13 @@ QLineEdit{
                         </item>
                         <item>
                          <widget class="QLineEdit" name="PassLoginEdit">
+                          <property name="font">
+                           <font>
+                            <pointsize>-1</pointsize>
+                            <italic>false</italic>
+                            <bold>true</bold>
+                           </font>
+                          </property>
                           <property name="inputMask">
                            <string />
                           </property>
@@ -855,16 +869,6 @@ QLineEdit{
                          </widget>
                         </item>
                        </layout>
-                      </widget>
-                     </item>
-                     <item>
-                      <widget class="QLabelThemed" name="forgotpasslabel">
-                       <property name="cursor">
-                        <cursorShape>OpenHandCursor</cursorShape>
-                       </property>
-                       <property name="text">
-                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align="center"&gt;&lt;a href="https://www.google.com/"&gt;&lt;span style=" text-decoration: underline; color:#0000ff;"&gt;Forgot your password?&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                       </property>
                       </widget>
                      </item>
                      <item>
@@ -977,6 +981,13 @@ QLineEdit{
                         </property>
                         <item>
                          <widget class="QLineEdit" name="UsernameSignupEdit">
+                          <property name="font">
+                           <font>
+                            <pointsize>-1</pointsize>
+                            <italic>false</italic>
+                            <bold>true</bold>
+                           </font>
+                          </property>
                           <property name="autoFillBackground">
                            <bool>false</bool>
                           </property>
@@ -990,6 +1001,13 @@ QLineEdit{
                         </item>
                         <item>
                          <widget class="QLineEdit" name="PassSignupEdit">
+                          <property name="font">
+                           <font>
+                            <pointsize>-1</pointsize>
+                            <italic>false</italic>
+                            <bold>true</bold>
+                           </font>
+                          </property>
                           <property name="echoMode">
                            <enum>QLineEdit::Normal</enum>
                           </property>
@@ -1000,6 +1018,13 @@ QLineEdit{
                         </item>
                         <item>
                          <widget class="QLineEdit" name="ConfirmPassEdit">
+                          <property name="font">
+                           <font>
+                            <pointsize>-1</pointsize>
+                            <italic>false</italic>
+                            <bold>true</bold>
+                           </font>
+                          </property>
                           <property name="echoMode">
                            <enum>QLineEdit::Normal</enum>
                           </property>
@@ -1013,6 +1038,12 @@ QLineEdit{
                         </item>
                         <item>
                          <widget class="QProgressBar" name="Strengthmeter">
+                          <property name="font">
+                           <font>
+                            <pointsize>11</pointsize>
+                            <bold>true</bold>
+                           </font>
+                          </property>
                           <property name="value">
                            <number>0</number>
                           </property>
@@ -1220,6 +1251,11 @@ QLineEdit{
                  </item>
                  <item>
                   <widget class="QComboBox" name="CameraSettingComboBox">
+                   <property name="font">
+                    <font>
+                     <pointsize>12</pointsize>
+                    </font>
+                   </property>
                    <property name="editable">
                     <bool>false</bool>
                    </property>
@@ -1407,8 +1443,8 @@ QLineEdit{
                  <rect>
                   <x>0</x>
                   <y>0</y>
-                  <width>401</width>
-                  <height>173</height>
+                  <width>373</width>
+                  <height>169</height>
                  </rect>
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_41">
@@ -1568,7 +1604,7 @@ QLineEdit{
                     <enum>QFrame::Raised</enum>
                    </property>
                    <layout class="QHBoxLayout" name="horizontalLayout_10">
-                    <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                    <item alignment="Qt::AlignRight|Qt::AlignVCenter">
                      <widget class="QLabelThemed" name="livecameradisplay">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -1593,7 +1629,7 @@ QLineEdit{
                       </property>
                      </widget>
                     </item>
-                    <item>
+                    <item alignment="Qt::AlignLeft">
                      <widget class="QLabelThemed" name="livelabel">
                       <property name="text">
                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=" font-size:16pt; font-weight:700;"&gt;Live&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -1614,8 +1650,16 @@ QLineEdit{
                    <layout class="QVBoxLayout" name="verticalLayout_12">
                     <item>
                      <widget class="QLabelThemed" name="LiveTranDescription">
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
                       <property name="text">
-                       <string>TextLabel</string>
+                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Experience sign language at your own pace with limitless possibilities&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                      </property>
+                      <property name="wordWrap">
+                       <bool>true</bool>
                       </property>
                      </widget>
                     </item>
@@ -1636,6 +1680,14 @@ QLineEdit{
                    <layout class="QVBoxLayout" name="verticalLayout_11">
                     <item>
                      <widget class="QPushButtonThemed" name="StartLiveTranslationbutton">
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
+                      <property name="cursor">
+                       <cursorShape>OpenHandCursor</cursorShape>
+                      </property>
                       <property name="text">
                        <string>Open </string>
                       </property>
@@ -1680,7 +1732,7 @@ QLineEdit{
                     <enum>QFrame::Raised</enum>
                    </property>
                    <layout class="QHBoxLayout" name="horizontalLayout_11">
-                    <item>
+                    <item alignment="Qt::AlignRight">
                      <widget class="QLabelThemed" name="label_4">
                       <property name="text">
                        <string />
@@ -1690,7 +1742,7 @@ QLineEdit{
                       </property>
                      </widget>
                     </item>
-                    <item>
+                    <item alignment="Qt::AlignLeft">
                      <widget class="QLabelThemed" name="label_2">
                       <property name="text">
                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=" font-size:16pt; font-weight:700;"&gt;Spelling &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=" font-size:16pt; font-weight:700;"&gt;       Bee&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -1711,8 +1763,16 @@ QLineEdit{
                    <layout class="QVBoxLayout" name="verticalLayout_22">
                     <item>
                      <widget class="QLabelThemed" name="BeeTranDescription">
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
                       <property name="text">
-                       <string>TextLabel</string>
+                       <string>Embark on an adventure with the spelling bee. Simply input a word of your choice and witness the magic as the letters appear whilst you sign</string>
+                      </property>
+                      <property name="wordWrap">
+                       <bool>true</bool>
                       </property>
                      </widget>
                     </item>
@@ -1767,6 +1827,13 @@ QLineEdit{
                     </item>
                     <item>
                      <widget class="QLineEdit" name="SpellingBeeWordEntry">
+                      <property name="font">
+                       <font>
+                        <pointsize>-1</pointsize>
+                        <italic>false</italic>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="placeholderText">
                        <string>Enter Word for bee</string>
                       </property>
@@ -1774,6 +1841,14 @@ QLineEdit{
                     </item>
                     <item>
                      <widget class="QPushButtonThemed" name="StartSpellingBeeButton">
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
+                      <property name="cursor">
+                       <cursorShape>OpenHandCursor</cursorShape>
+                      </property>
                       <property name="toolTip">
                        <string>Start Spelling Bee</string>
                       </property>
@@ -1827,7 +1902,7 @@ QLineEdit{
                     <enum>QFrame::Raised</enum>
                    </property>
                    <layout class="QHBoxLayout" name="horizontalLayout_12">
-                    <item>
+                    <item alignment="Qt::AlignRight">
                      <widget class="QLabelThemed" name="label_8">
                       <property name="text">
                        <string />
@@ -1837,7 +1912,7 @@ QLineEdit{
                       </property>
                      </widget>
                     </item>
-                    <item>
+                    <item alignment="Qt::AlignLeft">
                      <widget class="QLabelThemed" name="label_7">
                       <property name="text">
                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=" font-size:16pt; font-weight:700;"&gt;Catalogue&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -1858,8 +1933,16 @@ QLineEdit{
                    <layout class="QVBoxLayout" name="verticalLayout_19">
                     <item>
                      <widget class="QLabelThemed" name="label_10">
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
                       <property name="text">
-                       <string>TextLabel</string>
+                       <string>Your personal Sign Language Catalogue - a treasure trove of words at your disposal along with captivating videos and expressive sign language demonstrations. </string>
+                      </property>
+                      <property name="wordWrap">
+                       <bool>true</bool>
                       </property>
                      </widget>
                     </item>
@@ -1868,6 +1951,11 @@ QLineEdit{
                  </item>
                  <item alignment="Qt::AlignBottom">
                   <widget class="QFrame" name="TranCatBottomFrame">
+                   <property name="font">
+                    <font>
+                     <pointsize>12</pointsize>
+                    </font>
+                   </property>
                    <property name="toolTip">
                     <string>Open Catalogue</string>
                    </property>
@@ -1880,6 +1968,14 @@ QLineEdit{
                    <layout class="QVBoxLayout" name="verticalLayout_21">
                     <item>
                      <widget class="QPushButtonThemed" name="OpenCatalogueButton">
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
+                      <property name="cursor">
+                       <cursorShape>OpenHandCursor</cursorShape>
+                      </property>
                       <property name="text">
                        <string>Open</string>
                       </property>
@@ -2068,6 +2164,13 @@ QLineEdit{
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>-1</pointsize>
+                        <italic>false</italic>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="toolTip">
                        <string>Search Words</string>
                       </property>
@@ -2118,6 +2221,14 @@ QLineEdit{
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
+                      <property name="cursor">
+                       <cursorShape>OpenHandCursor</cursorShape>
+                      </property>
                       <property name="toolTip">
                        <string>Search by Category</string>
                       </property>
@@ -2159,7 +2270,7 @@ QLineEdit{
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>638</width>
+                   <width>610</width>
                    <height>447</height>
                   </rect>
                  </property>
@@ -2207,6 +2318,14 @@ QLineEdit{
               </item>
               <item alignment="Qt::AlignRight">
                <widget class="QPushButtonThemed" name="OverviewToCatalogueButton">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
+                <property name="cursor">
+                 <cursorShape>OpenHandCursor</cursorShape>
+                </property>
                 <property name="toolTip">
                  <string>Back to Catalogue</string>
                 </property>
@@ -2380,6 +2499,11 @@ QLineEdit{
                     </property>
                     <item>
                      <widget class="QLabelThemed" name="OverviewNoAttemptsLabel">
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
                       <property name="text">
                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=" font-size:12pt; font-weight:700;"&gt;Number of &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=" font-size:12pt; font-weight:700;"&gt;Attempts:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                       </property>
@@ -2395,6 +2519,48 @@ QLineEdit{
                       </property>
                       <property name="text">
                        <string />
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QFrame" name="LatestAttemptOverview">
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_16">
+                    <item>
+                     <widget class="QLabelThemed" name="LatestInfo">
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>Latest
+Attempt</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabelThemed" name="LatestDate">
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                        <bold>true</bold>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string />
+                      </property>
+                      <property name="wordWrap">
+                       <bool>true</bool>
                       </property>
                      </widget>
                     </item>
@@ -2493,6 +2659,9 @@ QLineEdit{
                        </item>
                        <item>
                         <widget class="QPushButtonThemed" name="PlayVideoButton">
+                         <property name="cursor">
+                          <cursorShape>OpenHandCursor</cursorShape>
+                         </property>
                          <property name="toolTip">
                           <string>Start Video</string>
                          </property>
@@ -2534,6 +2703,11 @@ QLineEdit{
            </item>
            <item alignment="Qt::AlignHCenter">
             <widget class="QPushButtonThemed" name="StartSigningButton">
+             <property name="font">
+              <font>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
              <property name="cursor">
               <cursorShape>OpenHandCursor</cursorShape>
              </property>
@@ -2582,6 +2756,12 @@ QLineEdit{
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="text">
                  <string />
                 </property>
@@ -2616,7 +2796,7 @@ QLineEdit{
               <item>
                <widget class="QFrame" name="leftframe">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                 <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
@@ -2673,7 +2853,7 @@ QLineEdit{
                     <item>
                      <widget class="QLabelThemed" name="LiveFootageLabel">
                       <property name="sizePolicy">
-                       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                       <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
                         <horstretch>0</horstretch>
                         <verstretch>0</verstretch>
                        </sizepolicy>
@@ -2713,14 +2893,20 @@ QLineEdit{
                           <enum>QFrame::Raised</enum>
                          </property>
                          <layout class="QHBoxLayout" name="horizontalLayout_32">
-                          <item>
+                          <item alignment="Qt::AlignRight">
                            <widget class="QLabelThemed" name="LivePredictionLabel">
+                            <property name="font">
+                             <font>
+                              <pointsize>12</pointsize>
+                              <bold>true</bold>
+                             </font>
+                            </property>
                             <property name="text">
                              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=" font-size:12pt; font-weight:700;"&gt;Prediction:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                             </property>
                            </widget>
                           </item>
-                          <item>
+                          <item alignment="Qt::AlignLeft">
                            <widget class="QLabelThemed" name="predictionlabel">
                             <property name="font">
                              <font>
@@ -2750,6 +2936,12 @@ QLineEdit{
                       <layout class="QVBoxLayout" name="verticalLayout_46">
                        <item>
                         <widget class="QPushButtonThemed" name="LiveAddtoTypedButton">
+                         <property name="font">
+                          <font>
+                           <pointsize>12</pointsize>
+                           <bold>false</bold>
+                          </font>
+                         </property>
                          <property name="text">
                           <string>ADD</string>
                          </property>
@@ -2763,8 +2955,13 @@ QLineEdit{
                        </item>
                        <item>
                         <widget class="QPushButtonThemed" name="LiveContinueButton">
+                         <property name="font">
+                          <font>
+                           <pointsize>12</pointsize>
+                          </font>
+                         </property>
                          <property name="text">
-                          <string>Ready?</string>
+                          <string>Start</string>
                          </property>
                          <property name="icon">
                           <iconset resource="../qss/icons/Icons.qrc">
@@ -2800,6 +2997,14 @@ QLineEdit{
                 <layout class="QVBoxLayout" name="verticalLayout_44">
                  <item>
                   <widget class="QPushButtonThemed" name="LiveToTranslatorButton">
+                   <property name="font">
+                    <font>
+                     <pointsize>12</pointsize>
+                    </font>
+                   </property>
+                   <property name="cursor">
+                    <cursorShape>OpenHandCursor</cursorShape>
+                   </property>
                    <property name="toolTip">
                     <string>To Translator</string>
                    </property>
@@ -2849,18 +3054,24 @@ QLineEdit{
                       <x>0</x>
                       <y>0</y>
                       <width>200</width>
-                      <height>92</height>
+                      <height>125</height>
                      </rect>
                     </property>
                     <layout class="QVBoxLayout" name="verticalLayout_39">
-                     <item>
+                     <item alignment="Qt::AlignBottom">
                       <widget class="QLabelThemed" name="typedinfolabel">
+                       <property name="font">
+                        <font>
+                         <pointsize>14</pointsize>
+                         <bold>true</bold>
+                        </font>
+                       </property>
                        <property name="text">
                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=" font-size:12pt; font-weight:700;"&gt;Typed:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                        </property>
                       </widget>
                      </item>
-                     <item>
+                     <item alignment="Qt::AlignTop">
                       <widget class="QLabelThemed" name="typedinputlabel">
                        <property name="font">
                         <font>
@@ -2903,6 +3114,12 @@ QLineEdit{
                     </property>
                     <item>
                      <widget class="QLabelThemed" name="LiveLabel">
+                      <property name="font">
+                       <font>
+                        <pointsize>16</pointsize>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="text">
                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=" font-size:12pt; font-weight:700;"&gt;Word:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                       </property>
@@ -2930,32 +3147,6 @@ QLineEdit{
                    </layout>
                   </widget>
                  </item>
-                 <item alignment="Qt::AlignVCenter">
-                  <widget class="QFrame" name="ScoreFrame">
-                   <property name="frameShape">
-                    <enum>QFrame::StyledPanel</enum>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Raised</enum>
-                   </property>
-                   <layout class="QVBoxLayout" name="verticalLayout_48">
-                    <item>
-                     <widget class="QLabelThemed" name="ScoreInfoLabel">
-                      <property name="text">
-                       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=" font-size:12pt; font-weight:700;"&gt;Score&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLabelThemed" name="ScoreLabel">
-                      <property name="text">
-                       <string />
-                      </property>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
                  <item alignment="Qt::AlignTop">
                   <widget class="QFrame" name="frame_8">
                    <property name="frameShape">
@@ -2967,6 +3158,11 @@ QLineEdit{
                    <layout class="QHBoxLayout" name="horizontalLayout_20">
                     <item>
                      <widget class="QPushButtonThemed" name="ToggleCamera">
+                      <property name="font">
+                       <font>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
                       <property name="text">
                        <string>Turn Camera On</string>
                       </property>

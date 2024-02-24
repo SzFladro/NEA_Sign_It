@@ -72,6 +72,7 @@ class MainWindow(QMainWindow):
         self.ui.Login_Button.clicked.connect(lambda: self.loguserin())
         self.ui.SignUpbutton.clicked.connect(lambda: self.signupuser())
         self.ui.LogoutButton.clicked.connect(lambda: self.logoutuser())
+        self.ui.LiveButton.clicked.connect(lambda: self.gotoWritingLive())
         self.ui.AcknowledgeNotifications.clicked.connect(lambda: notificationhandler.Dequeue_All_Notification())
         self.ui.StartLiveTranslationbutton.clicked.connect(lambda: self.gotoWritingLive())
         self.ui.StartSpellingBeeButton.clicked.connect(lambda: self.gotoSpellingBee())
@@ -141,13 +142,16 @@ class MainWindow(QMainWindow):
         
     def loguserin(self):
         username = self.ui.UsernameLoginEdit.text()
-        password = self.ui.PassLoginEdit.text()
-        msg = Account.Login(username,password)
-        if msg:
-            notificationhandler.trigger_notification((f"Successfully Logged in as {username}"),0,"info")
-            self.loginHandler(username)
+        if username:
+            password = self.ui.PassLoginEdit.text()
+            msg = Account.Login(username,password)
+            if msg:
+                notificationhandler.trigger_notification((f"Successfully Logged in as {username}"),0,"info")
+                self.loginHandler(username)
+            else:
+                notificationhandler.trigger_notification("Incorrect Password",0,"info")
         else:
-            notificationhandler.trigger_notification("Incorrect Password",0,"info")
+            notificationhandler.trigger_notification(("Enter a Valid Username"),0,"info")
 
     def logoutuser(self):
         config_user.set_username(None)
@@ -156,20 +160,23 @@ class MainWindow(QMainWindow):
     
     def signupuser(self):
         username = self.ui.UsernameSignupEdit.text()
-        password = self.ui.PassSignupEdit.text()
-        confirm_Password = self.ui.ConfirmPassEdit.text()
-        if password == confirm_Password:
-            if self.ui.Strengthmeter.value()>50:
-                msg = Account.create_User(username,password)
-                if msg:
-                    self.ui.OptionsWidget.setCurrentWidget(self.ui.LoggedInPage)
+        if username:
+            password = self.ui.PassSignupEdit.text()
+            confirm_Password = self.ui.ConfirmPassEdit.text()
+            if password == confirm_Password:
+                if self.ui.Strengthmeter.value()>50:
+                    msg = Account.create_User(username,password)
+                    if msg:
+                        self.ui.OptionsWidget.setCurrentWidget(self.ui.LoggedInPage)
+                    else:
+                        notificationhandler.trigger_notification("Username is already taken",1,"info")
                 else:
-                    notificationhandler.trigger_notification("Username is already taken",1,"info")
-            else:
-                notificationhandler.trigger_notification("Password isn't Strong enough",0,"info")
+                    notificationhandler.trigger_notification("Password isn't Strong enough",0,"info")
 
+            else:
+                notificationhandler.trigger_notification("passwords don't match",0,"info")
         else:
-            notificationhandler.trigger_notification("passwords don't match",0,"info")
+            notificationhandler.trigger_notification(("Username can't be blank"),0,"info")
 
     def update_passwordstrength(self,password):
         score, rating = Account.password_strength(password)

@@ -19,7 +19,7 @@ import string
 import tensorflow as tf
 
 
-from DataBase import config
+from DataBase import config, SQLQueries
 from Interface import Notifications
 
 config_cam = config.Config()
@@ -126,140 +126,153 @@ class LiveInterface:
     camera_on = False
     thread = None
     TypedWord = None
+    mode = None
 
     @classmethod
-    def set_mode(cls,Livemode):
-        cls.mode = Livemode
+    def set_mode(self,Livemode):
+        self.mode = Livemode
 
     @classmethod
-    def set_ui(cls, ui_instance):
-        cls.UI = ui_instance
-        cls.frame_width = cls.UI.LiveCVframe.width()
-        cls.frame_height = cls.UI.LiveCVframe.height()
-        cls.Live_Controls()
+    def set_ui(self, ui_instance):
+        self.UI = ui_instance
+        self.frame_width = self.UI.LiveCVframe.width()
+        self.frame_height = self.UI.LiveCVframe.height()
+        self.Live_Controls()
 
     @classmethod
-    def Live_Controls(cls):
-        cls.UI.ToggleCamera.clicked.connect(cls.CameraControls)
-        cls.UI.LiveContinueButton.clicked.connect(cls.ready_Up)
-        cls.UI.LiveAddtoTypedButton.clicked.connect(lambda: cls.pushtoType())
-        cls.UI.LiveToTranslatorButton.clicked.connect(cls.returnbacktoUI)
+    def Live_Controls(self):
+        self.UI.ToggleCamera.clicked.connect(self.CameraControls)
+        self.UI.LiveContinueButton.clicked.connect(self.ready_Up)
+        self.UI.LiveAddtoTypedButton.clicked.connect(lambda: self.pushtoType())
+        self.UI.LiveToTranslatorButton.clicked.connect(self.returnbacktoUI)
 
     @classmethod
-    def update_image(cls, cv_img):
-        if cls.camera_on:
-            qt_img = cls.convert_cv_qt(cv_img)
-            cls.UI.LiveFootageLabel.setPixmap(qt_img)
+    def update_image(self, cv_img):
+        if self.camera_on:
+            qt_img = self.convert_cv_qt(cv_img)
+            self.UI.LiveFootageLabel.setPixmap(qt_img)
 
     @classmethod
-    def convert_cv_qt(cls, cv_img):
+    def convert_cv_qt(self, cv_img):
         rgb_image = cv2.cvtColor(cv_img, cv2.COLOR_BGR2RGB)
         h, w, ch = rgb_image.shape
         bytes_per_line = ch * w
         convert_to_Qt_format = QImage(rgb_image.data, w, h, bytes_per_line, QImage.Format.Format_RGB888)
         # Scale the image to match the dimensions of the LiveCVframe
-        scaled_image = convert_to_Qt_format.scaled(cls.frame_width, cls.frame_height, Qt.AspectRatioMode.KeepAspectRatio, Qt.SmoothTransformation)
+        scaled_image = convert_to_Qt_format.scaled(self.frame_width, self.frame_height, Qt.AspectRatioMode.KeepAspectRatio, Qt.SmoothTransformation)
         return QPixmap.fromImage(scaled_image)
 
     @classmethod
-    def CameraControls(cls):
-        if cls.camera_on:
-            cls.stop_camera()
+    def CameraControls(self):
+        if self.camera_on:
+            self.stop_camera()
         else:
-            cls.start_camera()
+            self.start_camera()
 
     @classmethod
-    def returnbacktoUI(cls):
-        print(cls.mode)
-        if cls.mode == "Bee":
-            cls.stop_camera()
-            cls.mode = None
-            cls.UI.MainWidget.setCurrentWidget(cls.UI.Translator)
-        elif cls.mode == "Writing":
-            cls.stop_camera()
-            cls.mode = None
-            cls.UI.MainWidget.setCurrentWidget(cls.UI.Translator)
+    def returnbacktoUI(self):
+        self.stop_camera()
+        if self.mode == "Bee":
+            self.mode = None
+            self.UI.MainWidget.setCurrentWidget(self.UI.Translator)
+        elif self.mode == "Writing":
+            self.mode = None
+            self.UI.MainWidget.setCurrentWidget(self.UI.Translator)
         else:
-            cls.stop_camera()
-            cls.mode = None
-            cls.UI.MainWidget.setCurrentWidget(cls.UI.Overview)
+            self.mode = None
+            self.UI.MainWidget.setCurrentWidget(self.UI.Overview)
 
     @classmethod
-    def start_camera(cls):
-        cls.thread = VideoThread(0)  # Set the camera index as needed
-        cls.thread.change_ImageSignal.connect(cls.update_image)
-        cls.thread.prediction_ready.connect(cls.predictions_update)
-        cls.thread.start()
-        cls.UI.ToggleCamera.setText("Turn Camera Off")
-        cls.UI.CameraStatus.setText("Press Start in order to start Typing")
-        cls.camera_on = True
+    def start_camera(self):
+        self.thread = VideoThread(0)  # Set the camera index as needed
+        self.thread.change_ImageSignal.connect(self.update_image)
+        self.thread.prediction_ready.connect(self.predictions_update)
+        self.thread.start()
+        self.UI.ToggleCamera.setText("Turn Camera Off")
+        self.UI.CameraStatus.setText("Press Start in order to start Typing")
+        self.camera_on = True
 
     @classmethod
-    def predictions_update(cls,predictedword):
-        cls.TypedWord = predictedword
-        cls.UI.CameraStatus.setText("Camera Ready, Press add to save word, otherwise, press Continue")
-        cls.UI.LiveContinueButton.setText("Continue")
-        cls.UI.predictionlabel.setText(cls.TypedWord)
+    def predictions_update(self,predictedword):
+        self.TypedWord = predictedword
+        self.UI.CameraStatus.setText("Camera Ready, Press add to save word, otherwise, press Continue")
+        self.UI.LiveContinueButton.setText("Continue")
+        self.UI.predictionlabel.setText(self.TypedWord)
 
 
     @classmethod
-    def pushtoType(cls):
-        if cls.TypedWord !=None:
-            print("Typing")
-            typedtext = cls.UI.typedinputlabel.text()
-            new_text = typedtext + cls.TypedWord
-            print(new_text)
-            cls.UI.typedinputlabel.setText(new_text)
-            cls.TypedWord = None
+    def pushtoType(self):
+        if self.TypedWord !=None:
+            typedtext = self.UI.typedinputlabel.text()
+            new_text = typedtext + self.TypedWord
+            self.UI.typedinputlabel.setText(new_text)
+            self.TypedWord = None
 
     @classmethod
-    def stop_camera(cls):
-        if cls.thread and cls.thread.isRunning():
-            cls.thread.stop()
-            cls.thread.wait()
-        cls.camera_on = False
-        cls.UI.CameraStatus.setText("Turn the Camera On to proceed")
-        cls.UI.ToggleCamera.setText("Turn Camera On")
+    def stop_camera(self):
+        if self.thread and self.thread.isRunning():
+            self.thread.stop()
+            self.thread.wait()
+        self.camera_on = False
+        self.UI.CameraStatus.setText("Turn the Camera On to proceed")
+        self.UI.ToggleCamera.setText("Turn Camera On")
+        return None
 
     @classmethod
-    def closeEvent(cls, event):
-        cls.stop_camera()
+    def closeEvent(self, event):
+        self.stop_camera()
         event.accept()
 
     @classmethod
-    def ready_Up(cls):
-        if cls.camera_on:
-            cls.thread.start_collecting_frames() 
-            cls.UI.CameraStatus.setText("Collecting Frames...")
+    def ready_Up(self):
+        if self.camera_on:
+            self.thread.start_collecting_frames() 
+            self.UI.CameraStatus.setText("Collecting Frames...")
         else:
             notificationhandler.trigger_notification(("Turn On or Select a Camera to start"),0,"info")
-            cls.UI.ExpandableSideMenu.expandMenu()
-            cls.UI.OptionsWidget.setCurrentWidget(self.ui.SettingsPage)
+            self.UI.ExpandableSideMenu.expandMenu()
+            self.UI.OptionsWidget.setCurrentWidget(self.ui.SettingsPage)
+
+    @classmethod
+    def initialise_mode(self):
+        self.UI.LiveModeLabel.setText("")
+        self.UI.LiveToTranslatorButton.setText("")
+        self.UI.typedinputlabel.setText("")
+        self.UI.LiveLabel.setText("")
+        self.UI.CurrentWordLabel.setText("")
+        self.UI.LiveContinueButton.setText("Start")
+        self.UI.predictionlabel.setText("")
+        self.stop_camera()
 
 
 class SpellingBee(LiveInterface):
 
     @classmethod
     def initialise_mode(self,word):
-        print("Bee")
-        self.UI.LiveLabel.setText("Spelling Bee\nWord:")
+        self.stop_camera()
+        self.UI.LiveModeLabel.setText("SpellingBee")
+        self.UI.LiveToTranslatorButton.setText("Back to Translator")
+        self.UI.typedinputlabel.setText("")
+        self.UI.LiveLabel.setText("Word:")
         self.UI.CurrentWordLabel.setText(word)
         self.UI.LiveContinueButton.setText("Start")
-        self.UI.LiveModeLabel.setText("SpellingBee")
+        self.UI.predictionlabel.setText("")
         self.set_mode("Bee")
-
 
 class WritingLive(LiveInterface):
 
     @classmethod
     def initialise_mode(self):
-        print("Writing")
-        self.UI.LiveLabel.setText("")
-        self.UI.typedinfolabel.setText("Typed")
-        self.UI.typedinputlabel.setText("")
-        self.UI.LiveContinueButton.setText("Start")
+        self.stop_camera()
         self.UI.LiveModeLabel.setText("Writing")
+        self.UI.LiveToTranslatorButton.setText("Back to Translator")
+        self.UI.typedinputlabel.setText("")
+        self.UI.LiveLabel.setText("")
+        self.UI.CurrentWordLabel.setText("")
+        self.UI.LiveContinueButton.setText("Start")
+        self.UI.predictionlabel.setText("")        
         self.set_mode("Writing")
+
 
 class WordLive(LiveInterface):
     word_instance = None
@@ -269,10 +282,24 @@ class WordLive(LiveInterface):
         self.word_instance = word
         
     @classmethod
+    def addattempt(self):
+        username = config.get_username()
+        if username !=None:
+            SQLQueries.AddAttempt(username,self.word_instance)
+        else:
+            notificationhandler.trigger_notification(("Create an account to save progress"),0,"info")
+        return None
+
+    @classmethod
     def initialise_mode(self):
-        print("Word")
+        self.UI.LiveModeLabel.setText(self.word_instance.name)
+        self.UI.LiveToTranslatorButton.setText(f"Back to {self.word_instance.name} Overview")
+        self.UI.typedinputlabel.setText("")
         self.UI.LiveLabel.setText("Word:")
         self.UI.CurrentWordLabel.setText(self.word_instance.name)
         self.UI.LiveContinueButton.setText("Start")
-        self.UI.LiveModeLabel.setText(self.word_instance.name)
+        self.UI.predictionlabel.setText("")
+        self.addattempt()
+        self.stop_camera()
         self.set_mode("Word")
+

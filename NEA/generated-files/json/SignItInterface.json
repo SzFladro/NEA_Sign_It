@@ -139,10 +139,6 @@
       "pixmap": "default_pixmap_url"
     },
     {
-      "name": "forgotpasslabel",
-      "pixmap": "default_pixmap_url"
-    },
-    {
       "name": "SignUplabel",
       "pixmap": "default_pixmap_url"
     },
@@ -259,6 +255,14 @@
       "pixmap": "default_pixmap_url"
     },
     {
+      "name": "LatestInfo",
+      "pixmap": "default_pixmap_url"
+    },
+    {
+      "name": "LatestDate",
+      "pixmap": "default_pixmap_url"
+    },
+    {
       "name": "DurationWatchedlabel",
       "pixmap": "default_pixmap_url"
     },
@@ -308,14 +312,6 @@
     },
     {
       "name": "CurrentWordLabel",
-      "pixmap": "default_pixmap_url"
-    },
-    {
-      "name": "ScoreInfoLabel",
-      "pixmap": "default_pixmap_url"
-    },
-    {
-      "name": "ScoreLabel",
       "pixmap": "default_pixmap_url"
     }
   ]

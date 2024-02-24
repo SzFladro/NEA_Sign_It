@@ -11,12 +11,13 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QHBoxLayout,
     QVBoxLayout, QWidget, QLabel, QPushButton)
 from PySide6.QtMultimedia import QMediaPlayer
 from PySide6.QtMultimediaWidgets import (QVideoWidget)
-
-from Interface import Notifications, Live
-
 import http.client as httplib
 
+from Interface import Notifications, Live
+from DataBase import SQLQueries, config
+
 notificationhandler = Notifications.NotificationHandler
+config_user = config.Config()
 WordSigning = Live.WordLive
 
 class InterfaceOverview:
@@ -45,10 +46,26 @@ class InterfaceOverview:
         cls.wordclass = word_instance
 
     @classmethod
+    def get_attempts(cls):
+        username = config_user.get_username()
+        if username != None:
+            attempt_no, attempt_date = SQLQueries.AttemptGetter(username,cls.wordclass)
+            if attempt_no != 0:
+                cls.UI.NoAttemptsOverviewLabel.setText(attempt_no)
+                cls.UI.LatestDate.setText(attempt_date)
+            else:
+                pass
+        else:
+            cls.UI.NoAttemptsOverviewLabel.setText("")
+            cls.UI.LatestDate.setText("")
+        return None
+
+    @classmethod
     def overviewInterface(cls):
         cls.UI.MainWidget.setCurrentWidget(cls.UI.Overview)
         cls.UI.WordOverviewlabel.setText(f"{cls.wordclass.name}")
         cls.UI.CategoryOverviewLabel.setText(f"{cls.wordclass.category}")
+        cls.get_attempts()
         if cls.internet_access():
             downloadlink = cls.wordclass.download_link
             cls.loadvideo(downloadlink)
