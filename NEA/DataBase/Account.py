@@ -44,13 +44,14 @@ def Login(user_name,password):
         hashpass = hash_password(user_name,password, salt)
         if hashpass == hashedpassword:
             config_user.set_username(user_name)
-            return True
+            return "Login"
         else:
-            return False
+            return "Wrong"
             
          
     else:
         notificationhandler.trigger_notification("The account doesn't exist,\n maybe try creating an account?",1,"info")
+        return "Zero"
             
 def password_strength(password):
     # Initialize score and rating

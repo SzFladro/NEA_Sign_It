@@ -1648,7 +1648,7 @@ class Ui_MainWindow(object):
 
         self.OptionsWidget.setCurrentIndex(0)
         self.AccountNavWidget.setCurrentIndex(1)
-        self.AccountCreationWidget.setCurrentIndex(0)
+        self.AccountCreationWidget.setCurrentIndex(1)
         self.MainWidget.setCurrentIndex(3)
 
 

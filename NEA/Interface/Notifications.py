@@ -47,10 +47,10 @@ class NotificationHandler():
         notificationiconpriority = QLabel(frame)
         notificationiconpriority.setObjectName(u"notificationiconpriority")
         if (notification.type=="warning"):
-            errorpixmap = QPixmap(u"/qss/icons/png2svg/warning-icon.svg")
+            errorpixmap = QPixmap(u":/qss/icons/png2svg/warning-icon.svg")
             notificationiconpriority.setPixmap(errorpixmap)
         else:
-            infopixmap = QPixmap(u"/qss/icons/png2svg/info-icon.svg")
+            infopixmap = QPixmap(u":/qss/icons/png2svg/info-icon.svg")
             notificationiconpriority.setPixmap(infopixmap)
 
         horizontalLayout.addWidget(notificationiconpriority)

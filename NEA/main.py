@@ -142,16 +142,16 @@ class MainWindow(QMainWindow):
         
     def loguserin(self):
         username = self.ui.UsernameLoginEdit.text()
+        password = self.ui.PassLoginEdit.text()
         if username:
-            password = self.ui.PassLoginEdit.text()
-            msg = Account.Login(username,password)
-            if msg:
-                notificationhandler.trigger_notification((f"Successfully Logged in as {username}"),0,"info")
+            msg = Account.Login(username, password)
+            if msg == "Login":
+                notificationhandler.trigger_notification((f"Successfully Logged in as {username}"), 0, "info")
                 self.loginHandler(username)
-            else:
-                notificationhandler.trigger_notification("Incorrect Password",0,"info")
+            elif msg == "Wrong":
+                notificationhandler.trigger_notification("Incorrect Password", 0, "info")
         else:
-            notificationhandler.trigger_notification(("Enter a Valid Username"),0,"info")
+            notificationhandler.trigger_notification("Enter a username", 0, "info")
 
     def logoutuser(self):
         config_user.set_username(None)

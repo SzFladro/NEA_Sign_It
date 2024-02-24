@@ -760,7 +760,7 @@ QLineEdit{
                  <enum>QFrame::Plain</enum>
                 </property>
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="LoginWidget">
                  <layout class="QVBoxLayout" name="verticalLayout_30">
