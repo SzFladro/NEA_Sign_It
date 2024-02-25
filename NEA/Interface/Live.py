@@ -9,7 +9,7 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QHBoxLayout,
     QLayout, QLineEdit, QMainWindow, QProgressBar,
     QScrollArea, QSizePolicy, QSpacerItem, QStackedWidget,
     QVBoxLayout, QWidget, QLabel, QPushButton)
-from PySide6.QtMultimedia import QMediaDevices, QCamera
+from PySide6.QtMultimedia import QMediaDevices
 import cv2
 import numpy as np
 import os
@@ -20,7 +20,7 @@ import tensorflow as tf
 
 
 from DataBase import config, SQLQueries
-from Interface import Notifications
+from Interface import Notifications, OverviewInterface
 
 config_cam = config.Config()
 camerainput = config_cam.get_main_camera()
@@ -185,17 +185,42 @@ class LiveInterface:
             self.UI.MainWidget.setCurrentWidget(self.UI.Translator)
         else:
             self.mode = None
-            self.UI.MainWidget.setCurrentWidget(self.UI.Overview)
+            OverviewInterface.InterfaceOverview.overviewInterface()
+
+
+    @classmetod
+    def camera_chooser(self):
+        selected_camera = self.UI.CameraSettingComboBox.currentText()
+        available_cameras= QMediaDevices.videoInputs()
+        if available_cameras:
+            for cameras in available_cameras:
+                if cameras.description() == selected_camera:
+                    camera_index = self.UI.CameraSettingComboBox.currentIndex()-1
+                    return camera_index
+                else:
+                    notificationhandler.trigger_notification(("Selected Camera seems to be offline\n Defaulting to default camera"),0,"info")
+                    return 0   
+        else:
+            notificationhandler.trigger_notification(("No Camera found"),0,"info")
+            return -1
+
+
+            
 
     @classmethod
     def start_camera(self):
-        self.thread = VideoThread(0)  # Set the camera index as needed
-        self.thread.change_ImageSignal.connect(self.update_image)
-        self.thread.prediction_ready.connect(self.predictions_update)
-        self.thread.start()
-        self.UI.ToggleCamera.setText("Turn Camera Off")
-        self.UI.CameraStatus.setText("Press Start in order to start Typing")
-        self.camera_on = True
+        camera_indexed = self.camera_chooser()
+        if camera_indexed >= 0:
+            self.thread = VideoThread(0)  # Set the camera index as needed
+            self.thread.change_ImageSignal.connect(self.update_image)
+            self.thread.prediction_ready.connect(self.predictions_update)
+            self.thread.start()
+            self.UI.ToggleCamera.setText("Turn Camera Off")
+            self.UI.CameraStatus.setText("Press Start in order to start Typing")
+            self.camera_on = True
+        else:
+            self.UI.ExpandableSideMenu.expandMenu()
+            self.UI.OptionsWidget.setCurrentWidget(self.ui.SettingsPage)
 
     @classmethod
     def predictions_update(self,predictedword):
