@@ -10,7 +10,8 @@ from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QHBoxLayout,
     QLayout, QLineEdit, QMainWindow, QProgressBar,
     QScrollArea, QSizePolicy, QSpacerItem, QStackedWidget,
     QVBoxLayout, QWidget)
-from PySide6.QtMultimedia import QMediaDevices
+from PySide6.QtMultimedia import QMediaDevices , QMediaPlayer
+from PySide6.QtMultimediaWidgets import (QVideoWidget)
 
 #importing UI
 from DataBase import config, Account, WordClass
@@ -20,6 +21,11 @@ from Interface import CatalogueInterface, Notifications, OverviewInterface, Live
 # IMPORT Custom widgets
 from Custom_Widgets import *
 from Custom_Widgets.QAppSettings import QAppSettings
+
+import cv2
+import numpy as np
+import mediapipe as mp
+import tensorflow as tf
 
 config_user = config.Config()
 Words = WordClass.Word

@@ -17,6 +17,10 @@ import time
 import mediapipe as mp
 import string
 import tensorflow as tf
+import bcrypt
+import hashlib
+import hmac
+import re
 
 
 from DataBase import config, SQLQueries
