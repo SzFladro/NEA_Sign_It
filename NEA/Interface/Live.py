@@ -192,7 +192,7 @@ class LiveInterface:
             OverviewInterface.InterfaceOverview.overviewInterface()
 
 
-    @classmetod
+    @classmethod
     def camera_chooser(self):
         selected_camera = self.UI.CameraSettingComboBox.currentText()
         available_cameras= QMediaDevices.videoInputs()
