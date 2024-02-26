@@ -67,7 +67,7 @@ def AttemptGetter(username,word_name):
             FROM UserWords
             JOIN Users ON UserWords.User_id = Users.User_id
             JOIN Words ON UserWords.word_id = Words.word_id
-            WHERE Users.username = "Szymon" AND Words.word_name = "A"
+            WHERE Users.username = ? AND Words.word_name = ?
 
         """
         cursor.execute(query, (username, word_name))
