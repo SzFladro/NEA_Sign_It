@@ -69,20 +69,3 @@ class Word:
         else:
             print("cant")
 
-
-
-# Example usage:
-#word1 = Word("Example", "Noun", "http://example.com")
-#word2 = Word("Test", "Verb", "http://test.com")
-#word3 = Word("Sample", "Noun", "http://sample.com")
-
-# Searching for words by name or category
-#print("\nSearch by name 'Test':")
-#results_by_name = Word.search('am')
-#for result in results_by_name:
-  #  print(result)
-
-#print("\nSearch by category 'Noun':")
-#results_by_category = Word.search('Noun', by='category')
-#for result in results_by_category:
- #   print(result)

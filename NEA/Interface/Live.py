@@ -135,6 +135,10 @@ class LiveInterface:
     @classmethod
     def set_mode(self,Livemode):
         self.mode = Livemode
+    
+    @classmethod
+    def get_mode(self):
+        return self.mode
 
     @classmethod
     def set_ui(self, ui_instance):
@@ -181,14 +185,15 @@ class LiveInterface:
     @classmethod
     def returnbacktoUI(self):
         self.stop_camera()
-        if self.mode == "Bee":
-            self.mode = None
+        mode = self.get_mode()
+        if mode == "Bee":
+            self.set_mode = None
             self.UI.MainWidget.setCurrentWidget(self.UI.Translator)
-        elif self.mode == "Writing":
-            self.mode = None
+        elif mode == "Writing":
+            self.set_mode = None
             self.UI.MainWidget.setCurrentWidget(self.UI.Translator)
         else:
-            self.mode = None
+            self.set_mode = None
             OverviewInterface.InterfaceOverview.overviewInterface()
 
 
