@@ -125,20 +125,31 @@ class VideoThread(QThread):
         righthand = np.array([[landmark.x, landmark.y, landmark.z] for landmark in results.right_hand_landmarks.landmark]).flatten() if results.right_hand_landmarks else np.zeros(21*3)
         return np.concatenate([pose, face, lefthand, righthand])
 
+class ModeManager:
+    mode = None
+
+    @classmethod
+    def set_mode(cls,new_mode):
+        cls.mode = new_mode
+
+
+    @classmethod
+    def get_mode(cls):
+        return cls.mode
+
 class LiveInterface:
     UI = None
     camera_on = False
     thread = None
     TypedWord = None
-    mode = None
 
     @classmethod
     def set_mode(self,Livemode):
-        self.mode = Livemode
-    
+        ModeManager.set_mode(Livemode)
+
     @classmethod
     def get_mode(self):
-        return self.mode
+        return ModeManager.get_mode()
 
     @classmethod
     def set_ui(self, ui_instance):
@@ -187,13 +198,13 @@ class LiveInterface:
         self.stop_camera()
         mode = self.get_mode()
         if mode == "Bee":
-            self.set_mode = None
+            self.set_mode(None)
             self.UI.MainWidget.setCurrentWidget(self.UI.Translator)
         elif mode == "Writing":
-            self.set_mode = None
+            self.set_mode(None)
             self.UI.MainWidget.setCurrentWidget(self.UI.Translator)
         else:
-            self.set_mode = None
+            self.set_mode(None)
             OverviewInterface.InterfaceOverview.overviewInterface()
 
 
@@ -229,7 +240,7 @@ class LiveInterface:
             self.camera_on = True
         else:
             self.UI.ExpandableSideMenu.expandMenu()
-            self.UI.OptionsWidget.setCurrentWidget(self.ui.SettingsPage)
+            self.UI.OptionsWidget.setCurrentWidget(self.UI.SettingsPage)
 
     @classmethod
     def predictions_update(self,predictedword):
@@ -270,7 +281,7 @@ class LiveInterface:
         else:
             notificationhandler.trigger_notification(("Turn On or Select a Camera to start"),0,"info")
             self.UI.ExpandableSideMenu.expandMenu()
-            self.UI.OptionsWidget.setCurrentWidget(self.ui.SettingsPage)
+            self.UI.OptionsWidget.setCurrentWidget(self.UI.SettingsPage)
 
     @classmethod
     def initialise_mode(self):
@@ -322,9 +333,9 @@ class WordLive(LiveInterface):
         
     @classmethod
     def addattempt(self):
-        username = config.get_username()
+        username = config_cam.get_username()
         if username !=None:
-            SQLQueries.AddAttempt(username,self.word_instance)
+            SQLQueries.AddAttempt(username,self.word_instance.name)
         else:
             notificationhandler.trigger_notification(("Create an account to save progress"),0,"info")
         return None

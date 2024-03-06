@@ -80,17 +80,25 @@ def AttemptGetter(username,word_name):
         if conn:
             conn.close()
 
-def AddAttempt(username,word_name):
+def AddAttempt(username, word_name):
     current_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
     try:
         cursor, conn = DBopenner()
-        cursor.execute("""
+
+        # Insert into UserWords table
+        insert_query = """
             INSERT INTO UserWords (User_id, word_id, DateOfAttempt)
-            VALUES (?, ?, ?)""", (user_id, word_id, current_date))
+            SELECT Users.User_id, Words.word_id, ?
+            FROM Users, Words
+            WHERE Users.username = ? AND Words.word_name = ?
+        """
+        cursor.execute(insert_query, (current_date, username, word_name))
         conn.commit()
+
     except sqlite3.Error as error:
-        notificationhandler.trigger_notification("There has been an error when trying to connect to the database",1,"warning")
-    
+        notificationhandler.trigger_notification("There has been an error when trying to connect to the database", 1, "warning")
+
     finally:
         if conn:
             conn.close()

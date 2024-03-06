@@ -49,15 +49,16 @@ class InterfaceOverview:
     def get_attempts(cls):
         username = config_user.get_username()
         if username != None:
-            attempt_no, attempt_date = SQLQueries.AttemptGetter(username,cls.wordclass)
+            attempt_no, attempt_date = SQLQueries.AttemptGetter(username,cls.wordclass.name)
             if attempt_no != 0:
-                cls.UI.NoAttemptsOverviewLabel.setText(attempt_no)
+                cls.UI.NoAttemptsOverviewLabel.setText(str(attempt_no))
                 cls.UI.LatestDate.setText(attempt_date)
             else:
-                pass
+                cls.UI.NoAttemptsOverviewLabel.setText(str(attempt_no))
+                cls.UI.LatestDate.setText("None")
         else:
-            cls.UI.NoAttemptsOverviewLabel.setText("")
-            cls.UI.LatestDate.setText("")
+            cls.UI.NoAttemptsOverviewLabel.setText("Create an account")
+            cls.UI.LatestDate.setText("to save progress")
         return None
 
     @classmethod
