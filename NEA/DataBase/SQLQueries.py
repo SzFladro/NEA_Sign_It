@@ -4,29 +4,51 @@ from Interface import Notifications
 
 notificationhandler = Notifications.NotificationHandler
 
+''' 
+    Opens a connection to the database
+    
+    Returns:
+        cursor (sqlite3.Cursor): cursor for executing SQL queries
+        conn (sqlite3.Connection): connection to the database
+'''
 def DBopenner():
     conn = sqlite3.connect("DataBase\SIGNIT2.db")
     cursor = conn.cursor()
     return cursor, conn
 
-#  @RETURNS True if user exists within the table 
-def checkuser(user_name) -> bool:
 
+'''
+    Checks if a user exists whithin the Users table
+    
+    Parameter:
+        user_name(str): username to check
+
+    Returns:
+        bool: true if the user exists
+'''
+def checkuser(user_name) -> bool:
     cursor, conn = DBopenner()
-    # Searches for a username within the User table by selecting an entry if it exists
     cursor.execute(
             "Select 1 FROM Users WHERE username = ? LIMIT 1",
             (user_name,)
         )
-    #if there is no user selected of that username then it will return None
     result = cursor.fetchone()
     return result is not None
 
-#Creates the user account within the database storing their username, hashed password, salt
+'''
+    Executes SQL queries for account creation and login
+
+    Parameters:
+          Query(str): SQL query to execute
+          parameters(tuple) for the query
+          Setting(str): "Create" for account creation or "Login" to login
+
+    Return:
+        Str or tuple: result message or login information
+'''
 def AccountSQLExecutor(Query,parameters,Setting):
     try:
         cursor, conn = DBopenner()
-        #establishes the connection to the database that stores user information
         cursor.execute(Query, parameters)
         conn.commit()
         if(Setting=="Create"):
@@ -41,6 +63,12 @@ def AccountSQLExecutor(Query,parameters,Setting):
         if conn:
             conn.close()
 
+'''
+    Retrieves word data from the database table
+
+    Returns:
+        list of tuples containing word data
+'''
 def wordGetter():
     try:
         cursor, conn = DBopenner()
@@ -59,6 +87,16 @@ def wordGetter():
         if conn:
             conn.close()
 
+'''
+    Gets the attempt count and most recent attempt data for a user attempt at a word from database
+
+    Parameters:
+        username(str): the username to lookup
+        word_name(str): the word name
+
+    Returns:
+        tuple: attempt count and most recent attempt date or none if nothing matches
+'''
 def AttemptGetter(username,word_name):
     try:
         cursor, conn = DBopenner()
@@ -80,6 +118,13 @@ def AttemptGetter(username,word_name):
         if conn:
             conn.close()
 
+'''
+    Adds a new attempt for a user and word
+    
+    Parameters:
+        username(str): the username to add an entry for
+        word_name(str): the word_name to add entry for
+'''
 def AddAttempt(username, word_name):
     current_date = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 

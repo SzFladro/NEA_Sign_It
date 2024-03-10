@@ -98,18 +98,18 @@ class VideoDataPreprocessor:
                             self.draw_styled_landmarks(image, results,mp_holistic )
                 
                             if frame_num == 0: 
-                                cv2.putText(image, 'Collecting first Frame', (120,200), 
+                                cv2.putText(image, 'Collecting First Frame', (120,200), 
                                            cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255, 0), 4, cv2.LINE_AA)
-                                cv2.putText(image, 'Collecting class {} frames, Video {}'.format(class_name, VidNo), (15,12), 
+                                cv2.putText(image, 'Collecting frames for class {}, Video Number {}'.format(class_name, VidNo), (15,12), 
                                            cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
                                 # Show to screen
-                                cv2.imshow('Data Collection', image)
+                                cv2.imshow('Collecting Data', image)
                                 cv2.waitKey(500)
                             else: 
-                                cv2.putText(image, 'Collecting class {} frames Video {}'.format(class_name, VidNo), (15,12), 
+                                cv2.putText(image, 'Collecting frames for class {}, Video Number {}'.format(class_name, VidNo), (15,12), 
                                            cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
                                 # Show to screen
-                                cv2.imshow('Data Collection', image)
+                                cv2.imshow('Collecting Data', image)
                 
                             keypoints = self.extract_keypoints(results)
                             print(keypoints)

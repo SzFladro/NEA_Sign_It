@@ -1,29 +1,38 @@
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-
-from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
-    QFont, QFontDatabase, QGradient, QIcon,
-    QImage, QKeySequence, QLinearGradient, QPainter,
-    QPalette, QPixmap, QRadialGradient, QTransform)
-
-from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QHBoxLayout,
-    QLayout, QLineEdit, QMainWindow, QProgressBar,
-    QScrollArea, QSizePolicy, QSpacerItem, QStackedWidget,
-    QVBoxLayout, QWidget, QLabel, QPushButton)
+from PySide6.QtCore import (QCoreApplication, QUrl, Qt)
+from PySide6.QtWidgets import (QFrame, QHBoxLayout, QLayout, QVBoxLayout, QLabel, QPushButton, QSizePolicy)
 
 from Interface import OverviewInterface 
+
 OverviewUI = OverviewInterface.InterfaceOverview
 
+'''
+    Handles the creation and management of UI frames for each word instance within the catalogue
+
+    Attributes:
+        _existingFrames (list): list storing references to existing frames
+        UI (object): reference to main window instance
+'''
 class InterfaceCatalogue:
     _existingFrames = [] 
     UI=None
 
+    #sets the UI instance for the InterfaceCatalogue class
     @classmethod
     def set_ui(cls, ui_instance):
         cls.UI = ui_instance
         OverviewUI.set_ui(ui_instance)
 
+    '''
+        Method that creates and adds frames to the catalogue grid layout within the scrollable area CatalogueWidget,
+        first fills row until no frames can fit on the available screen (based on resolution of screen) then goes to next column
+
+        Creates a label for the name of the word_instance, a button which passes the word_instance to overview
+
+        Parameters:
+            word_instance (object): properties of the particular word_instance are displayed within the frame
+            row_number (int): references the row within the grid layout bound within the screen's resolution
+            column_number (int): references the column within the grid layout for the frame to appear
+    '''
     @classmethod
     def createWidgets(cls,word_instance, row_number, column_number):
         frame = QFrame(cls.UI.CatalogueWidget)
@@ -74,6 +83,14 @@ class InterfaceCatalogue:
 
         cls._existingFrames.append(frame)
 
+    '''
+        Creates frames for each word instance within results adding them to the UI,
+        Calculating how many frames will fit for a given screen resolution, filling row then column of screen
+
+        Parameters:
+            window (object): corresponds to the main window instance where the frames will be displayed
+            results (list): List of word instances to be displayed
+    '''
     @classmethod
     def frame_creator(cls, window,results):
         window_size = window.size()
@@ -93,6 +110,10 @@ class InterfaceCatalogue:
             else:
                 x += 1
 
+    '''
+        method that clears all existing frames from the UI 
+        Removes them from scrollable area (making them invisible) then deletes them
+    '''
     @classmethod
     def clear_frames(cls):
         for frame in cls._existingFrames:
@@ -100,6 +121,12 @@ class InterfaceCatalogue:
             frame.deleteLater()
         cls._existingFrames =[]
 
+    '''
+        Method that navigates to the overview interface of a specific word
+
+        Parameters:
+            word (object): the word instance for which the overview is to be displayed
+    '''
     @classmethod
     def goto_overview(cls, word):
         OverviewUI.set_wordinstance(word)
