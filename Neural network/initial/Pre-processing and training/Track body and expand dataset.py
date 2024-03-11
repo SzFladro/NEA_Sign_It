@@ -6,9 +6,17 @@ import platform
 mp_holistic = mp.solutions.holistic  # Define mp_holistic globally
 mp_drawing = mp.solutions.drawing_utils # Drawing utilities
 
+#Shuts down the computer when the code has finished executing
 def shutdown_system():
     os.system("shutdown /s /t 1")
 
+'''
+    Draws landmarks on input image based on Holistic results
+
+    Parameters:
+        image (NumPy array): input frame from the webcam
+        results (tuple): Extracted coordinates of the different landmakrs from an image ran through a mediapipe model
+'''
 def draw_styled_landmarks(image, results):
     # Draw face connections
     mp_drawing.draw_landmarks(image, results.face_landmarks, mp_holistic.FACEMESH_TESSELATION, 
@@ -33,6 +41,10 @@ def draw_styled_landmarks(image, results):
                                  mp_drawing.DrawingSpec(color=(245,66,230), thickness=2, circle_radius=2)
                                  )
 
+'''
+    Processes video files, extracts landmakrs and saves the output to a new video file within the output_path
+    Utilising the fourcc coded for decompression of the video file
+'''
 def process_video(input_path, output_path, holistic):
     cap = cv2.VideoCapture(input_path)
 
@@ -40,8 +52,8 @@ def process_video(input_path, output_path, holistic):
     width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
     height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
-    fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-    output_video = cv2.VideoWriter(output_path, fourcc, fps, (width, height))
+    codecused = cv2.VideoWriter_fourcc(*'mp4v')
+    output_video = cv2.VideoWriter(output_path, codecused, fps, (width, height))
 
     while True:
         ret, frame = cap.read()
@@ -53,7 +65,7 @@ def process_video(input_path, output_path, holistic):
 
         results = holistic.process(rgb_frame)
 
-        # Check for hand landmarks and draw connections
+        # Checks for hand landmarks and draws connections
         draw_styled_landmarks(frame, results)
 
         output_video.write(frame)
@@ -61,8 +73,15 @@ def process_video(input_path, output_path, holistic):
     cap.release()
     output_video.release()
 
+'''
+    Processes all videos within the subdirectories A-Z in the input_directory
+    Creates an output directory for the subdirectory of processes videos
+
+    Parameters:
+        input_directory (str): Directory containing subdirectories A-Z with video files
+        output_directory (str): Directory to store processed videos
+'''
 def process_videos_in_directory(input_directory, output_directory):
-    # Ensure the output directory exists
     os.makedirs(output_directory, exist_ok=True)
 
     holistic = mp_holistic.Holistic()
@@ -86,11 +105,11 @@ def process_videos_in_directory(input_directory, output_directory):
 
     holistic.close()
 
+# Main function which processes videos within a specific directory, shutting down the computer afterwards
 def main():
     home_directory = os.path.expanduser("~")
     input_directory = os.path.join(home_directory, 'Videos', 'Edited-Dataset')
     output_directory = os.path.join(home_directory, 'Videos', 'Track')
-
     process_videos_in_directory(input_directory, output_directory)
 
 if __name__ == "__main__":

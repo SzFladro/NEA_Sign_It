@@ -6,6 +6,7 @@ from Interface import CatalogueInterface, Notifications, OverviewInterface, Live
 # importing necessary libraries 
 from Custom_Widgets import *
 from Custom_Widgets.QAppSettings import QAppSettings
+from PySide6.QtMultimedia import QMediaDevices
 import cv2
 import sys
 import numpy as np
