@@ -319,7 +319,7 @@ class LiveInterface:
     def start_camera(self):
         camera_indexed = self.camera_chooser()
         if camera_indexed >= 0:
-            self.thread = VideoThread(camera_indexed)  # Set the camera index as needed
+            self.thread = VideoThread(camera_indexed)  
             self.thread.change_ImageSignal.connect(self.update_image)
             self.thread.prediction_ready.connect(self.predictions_update)
             self.thread.start()
