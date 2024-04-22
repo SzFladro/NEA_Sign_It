@@ -5,8 +5,8 @@ import tensorflow as tf
 from tensorflow.keras.utils import to_categorical
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import multilabel_confusion_matrix, accuracy_score
-from tensorflow.keras.layers import Conv2D, MaxPooling2D, BatchNormalization, Dropout, Reshape, Bidirectional, LSTM, Flatten, Dense
-from tensorflow.keras.callbacks import EarlyStopping, TensorBoard, ModelCheckpoint
+from tensorflow.keras.layers import BatchNormalization, Dropout, LSTM, Dense
+from tensorflow.keras.callbacks import EarlyStopping, TensorBoard
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.models import load_model, Sequential
 
